@@ -5,22 +5,34 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description"
+        content="In diesem offenen Brief an den Bundestag fordern wir eines Bürgerrats zur Umwelt- und Klimapolitik Deutschlands">
+    <link rel="canonical" href="http://example.com/" /><!-- TODO CORRECT-->
+    <meta name="robots" content="index, follow">
+    <meta name="keywords"
+        content="Klima, Bürgerrat, Deutschland, Bundestag, Klimarat, Umweltpolitik, Klimapolitik, Offener Brief, Forderung" />
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
     <title>Offener Brief - Umwelt & Klima Bürgerrat
     </title>
 </head>
 
 <body>
-    <div class="container">
-        <div class="row pt-3 pb-3" id="Offener-Brief">
+    <div id="container" class="container mt-3 mb-3 p-5 shadow-lg rounded">
+        <div class="row" id="Titel">
             <div class="col">
                 <h2>Offener Brief an den Bundestag zum Thema Umwelt & Klima Bürgerrat</h2>
             </div>
         </div>
-        <div class="row pb-3" id="Addressat">
+        <div class="row mt-3" id="Addressat">
             <div class="col">
                 <h4>An den Ausschuss für Umwelt, Naturschutz und nukleare Sicherheit</h4>
             </div>
@@ -184,21 +196,18 @@
                     Entscheidungsträger:innen
                     ernst genommen und als Mandat für zukunftsweisende Klimapolitik angenommen werden muss.</p>
                 <p>Eine erfolgreiche Klimapolitik sollte vorausschauend handeln und die Zukunft unseres Daseins
-                    beschützen.
-                    Es
-                    geht
-                    schlichtweg darum, die Lebensgrundlage für alle Menschen dieser Erde, für unsere Kinder und auch für
-                    alle
-                    anderen Lebewesen auf diesem Planeten zu erhalten. Das werden wir nur erreichen können, wenn wir in
-                    der
-                    Klima-
-                    und Umweltpolitik konsequent neue Wege beschreiten – sowohl inhaltlich wie auch bei den Methoden zur
+                    beschützen. Es geht schlichtweg darum, die Lebensgrundlage für alle Menschen dieser Erde, für unsere
+                    Kinder und auch für
+                    alle anderen Lebewesen auf diesem Planeten zu erhalten. Das werden wir nur erreichen können, wenn
+                    wir in
+                    der Klima- und Umweltpolitik konsequent neue Wege beschreiten – sowohl inhaltlich wie auch bei den
+                    Methoden zur
                     Entscheidungsfindung.</p>
                 <p>Wir vertrauen darauf, dass alle Beteiligten den partizipativen Weg in die Zukunft proaktiv und offen
                     beschreiten. Wir freuen uns auf Ihre Antwort.</p>
             </div>
         </div>
-        <div class="row pb-3" id="Kontakt">
+        <div class="row mt-3" id="Kontakt">
             <div class="col">
                 <h4>Kontakt:</h4>
                 <p>(Dieses Schreiben wird von allen unten aufgeführten Organisationen gleichermaßen unterstützt. Als
@@ -208,13 +217,13 @@
             </div>
         </div>
 
-        <div class="row" id="Unterzeichner">
+        <div class="row align-items-center mt-3" id="Unterzeichner">
             <div class="col">
-                <div class="row pb-3 align-items-center">
-                    <div class="col">
+                <div class="row mb-3 align-items-center">
+                    <div class="col align-middle">
                         <h4>Unterzeichnende:</h4>
                     </div>
-                    <div class="col">
+                    <div class="col align-middle">
                         <a class="btn btn-success" href="mailto://info@offener-brief.de">Jetzt mitzeichnen!</a>
                     </div>
                 </div>
@@ -245,7 +254,7 @@
                     console.log(response)
                     response.forEach(unterzeichner => {
                         console.log(unterzeichner)
-                        let eintrag = '<div class="row pb-3  align-items-center">' + '<div class="col text-center"><img style="max-height: ' + unterzeichner.logo.maxHeight
+                        let eintrag = '<div class="row mt-3 align-items-center">' + '<div class="col text-center"><img style="max-height: ' + unterzeichner.logo.maxHeight
                             + ';" alt="' + unterzeichner.logo.alt
                             + '" src="img/logos/' + unterzeichner.logo.src
                             + '"> </div> <div class="col"><b>' + unterzeichner.name
