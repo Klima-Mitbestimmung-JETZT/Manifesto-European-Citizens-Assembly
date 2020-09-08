@@ -127,23 +127,30 @@
         </div>
         <div class="row mt-3" id="Kontakt">
             <div class="col">
-                <h4>Kontakt: <a href="mailto://kontakt@klima-rat.de">kontakt@klima-rat.de</a></h4>
-                <p>(Dieses Schreiben wird von allen unten aufgeführten Organisationen gleichermaßen unterstützt. Als
-                    Ansprechpartner stehen Ihnen die o. g. Personen zur Verfügung und nehmen gerne Ihre Rückmeldung an
-                    alle
-                    Organisationen stellvertretend entgegen und leiten sie entsprechend weiter.)</p>
+                <h4>Kontakt: <a href="mailto://kontakt@klima-rat.org">kontakt@klima-rat.org</a></h4>
+                <p>Dieses Schreiben wird von allen unten aufgeführten Organisationen gleichermaßen unterstützt. Falls
+                    Sie den Brief gerne mit unterzeichnen oder Fragen hierzu haben, verwenden Sie bitte die
+                    unternstehende Schaltfläche "Jetzt mitzeichnen". Ihre Anfrage wird an Menschen aus den Reihen der
+                    Unterzeichner weitergeleitet.
+                </p>
             </div>
         </div>
 
-        <div class="row align-items-center mt-3" id="Unterzeichner">
+        <div class="row align-items-center mt-3">
             <div class="col">
                 <div class="row mb-3 align-items-center">
-                    <div class="col align-middle">
+                    <div class="col align-self-center">
                         <h4>Unterzeichnende:</h4>
+
                     </div>
-                    <div class="col align-middle">
-                        <a class="btn btn-success" href="mailto://info@offener-brief.de">Jetzt mitzeichnen!</a>
+                    <div class="col align-self-center">
+                        <a class="btn btn-success"
+                            href="mailto://kontakt@klima-rat.org?subject=Interesse offenen Brief Klima-Bürgerrat mitzuzeichnen&body=Sehr geehrtes Netzwerk Klima-Bürgerrat,%0D%0A%0D%0Ameine Organisation ist möglicherweise daran interessiert, Ihren offenen Brief mitzuzeichnen.%0D%0ABitte kontaktieren sie uns, um weitere Details zu klären und den offfenen Brief zu unterzeichnen.%0D%0A%0D%0AMeine Organisation:%0D%0AWebsite:%0D%0AIhr Ansprechpartner:%0D%0AE-Mail:%0D%0ATelefon(optional):%0D%0A%0D%0AMit freundlichen Grüßen">Jetzt
+                            mitzeichnen!</a>
                     </div>
+                </div>
+                <div class="row mt-3 align-items-center" id="Unterzeichner">
+
                 </div>
             </div>
         </div>
@@ -172,19 +179,8 @@
                     console.log(response)
                     response.forEach(unterzeichner => {
                         console.log(unterzeichner)
-                        let eintrag = '<div class="row mt-3 align-items-center">' + '<div class="col text-center"><img style="max-height: ' + unterzeichner.logo.maxHeight
-                            + ';" alt="' + unterzeichner.logo.alt
-                            + '" src="img/logos/' + unterzeichner.logo.src
-                            + '"> </div> <div class="col"><b>' + unterzeichner.name
-                            + '</b><br><table><tr><td>Gezeichnet von: &nbsp;</td><td>' + unterzeichner.zeichnende
-                            + '</td></tr><tr><td>E-Mail:&nbsp;</td><td><a href="mailto://' + unterzeichner.mail
-                            + '">' + unterzeichner.mail
-                            + '</a></td></tr><tr><td>Website:&nbsp;</td><td><a href="' + unterzeichner.website
-                            + '">' + unterzeichner.website
-                            + '</a></td></tr></table ></div ></div > ';
-                        console.log(eintrag);
-                        let colOfUnterzeichner = $("#Unterzeichner").children(":first");
-                        colOfUnterzeichner.append(eintrag);
+                        let eintrag = `<div class="col-lg-6 text-left"><p><b>${unterzeichner.name}</b></p><p>Gezeichnet von: ${unterzeichner.zeichnende}<br>Website: <a href="${unterzeichner.website}">${unterzeichner.website}</a></p></div >`;
+                        $("#Unterzeichner").append(eintrag);
                     });
                 })
                 .catch(function (error) {

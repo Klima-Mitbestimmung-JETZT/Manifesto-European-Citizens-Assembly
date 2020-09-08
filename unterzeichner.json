@@ -1,24 +1,12 @@
 [
     {
-        "logo": {
-            "src": "klima-mitbestimmung-jetzt.png",
-            "alt": "Logo Klima-Mitbestimmung JETZT!",
-            "maxHeight": "100px"
-        },
         "name": "Klima-Mitbestimmung JETZT!",
         "zeichnende": "(Namen durch Komma getrennt)",
-        "mail": "info@klima-mitbestimmung.jetzt",
         "website": "https://klima-mitbestimmung.jetzt"
     },
     {
-        "logo": {
-            "src": "Extinction-Rebellion-green-placard.jpg",
-            "alt": "Logo Extinction Rebellion",
-            "maxHeight": "150px"
-        },
         "name": "Extinction Rebellion",
-        "zeichnende": "(Namen durch Komma getrennt)",
-        "mail": "bv@extinctionrebellion.de",
+        "zeichnende": "Heiko Erhardt",
         "website": "https://extinctionrebellion.de/"
     }
 ]
