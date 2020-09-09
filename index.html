@@ -15,12 +15,15 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-        }
-    </style>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <!-- Scroll to top CSS-->
+    <link rel="stylesheet" href="scroll-to-top.css" crossorigin="anonymous">
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+        crossorigin="anonymous" />
+
     <title>Offener Brief - Bürgerrat "Klimagerechtigkeit und Wege aus der ökologischen Krise"
     </title>
 </head>
@@ -128,16 +131,18 @@
                         beschreiten – sowohl inhaltlich wie auch bei den Methoden zur Entscheidungsfindung.</p>
                     <p>Wir vertrauen darauf, dass alle Beteiligten den partizipativen Weg in die Zukunft proaktiv und
                         offen beschreiten. Wir freuen uns auf Ihre Antwort.</p>
+                    <h4>Kontakt: <a href="mailto://kontakt@klima-rat.org">kontakt@klima-rat.org</a></h4>
                 </div>
             </div>
             <div class="row mt-3" id="Kontakt">
                 <div class="col">
-                    <h4>Kontakt: <a href="mailto://kontakt@klima-rat.org">kontakt@klima-rat.org</a></h4>
-                    <p>Dieses Schreiben wird von allen unten aufgeführten Organisationen gleichermaßen unterstützt.
-                        Kommen sie bei Fragen oder Anmekungen gerne auf uns zu. Wir freuen uns, wenn sie den Brief mit
-                        unterzeichnen wollen. Verwenden Sie dazu bitte die unternstehende Schaltfläche "Jetzt
-                        mitzeichnen". Alle Nachrichten an die obige Adresse werden an Menschen aus den Reihen
-                        der Unterzeichner weitergeleitet.
+
+                    <p><i>Dieses Schreiben wird von allen unten aufgeführten Organisationen gleichermaßen unterstützt.
+                            Kommen sie bei Fragen oder Anmekungen gerne auf uns zu. Wir freuen uns, wenn sie den Brief
+                            mit
+                            unterzeichnen wollen. Verwenden Sie dazu bitte die unternstehenden Schaltfläche "Jetzt
+                            mitzeichnen" oder "Kontakt aufnehmen". Alle Nachrichten an die obige Adresse werden an
+                            Menschen aus den Reihen der Unterzeichner weitergeleitet.</i>
                     </p>
                 </div>
             </div>
@@ -145,17 +150,22 @@
             <div class="row align-items-center mt-3">
                 <div class="col">
                     <div class="row mb-3 align-items-center">
-                        <div class="col align-self-center">
+                        <div class="col-md-12 col-lg-6 align-self-center">
                             <h4>Unterzeichnende:</h4>
 
                         </div>
-                        <div class="col align-self-center">
-                            <a class="btn btn-success"
-                                href="mailto://kontakt@klima-rat.org?subject=Interesse offenen Brief Klima-Bürgerrat mitzuzeichnen&body=Sehr geehrtes Netzwerk Klima-Bürgerrat,%0D%0A%0D%0Ameine Organisation ist möglicherweise daran interessiert, Ihren offenen Brief mitzuzeichnen.%0D%0ABitte kontaktieren sie uns, um weitere Details zu klären und den offfenen Brief zu unterzeichnen.%0D%0A%0D%0AMeine Organisation:%0D%0AWebsite:%0D%0AIhr Ansprechpartner:%0D%0AE-Mail:%0D%0ATelefon(optional):%0D%0A%0D%0AMit freundlichen Grüßen">Jetzt
-                                mitzeichnen!</a>
+                        <div class="col-auto align-self-center">
+                            <p><a class="btn btn-success"
+                                    href="mailto://kontakt@klima-rat.org?subject=Interesse offenen Brief Klima-Bürgerrat mitzuzeichnen&body=Sehr geehrtes Netzwerk Klima-Bürgerrat,%0D%0A%0D%0Ameine Organisation ist möglicherweise daran interessiert, Ihren offenen Brief mitzuzeichnen.%0D%0ABitte kontaktieren sie uns, um weitere Details zu klären und den offfenen Brief zu unterzeichnen.%0D%0A%0D%0AMeine Organisation:%0D%0AWebsite:%0D%0AIhr Ansprechpartner:%0D%0AE-Mail:%0D%0ATelefon(optional):%0D%0A%0D%0AMit freundlichen Grüßen">Jetzt
+                                    mitzeichnen!</a></p>
+                        </div>
+                        <div class="col-auto  align-self-center">
+                            <p><a class="btn btn-secondary"
+                                    href="mailto://kontakt@klima-rat.org?subject=Interesse offenen Brief Klima-Bürgerrat mitzuzeichnen&body=Sehr geehrtes Netzwerk Klima-Bürgerrat,%0D%0A%0D%0Ameine Organisation ist möglicherweise daran interessiert, Ihren offenen Brief mitzuzeichnen.%0D%0ABitte kontaktieren sie uns, um weitere Details zu klären und den offfenen Brief zu unterzeichnen.%0D%0A%0D%0AMeine Organisation:%0D%0AWebsite:%0D%0AIhr Ansprechpartner:%0D%0AE-Mail:%0D%0ATelefon(optional):%0D%0A%0D%0AMit freundlichen Grüßen">Jetzt
+                                    Kontakt aufnehmen!</a></p>
                         </div>
                     </div>
-                    <div class="row mt-3 align-items-center" id="Unterzeichner">
+                    <div class="row mt-3" id="Unterzeichner">
 
                     </div>
                 </div>
@@ -171,11 +181,13 @@
                 2020</p>
         </div>
     </footer>
+    <button id="btn-scroll-to-top" class="rounded shadow-lg" title="Go to top"><i
+            class="fa fa-chevron-up fa-2x"></i></button>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
         crossorigin="anonymous"></script>
@@ -193,13 +205,31 @@
                     console.log(response)
                     response.forEach(unterzeichner => {
                         console.log(unterzeichner)
-                        let eintrag = `<div class="col-lg-6 text-left"><p><b>${unterzeichner.name}</b></p><p>Gezeichnet von: ${unterzeichner.zeichnende}<br>Website: <a href="${unterzeichner.website}">${unterzeichner.website}</a></p></div >`;
+                        let eintrag = `<div class="col-md-6 text-left"><p><b>${unterzeichner.name}</b></p><p>Gezeichnet von: ${unterzeichner.zeichnende}<br>Website: <a href="${unterzeichner.website}">${unterzeichner.website}</a></p></div >`;
                         $("#Unterzeichner").append(eintrag);
                     });
                 })
                 .catch(function (error) {
                     console.log("Error: " + error);
                 });
+
+            // Funktion für das Scroll-Verhalten
+            $(function () {
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > 100) { // Wenn 100 Pixel gescrolled wurde
+                        $('#btn-scroll-to-top').fadeIn();
+                    } else {
+                        $('#btn-scroll-to-top').fadeOut();
+                    }
+                });
+
+                $('#btn-scroll-to-top').click(function () { // Klick auf den Button
+                    $('body,html').animate({
+                        scrollTop: 0
+                    }, 800);
+                    return false;
+                });
+            });
         });
     </script>
 </body>
