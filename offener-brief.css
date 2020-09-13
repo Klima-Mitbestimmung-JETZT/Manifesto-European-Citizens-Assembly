@@ -21,6 +21,6 @@
   body{
     font-family: 'Roboto', sans-serif;  }
 
-p{
+#Offener-Brief,#Kontakt p{
   text-align: justify;
 }

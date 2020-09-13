@@ -18,7 +18,7 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <!-- Scroll to top CSS-->
-    <link rel="stylesheet" href="scroll-to-top.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="offener-brief.css" crossorigin="anonymous">
     <!-- Fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
         integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
@@ -30,20 +30,20 @@
 
 <body class="d-flex flex-column h-100">
     <main class="flex-shrink-0" role="main">
-        <div id="container" class="container mb-3 p-3 p-sm-5 shadow-lg rounded">
+        <div id="container" class="container p-3 p-sm-5 shadow-lg rounded">
             <div class="row" id="Titel">
                 <div class="col">
                     <h2>Offener Brief zum Bürgerrat "Klimagerechtigkeit und Wege aus der ökologischen Krise"</h2>
                 </div>
             </div>
-            <div class="row mt-3" id="Addressat">
+            <div class="row mt-5" id="Addressat">
                 <div class="col">
                     <h4>
                         <!-- Addressat kommt hierhin -->
                     </h4>
                 </div>
             </div>
-            <div class="row" id="Offener-Brief">
+            <div class="row mt-5" id="Offener-Brief">
                 <div class="col">
                     <!-- Texte des offenen Briefs kommt hierhin -->
                 </div>
@@ -127,7 +127,7 @@
 
                     client.getEntry("3edRfSSQC3yDcGeessHgTH").then(mail => {
                         console.log(mail)
-                        $("#Offener-Brief").children(":first").html(documentToHtmlString(entry.fields.text)).append(`<h4>Kontakt: <a href="mailto://${mail.fields.address}">${mail.fields.text}</a></h4>`)
+                        $("#Offener-Brief").children(":first").html(documentToHtmlString(entry.fields.text))
                     }).catch(console.error);
                 })
                 .catch(console.error);
