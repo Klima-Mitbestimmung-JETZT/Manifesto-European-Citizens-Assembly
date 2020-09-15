@@ -1,12 +1,22 @@
 [
     {
         "name": "Klima-Mitbestimmung JETZT!",
-        "zeichnende": "Enno Rosinger",
+        "zeichnende": "Tabea Hosak, Johanna Jetter, Mira Pütz, Enno Rosinger, Philipp Verpport, Simon Wehden",
         "website": "https://klima-mitbestimmung.jetzt"
     },
     {
         "name": "Extinction Rebellion",
         "zeichnende": "Heiko Erhardt",
         "website": "https://extinctionrebellion.de/"
+    },
+    {
+        "name": "Kommunikative Demokratie e. V.",
+        "zeichnende": "Andreas Schiel",
+        "website": "https://www.denkzentrum-demokratie.de/"
+    },
+    {
+        "name": "Klimaneustart Berlin",
+        "website": "https://klimaneustart.berlin/"
+        
     }
 ]
