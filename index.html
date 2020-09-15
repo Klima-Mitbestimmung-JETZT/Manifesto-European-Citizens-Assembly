@@ -156,7 +156,7 @@
         client
           .getEntry("2aDDbb4AjEQdCo0IW7AnLm")
           .then((entry) => {
-            console.log(entry);
+            //console.log(entry);
 
             $("#Addressat")
               .children(":first")
@@ -169,7 +169,7 @@
             client
               .getEntry("3edRfSSQC3yDcGeessHgTH")
               .then((mail) => {
-                console.log(mail);
+                //console.log(mail);
                 $("#Offener-Brief")
                   .children(":first")
                   .html(documentToHtmlString(entry.fields.text));
@@ -186,12 +186,12 @@
             return response.json();
           })
           .then(function (response) {
-            console.log(response);
+            //console.log(response);
             response.forEach((unterzeichner) => {
-              console.log(unterzeichner);
+              //console.log(unterzeichner);
               let eintrag;
               if (!unterzeichner.name) {
-                console.log("Can not create unterzeichner without a name");
+                //console.log("Can not create unterzeichner without a name");
                 return;
               } else {
                 eintrag = `<div class="col-md-6 text-left"><p><b>${unterzeichner.name}</b></p>`;
@@ -214,7 +214,7 @@
             });
           })
           .catch(function (error) {
-            console.log("Error: " + error);
+            //console.log("Error: " + error);
           });
 
         // Funktion für das Scroll-Verhalten
