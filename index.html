@@ -189,8 +189,28 @@
             console.log(response);
             response.forEach((unterzeichner) => {
               console.log(unterzeichner);
-              let eintrag = `<div class="col-md-6 text-left"><p><b>${unterzeichner.name}</b></p><p>Gezeichnet von: ${unterzeichner.zeichnende}<br>Website: <a href="${unterzeichner.website}">${unterzeichner.website}</a></p></div >`;
-              $("#Unterzeichner").append(eintrag);
+              let eintrag;
+              if (!unterzeichner.name) {
+                console.log("Can not create unterzeichner without a name");
+                return;
+              } else {
+                eintrag = `<div class="col-md-6 text-left"><p><b>${unterzeichner.name}</b></p>`;
+              }
+
+              if (unterzeichner.zeichnende || unterzeichner.website) {
+                eintrag = eintrag + `<p>`;
+                if (unterzeichner.zeichnende) {
+                  eintrag =
+                    eintrag + `Gezeichnet von: ${unterzeichner.zeichnende}<br>`;
+                }
+                if (unterzeichner.website) {
+                  eintrag =
+                    eintrag +
+                    `Website: <a href="${unterzeichner.website}">${unterzeichner.website}</a>`;
+                }
+                eintrag = eintrag + `</p></div>`;
+                $("#Unterzeichner").append(eintrag);
+              }
             });
           })
           .catch(function (error) {
