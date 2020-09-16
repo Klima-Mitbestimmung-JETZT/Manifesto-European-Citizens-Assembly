@@ -1,7 +1,7 @@
 [
     {
         "name": "Klima-Mitbestimmung JETZT!",
-        "zeichnende": "Tabea Hosak, Johanna Jetter, Mira Pütz, Enno Rosinger, Philipp Verpport, Simon Wehden",
+        "zeichnende": "Enno Rosinger, Leonie Sendker, Philipp Verpport",
         "website": "https://klima-mitbestimmung.jetzt"
     },
     {
@@ -17,6 +17,12 @@
     {
         "name": "Klimaneustart Berlin",
         "website": "https://klimaneustart.berlin/"
+        
+    },
+    {
+        "name": "Plattform.Pro",
+        "website": "https://www.plattform.pro/",
+        "zeichnende": "Sabrina Hofmann"
         
     }
 ]
