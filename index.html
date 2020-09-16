@@ -189,12 +189,33 @@
             //console.log(response);
             response.forEach((unterzeichner) => {
               //console.log(unterzeichner);
-              let eintrag;
-              if (!unterzeichner.name) {
-                //console.log("Can not create unterzeichner without a name");
-                return;
+              let eintrag = `<div class="col-md-6 text-left">`;
+              // Add logo
+              if (
+                unterzeichner.logo &&
+                unterzeichner.logo.src &&
+                unterzeichner.logo.alt
+              ) {
+                eintrag =
+                  eintrag +
+                  `<p><img src="${unterzeichner.logo.src}" alt="${unterzeichner.logo.alt}"`;
+                if (unterzeichner.logo.maxHeight) {
+                  eintrag =
+                    eintrag +
+                    `style="max-height: ${unterzeichner.logo.maxHeight}"`;
+                }
+                if (unterzeichner.logo.maxWidth) {
+                  eintrag =
+                    eintrag +
+                    `style="max-width: ${unterzeichner.logo.maxWidth}"`;
+                }
+                eintrag = eintrag + `></p>`;
+              } else if (unterzeichner.name) {
+                eintrag = eintrag + `<p><b>${unterzeichner.name}</b></p>`;
               } else {
-                eintrag = `<div class="col-md-6 text-left"><p><b>${unterzeichner.name}</b></p>`;
+                //console.log("Can not create unterzeichner without a name or a logo");
+
+                return;
               }
 
               if (unterzeichner.zeichnende || unterzeichner.website) {
@@ -214,7 +235,7 @@
             });
           })
           .catch(function (error) {
-            //console.log("Error: " + error);
+            console.log(error);
           });
 
         // Funktion für das Scroll-Verhalten

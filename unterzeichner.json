@@ -2,7 +2,12 @@
     {
         "name": "Klima-Mitbestimmung JETZT!",
         "zeichnende": "Tabea Hosak, Johanna Jetter, Mira Pütz, Enno Rosinger, Philipp Verpport, Simon Wehden",
-        "website": "https://klima-mitbestimmung.jetzt"
+        "website": "https://klima-mitbestimmung.jetzt",
+        "logo": {
+            "src": "logos/klima-mitbestimmung-jetzt!.png",
+            "alt": "Logo Klima-Mitbestimmung JETZT!",
+            "maxHeight": "75px"
+        }
     },
     {
         "name": "Extinction Rebellion",
@@ -17,6 +22,5 @@
     {
         "name": "Klimaneustart Berlin",
         "website": "https://klimaneustart.berlin/"
-        
     }
 ]
