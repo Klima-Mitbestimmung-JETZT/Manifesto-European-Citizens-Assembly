@@ -24,3 +24,8 @@
 #Offener-Brief,#Kontakt p{
   text-align: justify;
 }
+
+.bg-light{
+  background-color: #bbbbbb ;
+  color: black;
+}
