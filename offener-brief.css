@@ -32,6 +32,11 @@ img {
   object-fit: cover;
 }
 
+.bg-light {
+  background-color: #bbbbbb;
+  color: black;
+}
+
 .carousel-item {
   height: 10rem;
 }
