@@ -1,49 +1,26 @@
 #btn-scroll-to-top {
-  display: none;
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-  z-index: 99;
-  border: 1px;
-  outline: none;
-  background-color: rgb(185, 185, 185);
-  color: white;
-  cursor: pointer;
-  width: 4rem;
-  height: 4rem;
-  opacity: 70%;
-}
+    display: none;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 99;
+    border: 1px;
+    outline: none;
+    background-color: rgb(185, 185, 185); 
+    color: white;
+    cursor: pointer;
+    width: 4rem;
+    height: 4rem;
+    opacity: 70%;
+  }
+  
+  #btn-scroll-to-top:hover {
+    background-color: rgb(141, 141, 141);
+  }
 
-#btn-scroll-to-top:hover {
-  background-color: rgb(141, 141, 141);
-}
+  body{
+    font-family: 'Roboto', sans-serif;  }
 
-body {
-  font-family: "Roboto", sans-serif;
-}
-
-#Offener-Brief,
-#Kontakt p {
+#Offener-Brief,#Kontakt p{
   text-align: justify;
-}
-
-.carousel-item,
-img {
-  object-fit: cover;
-}
-
-.carousel-item {
-  height: 10rem;
-}
-
-@media (min-width: 992px) {
-  .carousel-item {
-    height: 15rem;
-  }
-}
-
-@media (min-width: 1200px) {
-  .carousel-item {
-    height: 20rem;
-  }
 }
