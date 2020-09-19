@@ -125,7 +125,6 @@
           .getEntries({ "sys.id": "1RjJ8ucJJIekoeZ6Tz1ZLH", include: 1 })
           .then((response) => {
             let impressum = response.items[0];
-            console.log(impressum);
             let verantwortlich = impressum.fields.verantwortlich;
             $("#verantwortlich").after(createContactEntry(verantwortlich));
 

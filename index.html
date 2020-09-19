@@ -429,9 +429,7 @@
         client
           .getEntry("1YkTzVK4KBzfmsMyBqKSo8")
           .then((progressBar) => {
-            console.log(progressBar);
             progressBar.fields.phases.forEach((phase, index) => {
-              console.log(phase, index);
               $(".progress-phase-" + (index + 1))
                 .html(phase);
             });
@@ -451,11 +449,7 @@
             include: 1,
           })
           .then((response) => {
-            console.log(response);
             let openLetter = response.items[0];
-            console.log("Open letter:");
-            console.log(openLetter);
-
             //Title
             $("#Title").html(openLetter.fields.title);
 
@@ -478,8 +472,6 @@
             let signees = response.includes.Entry.filter(
               (obj) => obj.sys.contentType.sys.id === "unterzeichnender"
             ).sort((a, b) => a.sys.createdAt > b.sys.createdAt);
-            console.log("Signees:");
-            console.log(signees);
             signees.forEach((signee) => appendSignee(signee));
           })
           .catch(console.error);
