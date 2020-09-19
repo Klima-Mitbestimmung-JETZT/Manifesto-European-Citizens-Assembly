@@ -208,14 +208,15 @@
           <div class="col-12 d-none d-md-block">
             <div class="progress" style="height: 1.8rem">
               <div
-                class="progress-bar progress-bar-striped progress-bar-animated bg-warning"
+                class=" progress-phase-1 progress-bar bg-light"
                 role="progressbar"
                 style="width: 32%"
                 aria-valuenow="32"
                 aria-valuemin="0"
                 aria-valuemax="100"
               >
-                <b>Unterzeichnungsphase läuft!</b>
+                <b>                <!-- Namen der Phasen befüllt durch Contentful  -->
+                </b>
               </div>
               <div
                 class="progress-bar bg-light"
@@ -228,14 +229,14 @@
                 <i class="fa fa-arrow-right"></i>
               </div>
               <div
-                class="progress-bar bg-light"
+                class="progress-phase-2 progress-bar bg-light"
                 role="progressbar"
                 style="width: 32%"
                 aria-valuenow="32"
                 aria-valuemin="0"
                 aria-valuemax="100"
               >
-                Wir übergeben den Brief.
+                <!-- Namen der Phasen befüllt durch Contentful  -->
               </div>
               <div
                 class="progress-bar bg-light"
@@ -248,28 +249,28 @@
                 <i class="fa fa-arrow-right"></i>
               </div>
               <div
-                class="progress-bar bg-light"
+                class="progress-phase-3 progress-bar bg-light"
                 role="progressbar"
                 style="width: 31%"
                 aria-valuenow="31"
                 aria-valuemin="0"
                 aria-valuemax="100"
               >
-                Übergeben.
+                <!-- Namen der Phasen befüllt durch Contentful  -->
               </div>
             </div>
           </div>
           <div class="col-12 d-block d-md-none">
             <div class="progress" style="height: 1.8rem">
               <div
-                class="progress-bar progress-bar-striped progress-bar-animated bg-warning"
+                class=" progress-phase-1 progress-bar bg-light"
                 role="progressbar"
                 style="width: 100%"
                 aria-valuenow="100"
                 aria-valuemin="0"
                 aria-valuemax="100"
               >
-                <b>Unterzeichnungsphase läuft!</b>
+                <b> <!-- Namen der Phasen befüllt durch Contentful  --> </b>
               </div>
             </div>
 
@@ -285,14 +286,14 @@
                 <i class="fa fa-arrow-right"></i>
               </div>
               <div
-                class="progress-bar bg-light"
+                class="progress-phase-2 progress-bar bg-light"
                 role="progressbar"
                 style="width: 55%"
                 aria-valuenow="43"
                 aria-valuemin="0"
                 aria-valuemax="100"
               >
-                Wir übergeben den Brief.
+                <!-- Namen der Phasen befüllt durch Contentful  -->
               </div>
               <div
                 class="progress-bar bg-light"
@@ -305,14 +306,14 @@
                 <i class="fa fa-arrow-right"></i>
               </div>
               <div
-                class="progress-bar bg-light"
+                class="progress-phase-3 progress-bar bg-light"
                 role="progressbar"
                 style="width: 37%"
                 aria-valuenow="42"
                 aria-valuemin="0"
                 aria-valuemax="100"
               >
-                Übergeben.
+                <!-- Namen der Phasen befüllt durch Contentful  -->
               </div>
             </div>
           </div>
@@ -424,7 +425,24 @@
           // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
           accessToken: "zkrF5TGm-MS_ipkS1rpbQQD-tBtYrtIQdQux5LuwBE8",
         });
-        // This API call will request an entry with the specified ID from the space defined at the top, using a space-specific access token.
+        // Get the information for the progress bar
+        client
+          .getEntry("1YkTzVK4KBzfmsMyBqKSo8")
+          .then((progressBar) => {
+            console.log(progressBar);
+            progressBar.fields.phases.forEach((phase, index) => {
+              console.log(phase, index);
+              $(".progress-phase-" + (index + 1))
+                .html(phase);
+            });
+            let numberOfActivePhase = progressBar.fields.numberOfActivePhase
+            if(numberOfActivePhase && numberOfActivePhase < progressBar.fields.phases.length){
+              $(".progress-phase-"+numberOfActivePhase).html(`<b>${progressBar.fields.phases[numberOfActivePhase - 1]}</b>`);
+              $(".progress-phase-"+numberOfActivePhase).removeClass("bg-light").addClass("progress-bar-striped progress-bar-animated bg-warning");
+            }
+          })
+          .catch((error) => console.log(error));
+
         // Get the whole open letter with the first level of inclueded links
         client
           .getEntries({
