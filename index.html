@@ -58,9 +58,8 @@
       <div class="container-md p-3 p-sm-5 shadow-lg rounded">
         <div class="row">
           <div class="col align-center">
-            <h2>
-              Offener Brief zum Bürgerrat "Klimagerechtigkeit und Wege aus der
-              ökologischen Krise"
+            <h2 id="Title">
+              <!-- Title befüllt durch Contentful -->
             </h2>
           </div>
         </div>
@@ -338,18 +337,18 @@
         <div class="row" id="Addressat">
           <div class="col">
             <h4>
-              <!-- Addressat kommt hierhin -->
+              <!-- Addressat befüllt durch Contentful  -->
             </h4>
           </div>
         </div>
         <div class="row mt-3" id="Offener-Brief">
           <div class="col">
-            <!-- Texte des offenen Briefs kommt hierhin -->
+            <!-- Texte des offenen Briefs befüllt durch Contentful -->
           </div>
         </div>
         <div class="row mt-3" id="Kontakt">
           <div class="col">
-            <!-- Kontakthinweis kommt hierhin -->
+            <!-- Kontakthinweis befüllt durch Contentful -->
           </div>
         </div>
 
@@ -426,70 +425,74 @@
           accessToken: "zkrF5TGm-MS_ipkS1rpbQQD-tBtYrtIQdQux5LuwBE8",
         });
         // This API call will request an entry with the specified ID from the space defined at the top, using a space-specific access token.
+        // Get the whole open letter with the first level of inclueded links
         client
-          .getEntry("2aDDbb4AjEQdCo0IW7AnLm")
-          .then((entry) => {
-            //console.log(entry);
+          .getEntries({
+            "sys.id": "2aDDbb4AjEQdCo0IW7AnLm",
+            order: "sys.createdAt",
+            include: 1,
+          })
+          .then((response) => {
+            console.log(response);
+            let openLetter = response.items[0];
+            console.log("Open letter:");
+            console.log(openLetter);
 
+            //Title
+            $("#Title").html(openLetter.fields.title);
+
+            //Addressat
             $("#Addressat")
               .children(":first")
               .children(":first")
-              .html(entry.fields.addressat);
+              .html(openLetter.fields.addressat);
+            //Kontakthinweis
             $("#Kontakt")
               .children(":first")
-              .html(documentToHtmlString(entry.fields.kontakthinweis));
+              .html(documentToHtmlString(openLetter.fields.kontakthinweis));
 
-            client
-              .getEntry("3edRfSSQC3yDcGeessHgTH")
-              .then((mail) => {
-                //console.log(mail);
-                $("#Offener-Brief")
-                  .children(":first")
-                  .html(documentToHtmlString(entry.fields.text));
-              })
-              .catch(console.error);
+            // Open Letter
+            $("#Offener-Brief")
+              .children(":first")
+              .html(documentToHtmlString(openLetter.fields.text));
+
+            //Signees
+            let signees = response.includes.Entry.filter(
+              (obj) => obj.sys.contentType.sys.id === "unterzeichnender"
+            ).sort((a, b) => a.sys.createdAt > b.sys.createdAt);
+            console.log("Signees:");
+            console.log(signees);
+            signees.forEach((signee) => appendSignee(signee));
           })
           .catch(console.error);
       });
+
+      appendSignee = (signee) => {
+        if (!signee.fields.name) {
+          return new Error("Can not create unterzeichner without a name");
+        } else {
+          eintrag = `<div class="col-md-6 text-left"><p><b>${signee.fields.name}</b></p>`;
+        }
+
+        if (signee.fields.listOfSigningNames || signee.fields.website) {
+          eintrag = eintrag + `<p>`;
+          if (signee.fields.listOfSigningNames) {
+            eintrag =
+              eintrag +
+              `Gezeichnet von: ${signee.fields.listOfSigningNames}<br>`;
+          }
+          if (signee.fields.website) {
+            eintrag =
+              eintrag +
+              `Website: <a href="${signee.fields.website}">${signee.fields.website}</a>`;
+          }
+          eintrag = eintrag + `</p></div>`;
+          $("#Unterzeichner").append(eintrag);
+        }
+      };
     </script>
     <script>
       $(document).ready(() => {
-        fetch("unterzeichner.json")
-          .then(function (response) {
-            return response.json();
-          })
-          .then(function (response) {
-            //console.log(response);
-            response.forEach((unterzeichner) => {
-              //console.log(unterzeichner);
-              let eintrag;
-              if (!unterzeichner.name) {
-                //console.log("Can not create unterzeichner without a name");
-                return;
-              } else {
-                eintrag = `<div class="col-md-6 text-left"><p><b>${unterzeichner.name}</b></p>`;
-              }
-
-              if (unterzeichner.zeichnende || unterzeichner.website) {
-                eintrag = eintrag + `<p>`;
-                if (unterzeichner.zeichnende) {
-                  eintrag =
-                    eintrag + `Gezeichnet von: ${unterzeichner.zeichnende}<br>`;
-                }
-                if (unterzeichner.website) {
-                  eintrag =
-                    eintrag +
-                    `Website: <a href="${unterzeichner.website}">${unterzeichner.website}</a>`;
-                }
-                eintrag = eintrag + `</p></div>`;
-                $("#Unterzeichner").append(eintrag);
-              }
-            });
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-
         // Funktion für das Scroll-Verhalten
         $(function () {
           $(window).scroll(function () {
