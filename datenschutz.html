@@ -171,7 +171,7 @@
         if (contact.fields.email) {
           eintrag =
             eintrag +
-            `<br><a href="${contact.fields.email}">${contact.fields.email}</a>`;
+            `<br><a href="mailto://${contact.fields.email}">${contact.fields.email}</a>`;
         }
         if (contact.fields.adress) {
           eintrag = eintrag + `<br>${contact.fields.adress}`;
