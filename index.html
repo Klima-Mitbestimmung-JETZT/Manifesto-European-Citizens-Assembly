@@ -19,6 +19,12 @@
       content="Klima, Bürgerrat, Deutschland, Bundestag, Klimarat, Umweltpolitik, Klimapolitik, Offener Brief, Forderung"
     />
 
+    <!-- Favicon -->
+    <link
+      rel="shortcut icon"
+      href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAADTklEQVR4nO2Zy0tVURSHP7VMCtGKEMxBUFSQBU2KIKIHRTWS/oCsQU4kqEE2yEChJjawSQ5qoIOSnkLRA7KyBwYFEj2gCMECiyxLiF6WZoN1L133Wefec4/ncS/sD/bknL32+u3fXXefvc8Bi8VisVgsFovFYrFYLAbrgKtAO9CUR60ZuJBoVd6m6mQ+MA5M5Hkb8WvAzhwQH1Sb5seA9TkgPFYD1qYZsAPYkDApF9pmoDeN3sANmACOAgV+Bg6YEuA6EVTAoDJwC/GaMBO4qeh6RwgGtAAPlGTHiceEWcAdRc8J4DYhGHAkkbTHJWmh76lkTylwX9GR/DFuEZIBIGXXrSQ/STQmlAEPlfzH+F+JoRoAsvDcUES0A0V+knlkNvBYyWsuyKEbADADuKKIOe03YQbmAn1Kviaca1AkBgAUA12KqLPAdD9JXZgHPFXyHHLpH5kBIBM9r4i7iBg0VSqAF8r4B9LERGoAiQRnFJGXkb+KXyqBl8q4+zLERW4AyOLXoYi9hiya2VIFvFbGq/cQG4sBII/BUzhF9yB7CK8sAAaUceo8xsdmAIgJbTjFDyMbmEwsB0aN2L/A7iy0x2oAyGPpHE4TnpDehEXAFyVub5baYzdgO/AD50QmkF1cmRKzFHjvEvMGWJJF/lgN2AWMoU8k2R4B5Skxy4APGWKGgdUeNcRiQAFwEF24tjD2AXOAFcBH495voBX4Y1z/DmzzoD1yAwqRk1i60m1U7j8HPhvXfiF/IYCtyKRT748BtRm0R2pAMdCJc3LPkI1MKg1Kv9T2E9hixKwCPil9G3B/DxGZAaXoR+N7TP6Pp7Jf6Z8s740uMYuRajJjWtGP4JEYUIF+OrtE5p1fvRHzDfkIk45K9ANRJ84zR+gGLAT6FTFteH8fUIssfq+ANR5jypHqMvN2M3l/EaoBK4EhRcRhonk3WIJUmfZUqUj0Cc2ATcBX4/o4sMfXVPxThL7d7keqMxQDupDns7lq1/ifx5QoQKrONGEI2WgFboDZRhJ94qYO50dccycauAGDQPUUhQdJDbKBctMbSgXkU/NlwI4cEB6rAdU5IDyINupn8kmakWPqALIBuZsnrRf5QPoWqWSLxWKxWCwWi8VisaTyDxKGnpgME0FDAAAAAElFTkSuQmCC"
+    />
+
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
@@ -49,64 +55,322 @@
 
   <body class="d-flex flex-column h-100">
     <main class="flex-shrink-0" role="main">
-      <div id="container" class="container p-3 p-sm-5 shadow-lg rounded">
-        <div class="row" id="Titel">
-          <div class="col">
-            <h2>
-              Offener Brief zum Bürgerrat "Klimagerechtigkeit und Wege aus der
-              ökologischen Krise"
+      <div class="container-md p-3 p-sm-5 shadow-lg rounded">
+        <div class="row">
+          <div class="col align-center">
+            <h2 id="Title">
+              <!-- Title befüllt durch Contentful -->
             </h2>
           </div>
         </div>
-        <div class="row mt-5" id="Addressat">
+        <div class="row mt-3">
+          <div class="col">
+            <div
+              id="carouselExampleControls"
+              class="carousel slide"
+              data-ride="carousel"
+              data-interval="4000"
+            >
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img
+                    src="assets/globus-auf-demo.jpg"
+                    class="d-block w-100 h-100"
+                    alt="..."
+                    style="object-position: 50% 20%"
+                  />
+                  <div class="carousel-caption d-none d-md-block p-1">
+                    <a
+                      href="https://www.shutterstock.com/de/image-photo/sydney-australia-march-15-2019-20-1340782703"
+                      >Holli / Shutterstock.com</a
+                    >
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="assets/frau-in-runde-stehend.jpg"
+                    class="d-block w-100 h-100"
+                    alt="..."
+                    style="object-position: 50% 40%"
+                  />
+                  <div class="carousel-caption d-none d-md-block p-1">
+                    <a
+                      href="https://www.flickr.com/photos/mehr-demokratie/48738362241/in/album-72157710855822351/"
+                      >Foto</a
+                    >
+                    von Mehr Demokratie lizensiert durch
+                    <a
+                      href="https://creativecommons.org/licenses/by-sa/2.0/deed.de"
+                      >CC BY-SA 2.0</a
+                    >
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="assets/demo-klimaschutz-jetzt.jpg"
+                    class="d-block w-100 h-100"
+                    alt="..."
+                    style="object-position: 50% 45%"
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="assets/großer-saal.jpg"
+                    class="d-block w-100 h-100"
+                    alt="..."
+                    style="object-position: 50% 40%"
+                  />
+                  <div class="carousel-caption d-none d-md-block p-1">
+                    <a
+                      href="https://www.flickr.com/photos/mehr-demokratie/48825755271/in/album-72157710855822351/"
+                      >Foto</a
+                    >
+                    von Mehr Demokratie lizensiert durch
+                    <a
+                      href="https://creativecommons.org/licenses/by-sa/2.0/deed.de"
+                      >CC BY-SA 2.0</a
+                    >
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="assets/demo-noch-kurz-die-welt-retten.jpg"
+                    class="d-block w-100 h-100"
+                    alt="..."
+                    style="object-position: 50% 35%"
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="assets/ältere-dame-in-plenum-aufzeigend.jpg"
+                    class="d-block w-100 h-100"
+                    alt="..."
+                    style="object-position: 50% 45%"
+                  />
+                  <div class="carousel-caption d-none d-md-block p-1">
+                    <a
+                      href="https://www.flickr.com/photos/mehr-demokratie/48825381953/in/album-72157710855822351/"
+                      >Foto</a
+                    >
+                    von Mehr Demokratie lizensiert durch
+                    <a
+                      href="https://creativecommons.org/licenses/by-sa/2.0/deed.de"
+                      >CC BY-SA 2.0</a
+                    >
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="assets/demo-if-climate-were-a-bank.jpg"
+                    class="d-block w-100 h-100"
+                    alt="..."
+                    style="object-position: 50% 45%"
+                  />
+                </div>
+              </div>
+              <a
+                class="carousel-control-prev"
+                href="#carouselExampleControls"
+                role="button"
+                data-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a
+                class="carousel-control-next"
+                href="#carouselExampleControls"
+                role="button"
+                data-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-12 d-none d-md-block">
+            <div class="progress" style="height: 1.8rem">
+              <div
+                class="progress-phase-1 progress-bar bg-light"
+                role="progressbar"
+                style="width: 32%"
+                aria-valuenow="32"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                <b> <!-- Namen der Phasen befüllt durch Contentful  --> </b>
+              </div>
+              <div
+                class="progress-bar bg-light"
+                role="progressbar"
+                style="width: 3%"
+                aria-valuenow="3"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                <i class="fa fa-arrow-right"></i>
+              </div>
+              <div
+                class="progress-phase-2 progress-bar bg-light"
+                role="progressbar"
+                style="width: 32%"
+                aria-valuenow="32"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                <!-- Namen der Phasen befüllt durch Contentful  -->
+              </div>
+              <div
+                class="progress-bar bg-light"
+                role="progressbar"
+                style="width: 3%"
+                aria-valuenow="3"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                <i class="fa fa-arrow-right"></i>
+              </div>
+              <div
+                class="progress-phase-3 progress-bar bg-light"
+                role="progressbar"
+                style="width: 31%"
+                aria-valuenow="31"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                <!-- Namen der Phasen befüllt durch Contentful  -->
+              </div>
+            </div>
+          </div>
+          <div class="col-12 d-block d-md-none">
+            <div class="progress" style="height: 1.8rem">
+              <div
+                class="progress-phase-1 progress-bar bg-light"
+                role="progressbar"
+                style="width: 100%"
+                aria-valuenow="100"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                <b> <!-- Namen der Phasen befüllt durch Contentful  --> </b>
+              </div>
+            </div>
+
+            <div class="progress" style="height: 1.8rem">
+              <div
+                class="progress-bar bg-light"
+                role="progressbar"
+                style="width: 4%"
+                aria-valuenow="4"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                <i class="fa fa-arrow-right"></i>
+              </div>
+              <div
+                class="progress-phase-2 progress-bar bg-light"
+                role="progressbar"
+                style="width: 55%"
+                aria-valuenow="43"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                <!-- Namen der Phasen befüllt durch Contentful  -->
+              </div>
+              <div
+                class="progress-bar bg-light"
+                role="progressbar"
+                style="width: 4%"
+                aria-valuenow="4"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                <i class="fa fa-arrow-right"></i>
+              </div>
+              <div
+                class="progress-phase-3 progress-bar bg-light"
+                role="progressbar"
+                style="width: 37%"
+                aria-valuenow="42"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                <!-- Namen der Phasen befüllt durch Contentful  -->
+              </div>
+            </div>
+          </div>
+          <div class="col-auto mt-3">
+            <a
+              class="btn btn-success"
+              href="mailto:kontakt@klima-rat.org?subject=Mitzeichnung%20offener%20Brief%20B%C3%BCrgerrat%20%22Klimagerechtigkeit%20und%20Wege%20aus%20der%20%C3%B6kologischen%20Krise%22&body=Hallo%2C%0D%0A%0D%0Agerne%20zeichnen%20wir%20den%20offenen%20Brief%20mit.%0D%0A%0D%0AIch%20bin%20damit%20einverstanden%2C%20dass%20folgende%20Daten%20auf%20der%20Website%20des%20offenen%20Briefs%20https%3A%2F%2Fwww.klima-rat.org%20ver%C3%B6ffentlicht%20werden%3A%0D%0A%0D%0AMeine%20Organisation%3A%0D%0AWebsite%3A%0D%0AMein%20Name%3A%0D%0A%0D%0ABitte%20kontaktieren%20Sie%20mich%20unter%20diesen%20Daten%20f%C3%BCr%20eine%20Verifizierung%3A%0D%0AE-Mail%3A%0D%0ATelefon%3A%0D%0A(Wir%20bitten%20darum%20alle%20Felder%20anzugeben%2C%20um%20einen%20schnellen%20reibungslosen%20Ablauf%20zu%20erm%C3%B6glichen.%20Vielen%20Dank.)%0D%0A%0D%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen%0D%0A"
+              >Jetzt mitzeichnen! <i class="fa fa-envelope"></i
+            ></a>
+          </div>
+          <div class="col-auto mt-3">
+            <a
+              class="btn btn-secondary"
+              href=" mailto:kontakt@klima-rat.org?subject=Kontakt%20offener%20Brief%20B%C3%BCrgerrat%20%22Klimagerechtigkeit%20und%20Wege%20aus%20der%20%C3%B6kologischen%20Krise%22&body=%0D%0A"
+              >Kontakt aufnehmen! <i class="fa fa-envelope"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-md p-3 p-sm-5 mt-3 shadow-lg rounded">
+        <div class="row" id="Addressat">
           <div class="col">
             <h4>
-              <!-- Addressat kommt hierhin -->
+              <!-- Addressat befüllt durch Contentful  -->
             </h4>
           </div>
         </div>
-        <div class="row mt-5" id="Offener-Brief">
+        <div class="row mt-3" id="Offener-Brief">
           <div class="col">
-            <!-- Texte des offenen Briefs kommt hierhin -->
+            <!-- Texte des offenen Briefs befüllt durch Contentful -->
           </div>
         </div>
         <div class="row mt-3" id="Kontakt">
           <div class="col">
-            <!-- Kontakthinweis kommt hierhin -->
+            <!-- Kontakthinweis befüllt durch Contentful -->
           </div>
         </div>
 
         <div class="row align-items-center mt-3">
-          <div class="col">
-            <div class="row mb-3 align-items-center">
-              <div class="col-md-12 col-lg-6 align-self-center">
-                <h4>Unterzeichnende:</h4>
+          <div class="col-12 col-md-12 col-lg-5 align-self-center">
+            <h4 style="margin-bottom: 0">Unterzeichnende:</h4>
+          </div>
+          <div class="col col-lg-7">
+            <div class="row">
+              <div class="col-auto mt-3 mt-lg-0">
+                <a
+                  class="btn btn-success"
+                  href="mailto:kontakt@klima-rat.org?subject=Mitzeichnung%20offener%20Brief%20B%C3%BCrgerrat%20%22Klimagerechtigkeit%20und%20Wege%20aus%20der%20%C3%B6kologischen%20Krise%22&body=Hallo%2C%0D%0A%0D%0Agerne%20zeichnen%20wir%20den%20offenen%20Brief%20mit.%0D%0A%0D%0AIch%20bin%20damit%20einverstanden%2C%20dass%20folgende%20Daten%20auf%20der%20Website%20des%20offenen%20Briefs%20https%3A%2F%2Fwww.klima-rat.org%20ver%C3%B6ffentlicht%20werden%3A%0D%0A%0D%0AMeine%20Organisation%3A%0D%0AWebsite%3A%0D%0AMein%20Name%3A%0D%0A%0D%0ABitte%20kontaktieren%20Sie%20mich%20unter%20diesen%20Daten%20f%C3%BCr%20eine%20Verifizierung%3A%0D%0AE-Mail%3A%0D%0ATelefon%3A%0D%0A(Wir%20bitten%20darum%20alle%20Felder%20anzugeben%2C%20um%20einen%20schnellen%20reibungslosen%20Ablauf%20zu%20erm%C3%B6glichen.%20Vielen%20Dank.)%0D%0A%0D%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen%0D%0A"
+                  >Jetzt mitzeichnen! <i class="fa fa-envelope"></i
+                ></a>
               </div>
-              <div class="col-auto align-self-center">
-                <p>
-                  <a
-                    class="btn btn-success"
-                    href="mailto:kontakt@klima-rat.org?subject=Mitzeichnung%20offener%20Brief%20B%C3%BCrgerrat%20%22Klimagerechtigkeit%20und%20Wege%20aus%20der%20%C3%B6kologischen%20Krise%22&body=Hallo%2C%0D%0A%0D%0Agerne%20zeichnen%20wir%20den%20offenen%20Brief%20mit.%0D%0A%0D%0AIch%20bin%20damit%20einverstanden%2C%20dass%20folgende%20Daten%20auf%20der%20Website%20des%20offenen%20Briefs%20https%3A%2F%2Fwww.klima-rat.org%20ver%C3%B6ffentlicht%20werden%3A%0D%0A%0D%0AMeine%20Organisation%3A%0D%0AWebsite%3A%0D%0AMein%20Name%3A%0D%0A%0D%0ABitte%20kontaktieren%20Sie%20mich%20unter%20diesen%20Daten%20f%C3%BCr%20eine%20Verifizierung%3A%0D%0AE-Mail%3A%0D%0ATelefon%3A%0D%0A(Wir%20bitten%20darum%20alle%20Felder%20anzugeben%2C%20um%20einen%20schnellen%20reibungslosen%20Ablauf%20zu%20erm%C3%B6glichen.%20Vielen%20Dank.)%0D%0A%0D%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen%0D%0A"
-                    >Jetzt mitzeichnen! <i class="fa fa-envelope"></i
-                  ></a>
-                </p>
-              </div>
-              <div class="col-auto align-self-center">
-                <p>
-                  <a
-                    class="btn btn-secondary"
-                    href=" mailto:kontakt@klima-rat.org?subject=Kontakt%20offener%20Brief%20B%C3%BCrgerrat%20%22Klimagerechtigkeit%20und%20Wege%20aus%20der%20%C3%B6kologischen%20Krise%22&body=%0D%0A"
-                    >Jetzt Kontakt aufnehmen! <i class="fa fa-envelope"></i
-                  ></a>
-                </p>
+              <div class="col-auto mt-3 mt-lg-0">
+                <a
+                  class="btn btn-secondary"
+                  href=" mailto:kontakt@klima-rat.org?subject=Kontakt%20offener%20Brief%20B%C3%BCrgerrat%20%22Klimagerechtigkeit%20und%20Wege%20aus%20der%20%C3%B6kologischen%20Krise%22&body=%0D%0A"
+                  >Jetzt Kontakt aufnehmen! <i class="fa fa-envelope"></i
+                ></a>
               </div>
             </div>
-            <div class="row mt-3" id="Unterzeichner"></div>
           </div>
         </div>
+        <div class="row mt-3" id="Unterzeichner"></div>
       </div>
     </main>
-    <footer class="footer container mt-auto p-3 px-sm-5">
+    <footer class="footer container-md mt-auto p-3 px-sm-5">
       <p>
         <a href="/">Offener Brief</a> - <a href="impressum.html">Impressum</a> -
         <a href="datenschutz.html">Datenschutzerklärung</a> - September 2020
@@ -135,7 +399,7 @@
     ></script>
 
     <!-- Contenfull -->
-    <script src="https://cdn.jsdelivr.net/npm/contentful@5.0.1/dist/contentful.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/contentful@latest/dist/contentful.browser.min.js"></script>
     <script>
       var exports = {}; // quick fix because 'exports' is not defined in rich-text bundle below
     </script>
@@ -150,73 +414,110 @@
           // This is the space ID. A space is like a project folder in Contentful terms
           space: "5z21gx3h7sb2",
           // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
-          accessToken: "zkrF5TGm-MS_ipkS1rpbQQD-tBtYrtIQdQux5LuwBE8",
+          accessToken: "ecQ2l4UMTYi1MU3Szr2iNLep8Ak_pNp5i3Nxe1qU3VA",
         });
-        // This API call will request an entry with the specified ID from the space defined at the top, using a space-specific access token.
+        // Get the information for the progress bar
         client
-          .getEntry("2aDDbb4AjEQdCo0IW7AnLm")
-          .then((entry) => {
-            //console.log(entry);
+          .getEntry("1YkTzVK4KBzfmsMyBqKSo8")
+          .then((progressBar) => {
+            progressBar.fields.phases.forEach((phase, index) => {
+              $(".progress-phase-" + (index + 1)).html(phase);
+            });
+            let numberOfActivePhase = progressBar.fields.numberOfActivePhase;
+            if (
+              numberOfActivePhase &&
+              numberOfActivePhase < progressBar.fields.phases.length
+            ) {
+              $(".progress-phase-" + numberOfActivePhase).html(
+                `<b>${progressBar.fields.phases[numberOfActivePhase - 1]}</b>`
+              );
+              $(".progress-phase-" + numberOfActivePhase)
+                .removeClass("bg-light")
+                .addClass(
+                  "progress-bar-striped progress-bar-animated bg-warning"
+                );
+            }
+          })
+          .catch((error) => console.log(error));
 
-            $("#Addressat")
-              .children(":first")
-              .children(":first")
-              .html(entry.fields.addressat);
-            $("#Kontakt")
-              .children(":first")
-              .html(documentToHtmlString(entry.fields.kontakthinweis));
+        // Get the whole open letter with the first level of inclueded links
+        client
+          .getEntries({
+            "sys.id": "2aDDbb4AjEQdCo0IW7AnLm",
+            order: "sys.createdAt",
+            include: 1,
+          })
+          .then((response) => {
+            let openLetter = response.items[0];
+            //Title
+            if (openLetter.fields.richTextTitle) {
+              $("#Title").append(
+                documentToHtmlString(openLetter.fields.richTextTitle)
+              );
+            } else if (openLetter.fields.title) {
+              $("#Title").html(openLetter.fields.title);
+            }
 
-            client
-              .getEntry("3edRfSSQC3yDcGeessHgTH")
-              .then((mail) => {
-                //console.log(mail);
-                $("#Offener-Brief")
-                  .children(":first")
-                  .html(documentToHtmlString(entry.fields.text));
-              })
-              .catch(console.error);
+            //Addressat
+            if (openLetter.fields.addressat) {
+              $("#Addressat")
+                .children(":first")
+                .children(":first")
+                .html(openLetter.fields.addressat);
+            }
+            //Kontakthinweis
+            if (openLetter.fields.kontakthinweis) {
+              $("#Kontakt")
+                .children(":first")
+                .html(documentToHtmlString(openLetter.fields.kontakthinweis));
+            }
+
+            // Open Letter
+            if (openLetter.fields.text) {
+              $("#Offener-Brief")
+                .children(":first")
+                .html(documentToHtmlString(openLetter.fields.text));
+            }
+
+            //Signees
+            if (
+              openLetter.fields.signees &&
+              openLetter.fields.signees.length > 0
+            ) {
+              openLetter.fields.signees.forEach((signee) =>
+                appendSignee(signee)
+              );
+            }
           })
           .catch(console.error);
       });
+
+      appendSignee = (signee) => {
+        if (!signee.fields.name) {
+          return new Error("Can not create unterzeichner without a name");
+        } else {
+          eintrag = `<div class="col-md-6 text-left"><p><b>${signee.fields.name}</b></p>`;
+        }
+
+        if (signee.fields.listOfSigningNames || signee.fields.website) {
+          eintrag = eintrag + `<p>`;
+          if (signee.fields.listOfSigningNames) {
+            eintrag =
+              eintrag +
+              `Gezeichnet von: ${signee.fields.listOfSigningNames}<br>`;
+          }
+          if (signee.fields.website) {
+            eintrag =
+              eintrag +
+              `Website: <a href="${signee.fields.website}">${signee.fields.website}</a>`;
+          }
+          eintrag = eintrag + `</p></div>`;
+          $("#Unterzeichner").append(eintrag);
+        }
+      };
     </script>
     <script>
       $(document).ready(() => {
-        fetch("unterzeichner.json")
-          .then(function (response) {
-            return response.json();
-          })
-          .then(function (response) {
-            //console.log(response);
-            response.forEach((unterzeichner) => {
-              //console.log(unterzeichner);
-              let eintrag;
-              if (!unterzeichner.name) {
-                //console.log("Can not create unterzeichner without a name");
-                return;
-              } else {
-                eintrag = `<div class="col-md-6 text-left"><p><b>${unterzeichner.name}</b></p>`;
-              }
-
-              if (unterzeichner.zeichnende || unterzeichner.website) {
-                eintrag = eintrag + `<p>`;
-                if (unterzeichner.zeichnende) {
-                  eintrag =
-                    eintrag + `Gezeichnet von: ${unterzeichner.zeichnende}<br>`;
-                }
-                if (unterzeichner.website) {
-                  eintrag =
-                    eintrag +
-                    `Website: <a href="${unterzeichner.website}">${unterzeichner.website}</a>`;
-                }
-                eintrag = eintrag + `</p></div>`;
-                $("#Unterzeichner").append(eintrag);
-              }
-            });
-          })
-          .catch(function (error) {
-            //console.log("Error: " + error);
-          });
-
         // Funktion für das Scroll-Verhalten
         $(function () {
           $(window).scroll(function () {
