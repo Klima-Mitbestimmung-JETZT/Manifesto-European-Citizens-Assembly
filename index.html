@@ -57,8 +57,8 @@
     <main class="flex-shrink-0" role="main">
       <div class="container-md p-3 p-sm-5 shadow-lg rounded">
         <div class="row">
-          <div id="Title"class="col align-center">
-              <!-- Title befüllt durch Contentful -->
+          <div id="Title" class="col align-center">
+            <!-- Title befüllt durch Contentful -->
           </div>
         </div>
         <div class="row mt-3">
@@ -511,7 +511,7 @@
 
       appendSignee = (signee) => {
         if (!signee.fields.name) {
-          return new Error("Can not create unterzeichner without a name");
+          console.log(new Error("Can not create unterzeichner without a name"));
         } else {
           eintrag = `<div class="col-md-6 text-left"><p><b>${signee.fields.name}</b></p>`;
         }
@@ -524,9 +524,26 @@
               `Gezeichnet von: ${signee.fields.listOfSigningNames}<br>`;
           }
           if (signee.fields.website) {
+            if (!signee.fields.website.startsWith("https://")) {
+              console.log(
+                new Error(
+                  `An invalid website was provided (starting without "https://") for ${signee.fields.name}`
+                )
+              );
+              return;
+            } else if (signee.fields.website.endsWith("/")) {
+              // If present, remove trailing "/"
+              signee.fields.website = signee.fields.website.substring(
+                0,
+                signee.fields.website.length - 1
+              );
+            }
+
             eintrag =
               eintrag +
-              `Website: <a href="${signee.fields.website}" target="_blank">${signee.fields.website}</a>`;
+              `Website: <a href="${signee.fields.website.trim()}" target="_blank">${signee.fields.website
+                .split("https://")[1]
+                .trim()}</a>`;
           }
           eintrag = eintrag + `</p></div>`;
           $("#Unterzeichner").append(eintrag);
