@@ -384,7 +384,9 @@
             </div>
           </div>
         </div>
-        <div class="row mt-3" id="Unterzeichner"></div>
+        <div class="row mt-5 align-items-center" id="Unterzeichner">
+          <!-- Unterzeichnende befüllt durch Contentful-->
+        </div>
       </div>
     </main>
     <footer class="footer container mt-auto p-3 px-sm-5">
@@ -510,14 +512,32 @@
       });
 
       appendSignee = (signee) => {
-        if (!signee.fields.name) {
-          console.log(new Error("Can not create unterzeichner without a name"));
+        console.log(signee);
+        let eintrag = `<div class="col-sm-6 col-md-4 text-left">`;
+
+        if (signee.fields.name || signee.fields.logo) {
+          if (
+            signee.fields.logo &&
+            signee.fields.logo.fields.file.url &&
+            signee.fields.logo.fields.title
+          ) {
+            eintrag =
+              eintrag +
+              `<p class="d-flex align-items-center justify-content-center signee-logo-container" ><img class="img-fluid signee-logo" src="${signee.fields.logo.fields.file.url}" alt="${signee.fields.logo.fields.title}"></p>`;
+          }
+
+          if (signee.fields.name) {
+            eintrag = eintrag + `<p><b>${signee.fields.name}</b></p>`;
+          }
         } else {
-          eintrag = `<div class="col-md-6 text-left"><p><b>${signee.fields.name}</b></p>`;
+          console.log(
+            new Error("Can not create Unterzeichner without a name or a logo")
+          );
+          return;
         }
+        eintrag = eintrag + `<p>`;
 
         if (signee.fields.listOfSigningNames || signee.fields.website) {
-          eintrag = eintrag + `<p>`;
           if (signee.fields.listOfSigningNames) {
             eintrag =
               eintrag +
@@ -531,7 +551,9 @@
                 )
               );
               return;
-            } else if (signee.fields.website.endsWith("/")) {
+            }
+            
+            if (signee.fields.website.trim().endsWith("/")) {
               // If present, remove trailing "/"
               signee.fields.website = signee.fields.website.substring(
                 0,
@@ -545,9 +567,16 @@
                 .split("https://")[1]
                 .trim()}</a>`;
           }
-          eintrag = eintrag + `</p></div>`;
-          $("#Unterzeichner").append(eintrag);
+        } else {
+          console.log(
+            new Error(
+              "Can not create signee without list of sining names or a website"
+            )
+          );
+          return;
         }
+        eintrag = eintrag + `</p></div>`;
+        $("#Unterzeichner").append(eintrag);
       };
     </script>
     <script>

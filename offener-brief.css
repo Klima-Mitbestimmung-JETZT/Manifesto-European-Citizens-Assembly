@@ -53,3 +53,8 @@ img {
     height: 20rem;
   }
 }
+
+.signee-logo{
+  max-height: 150px;
+  max-width: 350px;
+}
