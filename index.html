@@ -34,7 +34,7 @@
     />
     <!-- Google Font -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
     <!-- Offener Brief CSS-->
@@ -384,7 +384,7 @@
             </div>
           </div>
         </div>
-        <div class="row mt-5 align-items-center" id="Unterzeichner">
+        <div class="row mt-5 align-items-start" id="Unterzeichner">
           <!-- Unterzeichnende befüllt durch Contentful-->
         </div>
       </div>
@@ -513,7 +513,7 @@
 
       appendSignee = (signee) => {
         console.log(signee);
-        let eintrag = `<div class="col-sm-6 col-md-4 text-left">`;
+        let eintrag = `<div class="col-sm-6 col-md-4 text-left"><div class="row h-100"><div class="col-12 d-flex align-items-center justify-content-center signee-logo-container">`;
 
         if (signee.fields.name || signee.fields.logo) {
           if (
@@ -523,8 +523,10 @@
           ) {
             eintrag =
               eintrag +
-              `<p class="d-flex align-items-center justify-content-center signee-logo-container" ><img class="img-fluid signee-logo" src="${signee.fields.logo.fields.file.url}" alt="${signee.fields.logo.fields.title}"></p>`;
+              `<img class="img-fluid signee-logo" src="${signee.fields.logo.fields.file.url}" alt="${signee.fields.logo.fields.title}">`;
           }
+
+          eintrag = eintrag + `</div><div class="col mt-3 signee-container">`;
 
           if (signee.fields.name) {
             eintrag = eintrag + `<p><b>${signee.fields.name}</b></p>`;
@@ -552,7 +554,7 @@
               );
               return;
             }
-            
+
             if (signee.fields.website.trim().endsWith("/")) {
               // If present, remove trailing "/"
               signee.fields.website = signee.fields.website.substring(
@@ -575,7 +577,7 @@
           );
           return;
         }
-        eintrag = eintrag + `</p></div>`;
+        eintrag = eintrag + `</p></div></div></div>`;
         $("#Unterzeichner").append(eintrag);
       };
     </script>
