@@ -1,27 +1,29 @@
 #btn-scroll-to-top {
-    display: none;
-    position: fixed;
-    bottom: 1rem;
-    right: 1rem;
-    z-index: 99;
-    border: 1px;
-    outline: none;
-    background-color: rgb(185, 185, 185); 
-    color: white;
-    cursor: pointer;
-    width: 4rem;
-    height: 4rem;
-    opacity: 70%;
-  }
-  
-  #btn-scroll-to-top:hover {
-    background-color: rgb(141, 141, 141);
-  }
+  display: none;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 99;
+  border: 1px;
+  outline: none;
+  background-color: rgb(185, 185, 185);
+  color: white;
+  cursor: pointer;
+  width: 4rem;
+  height: 4rem;
+  opacity: 70%;
+}
 
-  body{
-    font-family: 'Roboto', sans-serif;  }
+#btn-scroll-to-top:hover {
+  background-color: rgb(141, 141, 141);
+}
 
-#Offener-Brief,#Kontakt p{
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+#Offener-Brief,
+#Kontakt p {
   text-align: justify;
 }
 
@@ -40,7 +42,7 @@ img {
 }
 
 .carousel-caption {
-  background-color: rgb(255,255,255,0.7);
+  background-color: rgb(255, 255, 255, 0.7);
   font-size: small;
   bottom: 0%;
   right: 0%;
@@ -51,5 +53,27 @@ img {
 @media (min-width: 1200px) {
   .carousel-item {
     height: 20rem;
+  }
+}
+
+.signee-logo {
+  max-height: 120px;
+  max-width: 300px;
+}
+
+.signee-logo-container:empty {
+  display: none !important;
+}
+
+@media (min-width: 576px) {
+  .signee-logo-container:empty {
+    display: unset !important;
+  }
+  .signee-logo-container {
+    height: 120px;
+  }
+
+  .signee-container {
+    min-height: 130px;
   }
 }
