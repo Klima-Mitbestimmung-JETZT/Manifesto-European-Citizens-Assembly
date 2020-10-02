@@ -50,30 +50,24 @@ img {
   color: black;
 }
 
-@media (min-width: 1200px) {
-  .carousel-item {
-    height: 20rem;
-  }
-}
-
 .signee-logo {
-  max-height: 120px;
-  max-width: 300px;
-}
-
-.signee-logo-container:empty {
-  display: none !important;
+  max-height: 60px;
+  max-width: 150px;
 }
 
 @media (min-width: 576px) {
-  .signee-logo-container:empty {
-    display: unset !important;
-  }
-  .signee-logo-container {
-    height: 120px;
-  }
-
   .signee-container {
     min-height: 130px;
+  }
+
+  .signee-logo {
+    max-height: 80px;
+    max-width: 200px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .carousel-item {
+    height: 20rem;
   }
 }

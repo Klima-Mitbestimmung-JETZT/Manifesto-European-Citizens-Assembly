@@ -384,6 +384,9 @@
             </div>
           </div>
         </div>
+        <div class="row mt-5 align-items-center justify-content-around" id="Logos">
+          <!-- Unterzeichnende befüllt durch Contentful-->
+        </div>
         <div class="row mt-5 align-items-start" id="Unterzeichner">
           <!-- Unterzeichnende befüllt durch Contentful-->
         </div>
@@ -513,7 +516,7 @@
 
       appendSignee = (signee) => {
         console.log(signee);
-        let eintrag = `<div class="col-sm-6 col-md-4 text-left"><div class="row h-100"><div class="col-12 d-flex align-items-center justify-content-center signee-logo-container">`;
+        let eintrag = `<div class="col-sm-6 col-md-4 mt-3 signee-container text-left">`;
 
         if (signee.fields.name || signee.fields.logo) {
           if (
@@ -521,12 +524,9 @@
             signee.fields.logo.fields.file.url &&
             signee.fields.logo.fields.title
           ) {
-            eintrag =
-              eintrag +
-              `<img class="img-fluid signee-logo" src="${signee.fields.logo.fields.file.url}" alt="${signee.fields.logo.fields.title}">`;
+            logo = `<div class="col-auto mt-3 px-2"><img class="img-fluid signee-logo" src="${signee.fields.logo.fields.file.url}" alt="${signee.fields.logo.fields.title}"></div>`;
+            $("#Logos").append(logo);
           }
-
-          eintrag = eintrag + `</div><div class="col mt-3 signee-container">`;
 
           if (signee.fields.name) {
             eintrag =
@@ -578,7 +578,7 @@
           );
           return;
         }
-        eintrag = eintrag + `</p></div></div></div>`;
+        eintrag = eintrag + `</p></div>`;
         $("#Unterzeichner").append(eintrag);
       };
     </script>
