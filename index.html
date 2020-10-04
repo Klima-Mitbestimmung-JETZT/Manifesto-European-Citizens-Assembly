@@ -34,7 +34,7 @@
     />
     <!-- Google Font -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
       rel="stylesheet"
     />
     <!-- Offener Brief CSS-->
@@ -57,8 +57,8 @@
     <main class="flex-shrink-0" role="main">
       <div class="container-md p-3 p-sm-5 shadow-lg rounded">
         <div class="row">
-          <div id="Title" class="col align-center">
-            <!-- Title befüllt durch Contentful -->
+          <div id="Title"class="col align-center">
+              <!-- Title befüllt durch Contentful -->
           </div>
         </div>
         <div class="row mt-3">
@@ -384,9 +384,7 @@
             </div>
           </div>
         </div>
-        <div class="row mt-5 align-items-start" id="Unterzeichner">
-          <!-- Unterzeichnende befüllt durch Contentful-->
-        </div>
+        <div class="row mt-3" id="Unterzeichner"></div>
       </div>
     </main>
     <footer class="footer container mt-auto p-3 px-sm-5">
@@ -512,73 +510,27 @@
       });
 
       appendSignee = (signee) => {
-        let eintrag = `<div class="col-sm-6 col-md-4 text-left"><div class="row h-100"><div class="col-12 d-flex align-items-center justify-content-center signee-logo-container">`;
-
-        if (signee.fields.name || signee.fields.logo) {
-          if (
-            signee.fields.logo &&
-            signee.fields.logo.fields.file.url &&
-            signee.fields.logo.fields.title
-          ) {
-            eintrag =
-              eintrag +
-              `<img class="img-fluid signee-logo" src="${signee.fields.logo.fields.file.url}" alt="${signee.fields.logo.fields.title}">`;
-          }
-
-          eintrag = eintrag + `</div><div class="col mt-3 signee-container">`;
-
-          if (signee.fields.name) {
-            eintrag =
-              eintrag + `<p class="mb-0"><b>${signee.fields.name}</b></p>`;
-          }
+        if (!signee.fields.name) {
+          return new Error("Can not create unterzeichner without a name");
         } else {
-          console.log(
-            new Error("Can not create Unterzeichner without a name or a logo")
-          );
-          return;
+          eintrag = `<div class="col-md-6 text-left"><p><b>${signee.fields.name}</b></p>`;
         }
-        eintrag = eintrag + `<p>`;
 
         if (signee.fields.listOfSigningNames || signee.fields.website) {
+          eintrag = eintrag + `<p>`;
           if (signee.fields.listOfSigningNames) {
             eintrag =
               eintrag +
               `Gezeichnet von: ${signee.fields.listOfSigningNames}<br>`;
           }
           if (signee.fields.website) {
-            if (!signee.fields.website.startsWith("https://")) {
-              console.log(
-                new Error(
-                  `An invalid website was provided (starting without "https://") for ${signee.fields.name}`
-                )
-              );
-              return;
-            }
-
-            if (signee.fields.website.trim().endsWith("/")) {
-              // If present, remove trailing "/"
-              signee.fields.website = signee.fields.website.substring(
-                0,
-                signee.fields.website.length - 1
-              );
-            }
-
             eintrag =
               eintrag +
-              `Website: <a href="${signee.fields.website.trim()}" target="_blank">${signee.fields.website
-                .split("https://")[1]
-                .trim()}</a>`;
+              `Website: <a href="${signee.fields.website}" target="_blank">${signee.fields.website}</a>`;
           }
-        } else {
-          console.log(
-            new Error(
-              "Can not create signee without list of sining names or a website"
-            )
-          );
-          return;
+          eintrag = eintrag + `</p></div>`;
+          $("#Unterzeichner").append(eintrag);
         }
-        eintrag = eintrag + `</p></div></div></div>`;
-        $("#Unterzeichner").append(eintrag);
       };
     </script>
     <script>
