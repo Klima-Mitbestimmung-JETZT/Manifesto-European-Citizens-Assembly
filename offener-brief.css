@@ -62,12 +62,12 @@ img {
 }
 
 .signee-logo-container:empty {
-  display: none !important;
+  display: none;
 }
 
 @media (min-width: 576px) {
   .signee-logo-container:empty {
-    display: unset !important;
+    display: block;
   }
   .signee-logo-container {
     height: 120px;
