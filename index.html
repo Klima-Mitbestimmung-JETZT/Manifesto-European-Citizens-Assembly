@@ -57,8 +57,8 @@
     <main class="flex-shrink-0" role="main">
       <div class="container-md p-3 p-sm-5 shadow-lg rounded">
         <div class="row">
-          <div id="Title"class="col align-center">
-              <!-- Title befüllt durch Contentful -->
+          <div id="Title" class="col align-center">
+            <!-- Title befüllt durch Contentful -->
           </div>
         </div>
         <div class="row mt-3">
@@ -384,7 +384,9 @@
             </div>
           </div>
         </div>
-        <div class="row mt-3" id="Unterzeichner"></div>
+        <div class="row row mt-5 align-items-start" id="Unterzeichner">
+          <!-- Unterzeichnende befüllt durch Contentful-->
+        </div>
       </div>
     </main>
     <footer class="footer container mt-auto p-3 px-sm-5">
@@ -523,18 +525,13 @@
               `<img class="img-fluid signee-logo" src="${signee.fields.logo.fields.file.url}" alt="${signee.fields.logo.fields.title}">`;
           }
 
-          eintrag = eintrag + `</div>`;
+          eintrag = eintrag + `</div><div class="mt-3">`;
 
           if (signee.fields.name) {
             eintrag =
-              eintrag + `<div class="mt-3"><b>${signee.fields.name}</b><br>`;
+              eintrag + `<b>${signee.fields.name}</b><br>`;
           }
-        } else {
-          eintrag = `<div class="col-md-6 text-left"><p><b>${signee.fields.name}</b></p>`;
-        }
 
-        if (signee.fields.listOfSigningNames || signee.fields.website) {
-          eintrag = eintrag + `<p>`;
           if (signee.fields.listOfSigningNames) {
             eintrag =
               eintrag +
@@ -545,11 +542,11 @@
               eintrag +
               `Website: <a href="${signee.fields.website}" target="_blank">${signee.fields.website}</a>`;
           }
-          eintrag = eintrag + `</p></div>`;
+          eintrag = eintrag + `</div></div>`;
           $("#Unterzeichner").append(eintrag);
+        } else {
+          throw new Error("Can not create signee without name or Logo");
         }
-        eintrag = eintrag + `</div></div>`;
-        $("#Unterzeichner").append(eintrag);
       };
     </script>
     <script>
