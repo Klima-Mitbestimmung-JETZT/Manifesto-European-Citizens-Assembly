@@ -9,14 +9,13 @@
     />
     <meta
       name="description"
-      content='In diesem offenen Brief an den Bundestag
-    fordern Organisationen der Gesellschaft einen Bürgerrat zum Thema
-    "Klimagerechtigkeit und Wege aus der ökologischen Krise"'
+      content='Offener Brief zum Bürger:innenrat
+      "Klimagerechtigkeit und Wege aus der ökologischen Krise"'
     />
     <meta name="robots" content="index, follow" />
     <meta
       name="keywords"
-      content="Klima, Bürgerrat, Deutschland, Bundestag, Klimarat, Umweltpolitik, Klimapolitik, Offener Brief, Forderung"
+      content="Offener Brief, Klimarat, Bürgerrat, Deutschland, Bundestag, Politik, Klima"
     />
 
     <!-- Favicon -->
@@ -38,7 +37,11 @@
       rel="stylesheet"
     />
     <!-- Offener Brief CSS-->
-    <link rel="stylesheet" href="offener-brief.css" crossorigin="anonymous" />
+    <link
+      rel="stylesheet"
+      href="offener-brief.css?v=1.0.1"
+      crossorigin="anonymous"
+    />
     <!-- Fontawesome -->
     <link
       rel="stylesheet"
@@ -54,7 +57,7 @@
   </head>
 
   <body class="d-flex flex-column h-100">
-    <main class="flex-shrink-0" role="main">
+    <main class="flex-shrink-0">
       <div class="container-md p-3 p-sm-5 shadow-lg rounded">
         <div class="row">
           <div id="Title" class="col align-center">
@@ -74,7 +77,7 @@
                   <img
                     src="assets/globus-auf-demo.jpg"
                     class="d-block w-100 h-100"
-                    alt="..."
+                    alt="Bild von einem Globus auf einer Demo"
                     style="object-position: 50% 20%"
                   />
                   <div class="carousel-caption d-none d-md-block p-1">
@@ -89,7 +92,7 @@
                   <img
                     src="assets/frau-in-runde-stehend.jpg"
                     class="d-block w-100 h-100"
-                    alt="..."
+                    alt="Bild von einer Frau, die in einer Gesprächsrunde steht"
                     style="object-position: 50% 40%"
                   />
                   <div class="carousel-caption d-none d-md-block p-1">
@@ -114,7 +117,7 @@
                   <img
                     src="assets/demo-klimaschutz-jetzt.jpg"
                     class="d-block w-100 h-100"
-                    alt="..."
+                    alt="Schild Klimaschutz Jetzt"
                     style="object-position: 50% 45%"
                   />
                 </div>
@@ -122,7 +125,7 @@
                   <img
                     src="assets/großer-saal.jpg"
                     class="d-block w-100 h-100"
-                    alt="..."
+                    alt="Bild von einer Menschenmenge in einem großen Saal"
                     style="object-position: 50% 40%"
                   />
                   <div class="carousel-caption d-none d-md-block p-1">
@@ -147,7 +150,7 @@
                   <img
                     src="assets/demo-noch-kurz-die-welt-retten.jpg"
                     class="d-block w-100 h-100"
-                    alt="..."
+                    alt="Demonstrationsschild nur noch kurz die Welt retten"
                     style="object-position: 50% 35%"
                   />
                 </div>
@@ -155,7 +158,7 @@
                   <img
                     src="assets/ältere-dame-in-plenum-aufzeigend.jpg"
                     class="d-block w-100 h-100"
-                    alt="..."
+                    alt="Bild einer älteren Dame, die in einem Plenum aufzeigt"
                     style="object-position: 50% 45%"
                   />
                   <div class="carousel-caption d-none d-md-block p-1">
@@ -180,7 +183,7 @@
                   <img
                     src="assets/demo-if-climate-were-a-bank.jpg"
                     class="d-block w-100 h-100"
-                    alt="..."
+                    alt="Demonstrationsschild if climate were a bank"
                     style="object-position: 50% 45%"
                   />
                 </div>
@@ -528,8 +531,7 @@
           eintrag = eintrag + `</div><div class="mt-3">`;
 
           if (signee.fields.name) {
-            eintrag =
-              eintrag + `<b>${signee.fields.name}</b><br>`;
+            eintrag = eintrag + `<b>${signee.fields.name}</b><br>`;
           }
 
           if (signee.fields.listOfSigningNames) {
