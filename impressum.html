@@ -61,7 +61,7 @@
         </div>
         <div class="row mt-3">
           <div class="col">
-            <h4 >Angaben gemäß § 5 TMG:</h4>
+            <h4>Angaben gemäß § 5 TMG:</h4>
             <h5 id="verantwortlich">Verantwortlich:</h5>
             <!-- verantwortlich befüllt durch Contentful -->
 
@@ -103,7 +103,7 @@
       crossorigin="anonymous"
     ></script>
     <!-- Contenfull -->
-    <script src="https://cdn.jsdelivr.net/npm/contentful@latest/dist/contentful.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/contentful@7.12.1/dist/contentful.legacy.min.js"></script>
     <script>
       var exports = {}; // quick fix because 'exports' is not defined in rich-text bundle below
     </script>
@@ -123,39 +123,47 @@
 
         client
           .getEntries({ "sys.id": "1RjJ8ucJJIekoeZ6Tz1ZLH", include: 1 })
-          .then((response) => {
+          .then(function (response) {
             let impressum = response.items[0];
             let verantwortlich = impressum.fields.verantwortlich;
             $("#verantwortlich").after(createContactEntry(verantwortlich));
 
             impressum.fields.technischUmsetzende
-              .sort((a, b) => a.fields.name > b.fields.name)
-              .forEach((contact) => {
+              .sort(function (a, b) {
+                return a.fields.name > b.fields.name;
+              })
+              .forEach(function (contact) {
                 $("#technischUmsetzende").after(createContactEntry(contact));
               });
             $("#Impressums-Text")
               .children(":first")
               .append(documentToHtmlString(impressum.fields.text));
           })
-          .catch((error) => console.log(error));
+          .catch(function (error) {
+            console.log(error);
+          });
       });
 
-      createContactEntry = (contact) => {
+      createContactEntry = function (contact) {
         let eintrag = "";
         if (!contact.fields.name) {
           return new Error("Kein Name");
         } else {
-           eintrag = `<p>${contact.fields.name}`;
+          eintrag = "<p>" + contact.fields.name;
         }
         if (contact.fields.email) {
           eintrag =
             eintrag +
-            `<br><a href="mailto://${contact.fields.email}">${contact.fields.email}</a>`;
+            '<br><a href="mailto://' +
+            contact.fields.email +
+            '">' +
+            contact.fields.email +
+            "</a>";
         }
         if (contact.fields.adress) {
-          eintrag = eintrag + `<br>${contact.fields.adress}`;
+          eintrag = eintrag + "<br>" + contact.fields.adress;
         }
-        return eintrag + `</p>`;
+        return eintrag + "</p>";
       };
     </script>
     <script>

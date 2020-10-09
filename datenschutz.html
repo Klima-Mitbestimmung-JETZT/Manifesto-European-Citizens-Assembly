@@ -101,7 +101,7 @@
       crossorigin="anonymous"
     ></script>
     <!-- Contenfull -->
-    <script src="https://cdn.jsdelivr.net/npm/contentful@latest/dist/contentful.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/contentful@7.12.1/dist/contentful.legacy.min.js"></script>
     <script>
       var exports = {}; // quick fix because 'exports' is not defined in rich-text bundle below
     </script>
@@ -121,7 +121,7 @@
 
         client
           .getEntries({ "sys.id": "4rC21AGeBowVcfQKLnwBPk", include: 1 })
-          .then((response) => {
+          .then(function (response) {
             let datenschutz = response.items[0];
 
             if (datenschutz.fields.titel) {
@@ -154,29 +154,39 @@
                 .children(":first")
                 .children(":last")
                 .append(
-                  ` <a href="mailto://${datenschutz.fields.contactMail.fields.mailadress}">${datenschutz.fields.contactMail.fields.text}</a>`
+                  '<a href="mailto://' +
+                    datenschutz.fields.contactMail.fields.mailadress +
+                    '">' +
+                    datenschutz.fields.contactMail.fields.text +
+                    "</a>"
                 );
             }
           })
-          .catch((error) => console.log(error));
+          .catch(function (error) {
+            console.log(error);
+          });
       });
 
-      createContactEntry = (contact) => {
+      createContactEntry = function (contact) {
         let eintrag = "";
         if (!contact.fields.name) {
           return new Error("Kein Name");
         } else {
-          eintrag = `<p>${contact.fields.name}`;
+          eintrag = "<p>" + contact.fields.name;
         }
         if (contact.fields.email) {
           eintrag =
             eintrag +
-            `<br><a href="mailto://${contact.fields.email}">${contact.fields.email}</a>`;
+            '<br><a href="mailto://' +
+            contact.fields.email +
+            '">' +
+            contact.fields.email +
+            "</a>";
         }
         if (contact.fields.adress) {
-          eintrag = eintrag + `<br>${contact.fields.adress}`;
+          eintrag = eintrag + "<br>" + contact.fields.adress;
         }
-        return eintrag + `</p>`;
+        return eintrag + "</p>";
       };
     </script>
     <script>

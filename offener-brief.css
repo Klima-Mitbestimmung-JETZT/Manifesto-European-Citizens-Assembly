@@ -11,7 +11,7 @@
   cursor: pointer;
   width: 4rem;
   height: 4rem;
-  opacity: 70%;
+  opacity: 0.7;
 }
 
 #btn-scroll-to-top:hover {
@@ -42,7 +42,8 @@ img {
 }
 
 .carousel-caption {
-  background-color: rgb(255, 255, 255, 0.7);
+  background-color: rgb(255, 255, 255);
+  opacity: 0.7;
   font-size: small;
   bottom: 0%;
   right: 0%;

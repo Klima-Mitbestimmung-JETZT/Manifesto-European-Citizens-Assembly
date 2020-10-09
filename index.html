@@ -9,14 +9,13 @@
     />
     <meta
       name="description"
-      content='In diesem offenen Brief an den Bundestag
-    fordern Organisationen der Gesellschaft einen Bürgerrat zum Thema
-    "Klimagerechtigkeit und Wege aus der ökologischen Krise"'
+      content='Offener Brief zum Bürger:innenrat
+      "Klimagerechtigkeit und Wege aus der ökologischen Krise"'
     />
     <meta name="robots" content="index, follow" />
     <meta
       name="keywords"
-      content="Klima, Bürgerrat, Deutschland, Bundestag, Klimarat, Umweltpolitik, Klimapolitik, Offener Brief, Forderung"
+      content="Offener Brief, Klimarat, Bürgerrat, Deutschland, Bundestag, Politik, Klima"
     />
 
     <!-- Favicon -->
@@ -38,7 +37,11 @@
       rel="stylesheet"
     />
     <!-- Offener Brief CSS-->
-    <link rel="stylesheet" href="offener-brief.css" crossorigin="anonymous" />
+    <link
+      rel="stylesheet"
+      href="offener-brief.css?v=1.0.1"
+      crossorigin="anonymous"
+    />
     <!-- Fontawesome -->
     <link
       rel="stylesheet"
@@ -54,7 +57,7 @@
   </head>
 
   <body class="d-flex flex-column h-100">
-    <main class="flex-shrink-0" role="main">
+    <main class="flex-shrink-0">
       <div class="container-md p-3 p-sm-5 shadow-lg rounded">
         <div class="row">
           <div id="Title" class="col align-center">
@@ -74,7 +77,7 @@
                   <img
                     src="assets/globus-auf-demo.jpg"
                     class="d-block w-100 h-100"
-                    alt="..."
+                    alt="Bild von einem Globus auf einer Demo"
                     style="object-position: 50% 20%"
                   />
                   <div class="carousel-caption d-none d-md-block p-1">
@@ -89,7 +92,7 @@
                   <img
                     src="assets/frau-in-runde-stehend.jpg"
                     class="d-block w-100 h-100"
-                    alt="..."
+                    alt="Bild von einer Frau, die in einer Gesprächsrunde steht"
                     style="object-position: 50% 40%"
                   />
                   <div class="carousel-caption d-none d-md-block p-1">
@@ -114,7 +117,7 @@
                   <img
                     src="assets/demo-klimaschutz-jetzt.jpg"
                     class="d-block w-100 h-100"
-                    alt="..."
+                    alt="Schild Klimaschutz Jetzt"
                     style="object-position: 50% 45%"
                   />
                 </div>
@@ -122,7 +125,7 @@
                   <img
                     src="assets/großer-saal.jpg"
                     class="d-block w-100 h-100"
-                    alt="..."
+                    alt="Bild von einer Menschenmenge in einem großen Saal"
                     style="object-position: 50% 40%"
                   />
                   <div class="carousel-caption d-none d-md-block p-1">
@@ -147,7 +150,7 @@
                   <img
                     src="assets/demo-noch-kurz-die-welt-retten.jpg"
                     class="d-block w-100 h-100"
-                    alt="..."
+                    alt="Demonstrationsschild nur noch kurz die Welt retten"
                     style="object-position: 50% 35%"
                   />
                 </div>
@@ -155,7 +158,7 @@
                   <img
                     src="assets/ältere-dame-in-plenum-aufzeigend.jpg"
                     class="d-block w-100 h-100"
-                    alt="..."
+                    alt="Bild einer älteren Dame, die in einem Plenum aufzeigt"
                     style="object-position: 50% 45%"
                   />
                   <div class="carousel-caption d-none d-md-block p-1">
@@ -180,7 +183,7 @@
                   <img
                     src="assets/demo-if-climate-were-a-bank.jpg"
                     class="d-block w-100 h-100"
-                    alt="..."
+                    alt="Demonstrationsschild if climate were a bank"
                     style="object-position: 50% 45%"
                   />
                 </div>
@@ -418,7 +421,7 @@
     ></script>
 
     <!-- Contenfull -->
-    <script src="https://cdn.jsdelivr.net/npm/contentful@latest/dist/contentful.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/contentful@7.12.1/dist/contentful.legacy.min.js"></script>
     <script>
       var exports = {}; // quick fix because 'exports' is not defined in rich-text bundle below
     </script>
@@ -438,8 +441,8 @@
         // Get the information for the progress bar
         client
           .getEntry("1YkTzVK4KBzfmsMyBqKSo8")
-          .then((progressBar) => {
-            progressBar.fields.phases.forEach((phase, index) => {
+          .then(function (progressBar) {
+            progressBar.fields.phases.forEach(function (phase, index) {
               $(".progress-phase-" + (index + 1)).html(phase);
             });
             let numberOfActivePhase = progressBar.fields.numberOfActivePhase;
@@ -448,7 +451,9 @@
               numberOfActivePhase < progressBar.fields.phases.length
             ) {
               $(".progress-phase-" + numberOfActivePhase).html(
-                `<b>${progressBar.fields.phases[numberOfActivePhase - 1]}</b>`
+                "<b>" +
+                  progressBar.fields.phases[numberOfActivePhase - 1] +
+                  "</b>"
               );
               $(".progress-phase-" + numberOfActivePhase)
                 .removeClass("bg-light")
@@ -457,7 +462,9 @@
                 );
             }
           })
-          .catch((error) => console.log(error));
+          .catch(function (error) {
+            console.log(error);
+          });
 
         // Get the whole open letter with the first level of inclueded links
         client
@@ -466,7 +473,7 @@
             order: "sys.createdAt",
             include: 1,
           })
-          .then((response) => {
+          .then(function (response) {
             let openLetter = response.items[0];
             //Title
             if (openLetter.fields.richTextTitle) {
@@ -503,16 +510,17 @@
               openLetter.fields.signees &&
               openLetter.fields.signees.length > 0
             ) {
-              openLetter.fields.signees.forEach((signee) =>
-                appendSignee(signee)
-              );
+              openLetter.fields.signees.forEach(function (signee) {
+                appendSignee(signee);
+              });
             }
           })
           .catch(console.error);
       });
 
-      appendSignee = (signee) => {
-        let eintrag = `<div class="col-sm-6 col-md-4 mt-3 text-left"><div class="text-center signee-logo-container">`;
+      appendSignee = function (signee) {
+        let eintrag =
+          '<div class="col-sm-6 col-md-4 mt-3 text-left"><div class="text-center signee-logo-container">';
 
         if (signee.fields.name || signee.fields.logo) {
           if (
@@ -522,27 +530,36 @@
           ) {
             eintrag =
               eintrag +
-              `<img class="img-fluid signee-logo" src="${signee.fields.logo.fields.file.url}" alt="${signee.fields.logo.fields.title}">`;
+              '<img class="img-fluid signee-logo" src="' +
+              signee.fields.logo.fields.file.url +
+              '" alt="' +
+              signee.fields.logo.fields.title +
+              '">';
           }
 
-          eintrag = eintrag + `</div><div class="mt-3">`;
+          eintrag = eintrag + '</div><div class="mt-3">';
 
           if (signee.fields.name) {
-            eintrag =
-              eintrag + `<b>${signee.fields.name}</b><br>`;
+            eintrag = eintrag + "<b>" + signee.fields.name + "</b><br>";
           }
 
           if (signee.fields.listOfSigningNames) {
             eintrag =
               eintrag +
-              `Gezeichnet von: ${signee.fields.listOfSigningNames}<br>`;
+              "Gezeichnet von: " +
+              signee.fields.listOfSigningNames +
+              "<br>";
           }
           if (signee.fields.website) {
             eintrag =
               eintrag +
-              `Website: <a href="${signee.fields.website}" target="_blank">${signee.fields.website}</a>`;
+              'Website: <a href="' +
+              signee.fields.website +
+              '" target="_blank">' +
+              signee.fields.website +
+              "</a>";
           }
-          eintrag = eintrag + `</div></div>`;
+          eintrag = eintrag + "</div></div>";
           $("#Unterzeichner").append(eintrag);
         } else {
           throw new Error("Can not create signee without name or Logo");
@@ -550,7 +567,7 @@
       };
     </script>
     <script>
-      $(document).ready(() => {
+      $(document).ready(function () {
         // Funktion für das Scroll-Verhalten
         $(function () {
           $(window).scroll(function () {
