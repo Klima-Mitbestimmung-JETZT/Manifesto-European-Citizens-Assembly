@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Signee } from '../signee.interface';
 
 @Component({
   selector: 'app-letter',
   templateUrl: './letter.component.html',
-  styleUrls: ['./letter.component.css']
+  styleUrls: ['./letter.component.css'],
 })
 export class LetterComponent implements OnInit {
+   contactNotice: {};
+   text: {};
+   addressant: String;
+   title: String;
+   signees: Signee[];
+  
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

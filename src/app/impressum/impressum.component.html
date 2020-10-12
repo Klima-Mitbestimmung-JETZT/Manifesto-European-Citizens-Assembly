@@ -8,15 +8,22 @@
     <div class="col">
       <h4>Angaben gemäß § 5 TMG:</h4>
       <h5 id="verantwortlich">Verantwortlich:</h5>
-      <p>
-        {{ responsible.name }}<br /><a href="mailto://" +contact.fields.email>
+      <p *ngIf="responsible">
+        <ng-template [ngIf]="responsible.name"
+          >{{ responsible.name }}<br /></ng-template
+        ><a *ngIf="responsible.email" href="'mailto://'+responsible.email">
           {{ responsible.email }}</a
-        ><br />{{ contact.fields.adress }}
+        ><ng-template [ngIf]="responsible.adress"
+          ><br />{{ responsible.adress }}</ng-template
+        >
       </p>
 
       <h5 id="technischUmsetzende">Technische Umsetzung:</h5>
-      <p *ngFor="let contact; in: technicalContacts">
-        {{ contact.name }}<br /><a href="mailto://" +contact.email>
+      <p *ngFor="let contact of technicalContacts">
+        {{ contact.name }}<br /><a
+          *ngIf="contact.email"
+          href="'mailto://'+contact.email"
+        >
           {{ contact.email }}</a
         >
       </p>

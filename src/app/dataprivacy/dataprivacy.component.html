@@ -9,10 +9,16 @@
       <p id="EinleitendeFormulierung">
         {{ introductoryParagraph }}
       </p>
-      <p>
-        {{ responsible.name }}<br />
-        <a href="mailto://" +contact.fields.email> {{ responsible.email }}</a
-        ><br />{{ responsible.adress }}
+      <p *ngIf="responsible">
+        <ng-template [ngIf]="responsible.name">
+          >{{ responsible.name }}<br
+        /></ng-template>
+        <a *ngIf="responsible.email" href="'mailto://' +responsible.email">
+          {{ responsible.email }}</a
+        >
+        <ng-template [ngIf]="responsible.adress"
+          ><br />{{ responsible.adress }}</ng-template
+        >
       </p>
     </div>
   </div>

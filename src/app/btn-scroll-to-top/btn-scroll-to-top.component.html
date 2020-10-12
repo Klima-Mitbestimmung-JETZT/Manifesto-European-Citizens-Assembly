@@ -1,3 +1,10 @@
-<button id="btn-scroll-to-top" class="rounded shadow-lg" title="Go to top">
-  <i class="fa fa-chevron-up fa-2x"></i>
-</button>
+<div [ngClass]="{ 'show-scroll-to-top': windowScrolled }">
+  <button
+    id="btn-scroll-to-top"
+    class="rounded shadow-lg"
+    title="Go to top"
+    (click)="scrollToTop()"
+  >
+    <i class="fa fa-chevron-up fa-2x"></i>
+  </button>
+</div>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Logo } from '../logo.interface';
 
 @Component({
   selector: 'app-signee',
@@ -6,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signee.component.css']
 })
 export class SigneeComponent implements OnInit {
-
+   listOfSigningNames: String;
+   name: String;
+   website:String;
+   logo:Logo;
   constructor() { }
 
   ngOnInit(): void {

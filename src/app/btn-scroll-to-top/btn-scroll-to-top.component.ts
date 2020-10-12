@@ -1,35 +1,39 @@
-import { Component, OnInit } from '@angular/core';
-
+import { DOCUMENT } from '@angular/common';
+import { Component, OnInit, Inject, HostListener } from '@angular/core';
 @Component({
   selector: 'app-btn-scroll-to-top',
   templateUrl: './btn-scroll-to-top.component.html',
-  styleUrls: ['./btn-scroll-to-top.component.css']
+  styleUrls: ['./btn-scroll-to-top.component.css'],
 })
 export class BtnScrollToTopComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > 100) {
-      // Wenn 100 Pixel gescrolled wurde
-      $("#btn-scroll-to-top").fadeIn();
-    } else {
-      $("#btn-scroll-to-top").fadeOut();
+  windowScrolled: boolean;
+  constructor(@Inject(DOCUMENT) private document: Document) {}
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    if (
+      window.pageYOffset ||
+      document.documentElement.scrollTop ||
+      document.body.scrollTop > 100
+    ) {
+      this.windowScrolled = true;
+    } else if (
+      (this.windowScrolled && window.pageYOffset) ||
+      document.documentElement.scrollTop ||
+      document.body.scrollTop < 10
+    ) {
+      this.windowScrolled = false;
     }
-  });
+  }
+  ngOnInit(): void {}
 
-  $("#btn-scroll-to-top").click(function () {
-    // Klick auf den Button
-    $("body,html").animate(
-      {
-        scrollTop: 0,
-      },
-      800
-    );
-    return false;
-  });
-
+  scrollToTop() {
+    (function smoothscroll() {
+      var currentScroll =
+        document.documentElement.scrollTop || document.body.scrollTop;
+      if (currentScroll > 0) {
+        window.requestAnimationFrame(smoothscroll);
+        window.scrollTo(0, currentScroll - currentScroll / 8);
+      }
+    })();
+  }
 }

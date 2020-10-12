@@ -7,7 +7,6 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { BtnScrollToTopComponent } from './btn-scroll-to-top/btn-scroll-to-top.component';
 import { LetterComponent } from './letter/letter.component';
-import { SigneesComponent } from './signees/signees.component';
 import { SigneeComponent } from './signee/signee.component';
 import { DataprivacyComponent } from './dataprivacy/dataprivacy.component';
 import { ImpressumComponent } from './impressum/impressum.component';
@@ -19,7 +18,6 @@ import { ImpressumComponent } from './impressum/impressum.component';
     FooterComponent,
     BtnScrollToTopComponent,
     LetterComponent,
-    SigneesComponent,
     SigneeComponent,
     DataprivacyComponent,
     ImpressumComponent
