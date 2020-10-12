@@ -1,0 +1,30 @@
+<div id="container" class="container mb-3 p-3 p-sm-5 shadow-lg rounded">
+  <div class="row" id="Titel">
+    <div class="col">
+      <h2>Impressum</h2>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col">
+      <h4>Angaben gemäß § 5 TMG:</h4>
+      <h5 id="verantwortlich">Verantwortlich:</h5>
+      <p>
+        {{ responsible.name }}<br /><a href="mailto://" +contact.fields.email>
+          {{ responsible.email }}</a
+        ><br />{{ contact.fields.adress }}
+      </p>
+
+      <h5 id="technischUmsetzende">Technische Umsetzung:</h5>
+      <p *ngFor="let contact; in: technicalContacts">
+        {{ contact.name }}<br /><a href="mailto://" +contact.email>
+          {{ contact.email }}</a
+        >
+      </p>
+    </div>
+  </div>
+  <div id="Impressums-Text" class="row mt-3">
+    <div class="col">
+      {{ text }}
+    </div>
+  </div>
+</div>
