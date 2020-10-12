@@ -1,20 +1,14 @@
 import { Injectable } from '@angular/core';
 import { createClient, Entry } from 'contentful';
-
-// configure the service with tokens and content type ids
-// SET YOU OWN CONFIG here
-const CONFIG = {
-  space: '5z21gx3h7sb2',
-  accessToken: 'ecQ2l4UMTYi1MU3Szr2iNLep8Ak_pNp5i3Nxe1qU3VA',
-};
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ContentfulService {
   private cdaClient = createClient({
-    space: CONFIG.space,
-    accessToken: CONFIG.accessToken,
+    space: environment.contentful.space,
+    accessToken: environment.contentful.accessToken,
   });
 
   constructor() {}
