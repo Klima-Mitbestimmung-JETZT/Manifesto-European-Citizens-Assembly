@@ -1,11 +1,22 @@
-<div class="col-sm-6 col-md-4 mt-3 text-left">
+<ng-container>
   <div class="text-center signee-logo-container">
-    <img class="img-fluid signee-logo" src="logo.url" alt="logo.title" />
+    <img
+      *ngIf="logo"
+      class="img-fluid signee-logo"
+      [src]="logo.fields.file.url"
+      [alt]="logo.fields.title"
+    />
   </div>
   <div class="mt-3">
-    <b>{{ name }}</b
-    ><br />
-    Gezeichnet von: {{ listOfSigningNames }} <br />
-    Website:<a href="website" target="_blank"> {{ website }}</a>
+    <b *ngIf="name">{{ name }}</b>
+
+    <ng-template [ngIf]="listOfSigningNames"
+      ><br />Gezeichnet von: {{ listOfSigningNames }}</ng-template
+    >
+
+    <ng-template [ngIf]="website"
+      ><br />Website:
+      <a href="website" target="_blank"> {{ website }}</a></ng-template
+    >
   </div>
-</div>
+</ng-container>

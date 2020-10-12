@@ -11,6 +11,9 @@ import { SigneeComponent } from './signee/signee.component';
 import { DataprivacyComponent } from './dataprivacy/dataprivacy.component';
 import { ImpressumComponent } from './impressum/impressum.component';
 
+// import services
+import { ContentfulService } from './contentful.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,13 +23,10 @@ import { ImpressumComponent } from './impressum/impressum.component';
     LetterComponent,
     SigneeComponent,
     DataprivacyComponent,
-    ImpressumComponent
+    ImpressumComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, AppRoutingModule],
+  providers: [ContentfulService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
