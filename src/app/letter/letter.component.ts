@@ -18,9 +18,7 @@ export class LetterComponent implements OnInit {
   constructor(private contentfulService: ContentfulService) {}
 
   ngOnInit(): void {
-    this.contentfulService.getLetter().then((entries) => {
-      let letter = entries[0];
-      console.log(letter);
+    this.contentfulService.getLetter().then((letter) => {
       if (letter.fields.text) this.text = letter.fields.text;
       if (letter.fields.richTextTitle) this.title = letter.fields.richTextTitle;
       if (letter.fields.addressat) this.addressant = letter.fields.addressat;
