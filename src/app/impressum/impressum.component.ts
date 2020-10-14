@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import * as helper from 'src/app/helper.functions';
 import { Contact } from '../contact.interface';
 import { ContentfulService } from '../contentful.service';
 
