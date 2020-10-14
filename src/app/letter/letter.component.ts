@@ -36,7 +36,7 @@ export class LetterComponent implements OnInit {
       richText === null ||
       richText.nodeType !== 'document'
     ) {
-      return '<p>Error</p>';
+      return '<p>Loading ...</p>';
     }
     return documentToHtmlString(richText);
   }

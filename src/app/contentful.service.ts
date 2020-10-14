@@ -15,11 +15,7 @@ export class ContentfulService {
 
   getLetter(): Promise<Entry<any>> {
     return this.contentfulClient
-      .getEntries({
-        'sys.id': '2aDDbb4AjEQdCo0IW7AnLm',
-        order: 'sys.createdAt',
-        include: 1,
-      })
+      .getEntries({ 'sys.id': '2aDDbb4AjEQdCo0IW7AnLm', include: 1 })
       .then((res) => res.items[0]);
   }
 
