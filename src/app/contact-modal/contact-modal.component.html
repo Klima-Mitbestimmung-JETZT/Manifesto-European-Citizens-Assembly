@@ -1,0 +1,73 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Kontaktieren</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="signee-email">E-Mail:</label>
+        <input
+          type="email"
+          class="form-control"
+          id="signee-email"
+          aria-describedby="emailHelp"
+          placeholder="Bitte E-Mail eingeben"
+        />
+      </div>
+      <div class="form-group">
+        <label for="signee-phone">Telefon:</label>
+        <input
+          type="phone"
+          class="form-control"
+          id="signee-phone"
+          aria-describedby="phoneHelp"
+          placeholder="Bitte Telefon eingeben"
+        />
+        <small id="phoneHelp" class="form-text text-muted"
+          >Wir werden diese Daten niemals an Dritte weitergeben und sie nur für
+          den Kontakt mit dir verwenden.</small
+        >
+      </div>
+      <div class="form-group">
+        <label for="contact-name">Name:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="contact-name"
+          placeholder="Bitte deinen Namen eingeben"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="contact-message">Nachricht:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="contact-message"
+          placeholder="Bitte deine Nachricht eingeben"
+        />
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="modal.close('Save click')"
+    >
+      Absenden.
+    </button>
+  </div>
+</ng-template>
+
+<button class="btn btn-secondary" (click)="open(content)">
+  Jetzt Kontakt aufnehmen!
+</button>

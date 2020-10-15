@@ -2,13 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-sign-letter-modal',
-  templateUrl: './sign-letter-modal.component.html',
-  styleUrls: ['./sign-letter-modal.component.css'],
+  selector: 'app-contact-modal',
+  templateUrl: './contact-modal.component.html',
+  styleUrls: ['./contact-modal.component.css'],
 })
-export class SignLetterModalComponent implements OnInit {
+export class ContactModalComponent implements OnInit {
   closeResult: string;
-
   constructor(private modalService: NgbModal) {}
 
   ngOnInit(): void {}
