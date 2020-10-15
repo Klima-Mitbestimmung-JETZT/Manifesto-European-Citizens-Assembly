@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-
 @Component({
   selector: 'app-sign-letter-modal',
   templateUrl: './sign-letter-modal.component.html',
@@ -8,6 +7,10 @@ import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class SignLetterModalComponent implements OnInit {
   closeResult: string;
+
+  form = {};
+
+  formSubmitted = false;
 
   constructor(private modalService: NgbModal) {}
 

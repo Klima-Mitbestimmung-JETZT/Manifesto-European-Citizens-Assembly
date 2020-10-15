@@ -11,15 +11,73 @@
     </button>
   </div>
   <div class="modal-body">
-    <form>
+    <form #signLetterForm="ngForm">
       <div class="form-group">
-        <label for="signee-email">E-Mail:</label>
+        <label for="signee-organisation">Meine Organisation:*</label>
+        <input
+          type="text"
+          class="form-control"
+          id="signee-organisation"
+          name="signee-organisation"
+          placeholder="Bitte den Namen deiner Organisation eingeben"
+          required
+          [(ngModel)]="form.organisation"
+        />
+      </div>
+      <div class="form-group">
+        <label for="signee-website">Website:*</label>
+        <input
+          type="url"
+          class="form-control"
+          id="signee-website"
+          name="signee-website"
+          placeholder="Bitte die Website deiner Organisation eingeben"
+          required
+          [(ngModel)]="form.website"
+        />
+      </div>
+      <div class="form-group">
+        <label for="signee-names">Die Unterzeichnenden:*</label>
+        <input
+          type="text"
+          class="form-control"
+          id="signee-names"
+          name="signee-names"
+          placeholder="Bitte deinen und optional zwei weitere Namen eingeben"
+          required
+          [(ngModel)]="form.listOfSigningNames"
+        />
+      </div>
+      <div class="form-group">
+        <label for="signee-logo">Logo deiner Organisaion</label>
+        <input
+          type="file"
+          [(ngModel)]="form.logo"
+          class="form-control-file"
+          id="signee-logo"
+        />
+      </div>
+      <div class="form-group">
+        <label for="contact-message">Nachricht:</label>
+        <textarea
+          class="form-control"
+          id="contact-message"
+          name="contact-message"
+          placeholder="Bitte deine Nachricht eingeben"
+          rows="3"
+          [(ngModel)]="form.message"
+        ></textarea>
+      </div>
+      <div class="form-group">
+        <label for="signee-email">E-Mail:*</label>
         <input
           type="email"
           class="form-control"
           id="signee-email"
-          aria-describedby="emailHelp"
+          name="signee-email"
           placeholder="Bitte E-Mail eingeben"
+          required
+          [(ngModel)]="form.email"
         />
       </div>
       <div class="form-group">
@@ -28,40 +86,10 @@
           type="phone"
           class="form-control"
           id="signee-phone"
-          aria-describedby="phoneHelp"
+          name="signee-phone"
+          aria-describedby="formHelp"
           placeholder="Bitte Telefon eingeben"
-        />
-        <small id="phoneHelp" class="form-text text-muted"
-          >Wir werden diese Daten niemals an Dritte weitergeben und sie nur bei
-          Bedarf für eine Verifizierung und den Kontakt mit Dir
-          verwenden.</small
-        >
-      </div>
-      <div class="form-group">
-        <label for="signee-organisation">Meine Organisation:</label>
-        <input
-          type="text"
-          class="form-control"
-          id="signee-organisation"
-          placeholder="Bitte den Namen deiner Organisation eingeben"
-        />
-      </div>
-      <div class="form-group">
-        <label for="signee-website">Website:</label>
-        <input
-          type="text"
-          class="form-control"
-          id="signee-website"
-          placeholder="Bitte die Website deiner Organisation eingeben"
-        />
-      </div>
-      <div class="form-group">
-        <label for="signee-names">Die Unterzeichnenden:</label>
-        <input
-          type="text"
-          class="form-control"
-          id="signee-names"
-          placeholder="Bitte deinen und optional zwei weitere Namen eingeben"
+          [(ngModel)]="form.phone"
         />
       </div>
       <div class="form-check">
@@ -69,21 +97,35 @@
           type="checkbox"
           class="form-check-input"
           id="confirmation-check"
+          name="confirmation-check"
+          aria-describedby="formHelp"
+          required
+          [(ngModel)]="form.confirmationCheck"
         />
         <label class="form-check-label" for="confirmation-check"
-          >Ich möchte stellvertretend für meine Organisation den offenen Brief
+          >* Ich möchte stellvertretend für meine Organisation den offenen Brief
           mitzeichnen und bin einverstanden, dass der Name der Organisation, ihr
-          Logo, die URL ihrer Website und die Namen der Zeichnenden auf der Website des
-          offenen Briefs veröffentlicht werden.
+          Logo, die URL ihrer Website und die Namen der Zeichnenden auf der
+          Website des offenen Briefs veröffentlicht werden.
         </label>
+      </div>
+      <div class="form-group">
+        <small id="formHelp" class="form-text text-muted"
+          ><p>
+            Ohne dein Einverständnis werden wir deine Daten niemals an Dritte
+            weitergeben und sie nur bei Bedarf für eine Verifizierung und den
+            Kontakt mit Dir verwenden.
+          </p>
+          <p>Die mit * gekennzeichneten Felder sind Pflichtfelder.</p></small
+        >
       </div>
     </form>
   </div>
   <div class="modal-footer">
     <button
-      type="button"
-      class="btn btn-outline-dark"
-      (click)="modal.close('Save click')"
+      type="submit"
+      class="btn btn-success"
+      [disabled]="!signLetterForm.form.valid"
     >
       Absenden.
     </button>
