@@ -13,6 +13,8 @@ import { ImpressumComponent } from './impressum/impressum.component';
 
 // import services
 import { ContentfulService } from './contentful.service';
+import { SignLetterModalComponent } from './sign-letter-modal/sign-letter-modal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -24,8 +26,9 @@ import { ContentfulService } from './contentful.service';
     SigneeComponent,
     DataprivacyComponent,
     ImpressumComponent,
+    SignLetterModalComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, NgbModule],
   providers: [ContentfulService],
   bootstrap: [AppComponent],
 })
