@@ -139,8 +139,11 @@
         >
       </div>
     </form>
-    <div [hidden]="!formSubmitted">
-      <p>Vielen Dank für deine Unterzeichnung!</p>
+
+    <div [hidden]="loading || !formSubmitted">
+      <div class="alert alert-success" role="alert">
+        Vielen Dank für deine Zeichnung.
+      </div>
 
       <p *ngIf="form.organisation">
         Meine Organisation: {{ form.organisation }}
@@ -165,6 +168,14 @@
   </div>
 
   <div class="modal-footer">
+    <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </div>
+    <div class="text-center" *ngIf="loading">
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
     <button
       type="button"
       aria-label="Close"

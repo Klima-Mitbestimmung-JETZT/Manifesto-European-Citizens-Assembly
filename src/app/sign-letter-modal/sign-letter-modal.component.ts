@@ -10,8 +10,10 @@ export class SignLetterModalComponent implements OnInit {
   closeResult: string;
 
   form = {};
+  loading = false;
+  errorMessage = '';
 
-  formSubmitted:Boolean = false;
+  formSubmitted: Boolean = false;
 
   constructor(private modalService: NgbModal, private http: HttpClient) {}
 
@@ -24,6 +26,8 @@ export class SignLetterModalComponent implements OnInit {
         (result) => {
           this.formSubmitted = false;
           this.form = {};
+          this.errorMessage = '';
+          this.loading = false;
           this.closeResult = `Closed with: ${result}`;
         },
         (reason) => {
@@ -33,11 +37,10 @@ export class SignLetterModalComponent implements OnInit {
   }
 
   onSubmit() {
-    this.formSubmitted = true;
+    this.loading = true;
     const formData = new FormData();
     for (var key in this.form) {
       if (key === 'logo') {
-        console.log(this.form[key]);
         formData.append('logo', this.form[key]);
       } else {
         formData.append(key, this.form[key]);
@@ -46,13 +49,18 @@ export class SignLetterModalComponent implements OnInit {
     this.http.post<any>('http://127.0.0.1:3000/signee', formData).subscribe({
       next: (data) => {
         console.log(data);
+        this.loading = false;
+        this.formSubmitted = true;
+        this.errorMessage = '';
       },
       error: (error) => {
-        //this.errorMessage = error.message;
-        console.error('There was an error!', error);
+        this.formSubmitted = false;
+        this.loading = false;
+        console.error(error);
+        this.errorMessage =
+          'Deine Zeichnung konnte nicht übermittelt werden. Versuche es später noch einmal oder wende direkt an kontakt@klima-rat.org. Vielen Dank für Dein Verständnis.';
       },
     });
-    console.log(this.form);
   }
 
   onFileSelect(event) {
