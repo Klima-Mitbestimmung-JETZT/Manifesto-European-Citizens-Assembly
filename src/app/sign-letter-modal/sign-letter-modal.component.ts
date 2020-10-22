@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { environment } from 'src/environments/environment';
+
 @Component({
   selector: 'app-sign-letter-modal',
   templateUrl: './sign-letter-modal.component.html',
@@ -46,21 +48,23 @@ export class SignLetterModalComponent implements OnInit {
         formData.append(key, this.form[key]);
       }
     }
-    this.http.post<any>('http://127.0.0.1:3000/signee', formData).subscribe({
-      next: (data) => {
-        console.log(data);
-        this.loading = false;
-        this.formSubmitted = true;
-        this.errorMessage = '';
-      },
-      error: (error) => {
-        this.formSubmitted = false;
-        this.loading = false;
-        console.error(error);
-        this.errorMessage =
-          'Deine Zeichnung konnte nicht übermittelt werden. Versuche es später noch einmal oder wende direkt an kontakt@klima-rat.org. Vielen Dank für Dein Verständnis.';
-      },
-    });
+    this.http
+      .post<any>(environment.mailService.url + '/signee', formData)
+      .subscribe({
+        next: (data) => {
+          console.log(data);
+          this.loading = false;
+          this.formSubmitted = true;
+          this.errorMessage = '';
+        },
+        error: (error) => {
+          this.formSubmitted = false;
+          this.loading = false;
+          console.error(error);
+          this.errorMessage =
+            'Deine Zeichnung konnte nicht übermittelt werden. Versuche es später noch einmal oder wende direkt an kontakt@klima-rat.org. Vielen Dank für Dein Verständnis.';
+        },
+      });
   }
 
   onFileSelect(event) {

@@ -8,6 +8,9 @@ export const environment = {
     space: '5z21gx3h7sb2',
     accessToken: 'ecQ2l4UMTYi1MU3Szr2iNLep8Ak_pNp5i3Nxe1qU3VA',
   },
+  mailService:{
+    url: 'http://open-letter-mailer.herokuapp.com'
+  }
 };
 
 /*
