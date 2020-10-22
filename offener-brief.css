@@ -59,7 +59,6 @@ img {
 
 .signee-logo {
   max-height: 120px;
-  max-width: 300px;
 }
 
 .signee-logo-container:empty {
@@ -72,6 +71,7 @@ img {
   }
   .signee-logo-container {
     height: 120px;
+    line-height: 120px;
   }
 
   .signee-container {
