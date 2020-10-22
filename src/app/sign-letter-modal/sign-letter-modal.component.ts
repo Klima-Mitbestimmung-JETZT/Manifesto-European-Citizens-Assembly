@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
@@ -12,7 +13,7 @@ export class SignLetterModalComponent implements OnInit {
 
   formSubmitted:Boolean = false;
 
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal, private http: HttpClient) {}
 
   ngOnInit(): void {}
 
@@ -21,12 +22,44 @@ export class SignLetterModalComponent implements OnInit {
       .open(content, { ariaLabelledBy: 'modal-basic-title' })
       .result.then(
         (result) => {
+          this.formSubmitted = false;
+          this.form = {};
           this.closeResult = `Closed with: ${result}`;
         },
         (reason) => {
           this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
         }
       );
+  }
+
+  onSubmit() {
+    this.formSubmitted = true;
+    const formData = new FormData();
+    for (var key in this.form) {
+      if (key === 'logo') {
+        console.log(this.form[key]);
+        formData.append('logo', this.form[key]);
+      } else {
+        formData.append(key, this.form[key]);
+      }
+    }
+    this.http.post<any>('http://127.0.0.1:3000/signee', formData).subscribe({
+      next: (data) => {
+        console.log(data);
+      },
+      error: (error) => {
+        //this.errorMessage = error.message;
+        console.error('There was an error!', error);
+      },
+    });
+    console.log(this.form);
+  }
+
+  onFileSelect(event) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.form['logo'] = file;
+    }
   }
 
   private getDismissReason(reason: any): string {

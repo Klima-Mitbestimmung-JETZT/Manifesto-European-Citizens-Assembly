@@ -13,6 +13,8 @@ import { ImpressumComponent } from './impressum/impressum.component';
 
 import { FormsModule } from '@angular/forms';
 
+import { HttpClientModule } from '@angular/common/http';
+
 // import services
 import { ContentfulService } from './contentful.service';
 import { SignLetterModalComponent } from './sign-letter-modal/sign-letter-modal.component';
@@ -32,7 +34,13 @@ import { ContactModalComponent } from './contact-modal/contact-modal.component';
     SignLetterModalComponent,
     ContactModalComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, NgbModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgbModule,
+    FormsModule,
+    HttpClientModule,
+  ],
   providers: [ContentfulService],
   bootstrap: [AppComponent],
 })

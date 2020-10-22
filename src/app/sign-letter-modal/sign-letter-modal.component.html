@@ -11,9 +11,14 @@
     </button>
   </div>
   <div class="modal-body">
-    <form #signLetterForm="ngForm">
+    <form
+      id="signLetterForm"
+      #signLetterForm="ngForm"
+      (ngSubmit)="onSubmit()"
+      [hidden]="formSubmitted"
+    >
       <div class="form-group">
-        <label for="signee-organisation">Meine Organisation:*</label>
+        <label for="signee-organisation">Organisation:*</label>
         <input
           type="text"
           class="form-control"
@@ -43,19 +48,19 @@
           class="form-control"
           id="signee-names"
           name="signee-names"
-          placeholder="Bitte deinen und optional zwei weitere Namen eingeben"
+          placeholder="Bitte die Namen von maximal 3 Unterzeichnenden eingeben"
           required
           [(ngModel)]="form.listOfSigningNames"
         />
       </div>
       <div class="form-group">
-        <label for="signee-logo">Logo deiner Organisaion</label>
+        <label for="signee-logo">Logo der Organisaion</label>
         <input
           type="file"
           name="signee-logo"
-          [(ngModel)]="form.logo"
           class="form-control-file"
           id="signee-logo"
+          (change)="onFileSelect($event)"
         />
       </div>
       <div class="form-group">
@@ -68,6 +73,18 @@
           rows="3"
           [(ngModel)]="form.message"
         ></textarea>
+      </div>
+      <div class="form-group">
+        <label for="signee-email">Name:*</label>
+        <input
+          type="text"
+          class="form-control"
+          id="signee-name"
+          name="signee-name"
+          placeholder="Bitte deinen Namen eingeben"
+          required
+          [(ngModel)]="form.name"
+        />
       </div>
       <div class="form-group">
         <label for="signee-email">E-Mail:*</label>
@@ -122,12 +139,47 @@
         >
       </div>
     </form>
+    <div [hidden]="!formSubmitted">
+      <p>Vielen Dank für deine Unterzeichnung!</p>
+
+      <p *ngIf="form.organisation">
+        Meine Organisation: {{ form.organisation }}
+      </p>
+
+      <p *ngIf="form.website">Website: {{ form.website }}</p>
+
+      <p *ngIf="form.listOfSigningNames">
+        Die Unterzeichnenden: {{ form.listOfSigningNames }}
+      </p>
+
+      <p *ngIf="form.logo">Logo deiner Organisaion: {{ form.logo.name }}</p>
+
+      <p *ngIf="form.name">Mein Name: {{ form.name }}</p>
+
+      <p *ngIf="form.email">E-Mail: {{ form.email }}</p>
+
+      <p *ngIf="form.phone">Telefon: {{ form.phone }}</p>
+
+      <p *ngIf="form.message">Nachricht: {{ form.message }}</p>
+    </div>
   </div>
+
   <div class="modal-footer">
+    <button
+      type="button"
+      aria-label="Close"
+      class="btn btn-secondary"
+      (click)="modal.close('Mitzeichnen erfolgreich abgeschlossen')"
+      [hidden]="!formSubmitted"
+    >
+      Schließen
+    </button>
     <button
       type="submit"
       class="btn btn-success"
       [disabled]="!signLetterForm.form.valid"
+      form="signLetterForm"
+      [hidden]="formSubmitted"
     >
       Absenden.
     </button>
