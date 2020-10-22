@@ -10,7 +10,7 @@ export class SignLetterModalComponent implements OnInit {
 
   form = {};
 
-  formSubmitted = false;
+  formSubmitted:Boolean = false;
 
   constructor(private modalService: NgbModal) {}
 

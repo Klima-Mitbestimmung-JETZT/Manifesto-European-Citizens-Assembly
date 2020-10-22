@@ -52,6 +52,7 @@
         <label for="signee-logo">Logo deiner Organisaion</label>
         <input
           type="file"
+          name="signee-logo"
           [(ngModel)]="form.logo"
           class="form-control-file"
           id="signee-logo"
@@ -78,6 +79,7 @@
           placeholder="Bitte E-Mail eingeben"
           required
           [(ngModel)]="form.email"
+          email
         />
       </div>
       <div class="form-group">

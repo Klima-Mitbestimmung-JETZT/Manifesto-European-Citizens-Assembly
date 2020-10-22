@@ -8,6 +8,10 @@ import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ContactModalComponent implements OnInit {
   closeResult: string;
+
+  form = {};
+  formSubmitted: Boolean = false;
+
   constructor(private modalService: NgbModal) {}
 
   ngOnInit(): void {}

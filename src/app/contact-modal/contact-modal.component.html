@@ -11,15 +11,18 @@
     </button>
   </div>
   <div class="modal-body">
-    <form>
+    <form #contactForm="ngForm">
       <div class="form-group">
-        <label for="signee-email">E-Mail:</label>
+        <label for="signee-email">E-Mail:*</label>
         <input
           type="email"
           class="form-control"
           id="signee-email"
-          aria-describedby="emailHelp"
+          name="signee-email"
           placeholder="Bitte E-Mail eingeben"
+          [(ngModel)]="form.email"
+          required
+          email
         />
       </div>
       <div class="form-group">
@@ -28,13 +31,10 @@
           type="phone"
           class="form-control"
           id="signee-phone"
-          aria-describedby="phoneHelp"
+          name="signee-phone"
           placeholder="Bitte Telefon eingeben"
+          [(ngModel)]="form.phone"
         />
-        <small id="phoneHelp" class="form-text text-muted"
-          >Wir werden diese Daten niemals an Dritte weitergeben und sie nur für
-          den Kontakt mit dir verwenden.</small
-        >
       </div>
       <div class="form-group">
         <label for="contact-name">Name:</label>
@@ -42,26 +42,41 @@
           type="text"
           class="form-control"
           id="contact-name"
+          name="contact-name"
           placeholder="Bitte deinen Namen eingeben"
+          [(ngModel)]="form.name"
         />
       </div>
 
       <div class="form-group">
-        <label for="contact-message">Nachricht:</label>
+        <label for="contact-message">Nachricht:*</label>
         <textarea
           class="form-control"
           id="contact-message"
+          name="contact-message"
           placeholder="Bitte deine Nachricht eingeben"
           rows="3"
+          [(ngModel)]="form.message"
+          required
         ></textarea>
+      </div>
+      <div class="form-group">
+        <small id="formHelp" class="form-text text-muted"
+          ><p>
+            Ohne dein Einverständnis werden wir deine Daten niemals an Dritte
+            weitergeben und sie nur bei Bedarf für eine Verifizierung und den
+            Kontakt mit Dir verwenden.
+          </p>
+          <p>Die mit * gekennzeichneten Felder sind Pflichtfelder.</p></small
+        >
       </div>
     </form>
   </div>
   <div class="modal-footer">
     <button
-      type="button"
-      class="btn btn-outline-dark"
-      (click)="modal.close('Save click')"
+      type="submit"
+      class="btn btn-success"
+      [disabled]="!contactForm.form.valid"
     >
       Absenden.
     </button>
