@@ -12,7 +12,7 @@ export class SignLetterModalComponent implements OnInit {
   closeResult: string;
 
   form = {};
-  loading = false;
+  loading: Boolean = false;
   errorMessage = '';
 
   formSubmitted: Boolean = false;
