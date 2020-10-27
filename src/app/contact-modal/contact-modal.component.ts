@@ -39,14 +39,9 @@ export class ContactModalComponent implements OnInit {
   }
   onSubmit() {
     this.loading = true;
-    const formData = new FormData();
-
-    for (var key in this.form) {
-      formData.append(key, this.form[key]);
-    }
 
     this.http
-      .post<any>(environment.mailService.url + '/contact', formData)
+      .post<any>(environment.mailService.url + '/contact', this.form)
       .subscribe({
         next: (data) => {
           this.loading = false;
