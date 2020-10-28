@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
   bottomNotice = `Wir unterstützen keine Nutzung des Internet Explorers. Wir empfehlen
-  Ihnen/Dir, grundsätzlich einen anderen Browser zu nutzen. Damit können
-  Sie/kannst du das Internet angenehmer und sicherer nutzen.`;
+  ihnen, grundsätzlich einen anderen Browser zu nutzen. Damit können
+  sie das Internet angenehmer und sicherer nutzen.`;
   constructor() {}
 
   ngOnInit(): void {}

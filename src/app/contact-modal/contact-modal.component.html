@@ -24,7 +24,7 @@
           class="form-control"
           id="signee-email"
           name="signee-email"
-          placeholder="Bitte E-Mail eingeben"
+          placeholder="Bitte geben sie ihre E-Mail ein"
           [(ngModel)]="form.email"
           required
           email
@@ -37,7 +37,7 @@
           class="form-control"
           id="contact-name"
           name="contact-name"
-          placeholder="Bitte deinen Namen eingeben"
+          placeholder="Bitte geben sie ihren Namen ein"
           [(ngModel)]="form.name"
           required
         />
@@ -49,9 +49,11 @@
           class="form-control"
           id="signee-phone"
           name="signee-phone"
-          placeholder="Bitte Telefon eingeben"
+          aria-describedby="phoneHelp"
+          placeholder="Bitte geben sie optional ihre Telefonnummer ein"
           [(ngModel)]="form.phone"
         />
+        <small id="phoneHelp" class="form-text text-muted">Optional</small>
       </div>
       <div class="form-group">
         <label for="contact-message">Nachricht:*</label>
@@ -59,7 +61,7 @@
           class="form-control"
           id="contact-message"
           name="contact-message"
-          placeholder="Bitte deine Nachricht eingeben"
+          placeholder="Hier können sie uns optional eine Nachricht zukommen lassen"
           rows="3"
           [(ngModel)]="form.message"
           required
@@ -68,9 +70,9 @@
       <div class="form-group">
         <small id="formHelp" class="form-text text-muted"
           ><p>
-            Ohne dein Einverständnis werden wir deine Daten niemals an Dritte
+            Ohne ihr Einverständnis werden wir ihre Daten niemals an Dritte
             weitergeben und sie nur bei Bedarf für eine Verifizierung und den
-            Kontakt mit Dir verwenden.
+            Kontakt mit Ihnen verwenden.
           </p>
           <p>Die mit * gekennzeichneten Felder sind Pflichtfelder.</p></small
         >
@@ -80,8 +82,15 @@
     <!-- Success message -->
     <div [hidden]="loading || !formSubmitted">
       <div class="alert alert-success" role="alert">
-        Vielen Dank für deine Nachricht.
+        Vielen Dank für ihre Nachricht.
       </div>
+      <p *ngIf="form.name">Ihr Name: {{ form.name }}</p>
+
+      <p *ngIf="form.email">E-Mail: {{ form.email }}</p>
+
+      <p *ngIf="form.phone">Telefon: {{ form.phone }}</p>
+
+      <p *ngIf="form.message">Nachricht: {{ form.message }}</p>
     </div>
   </div>
 

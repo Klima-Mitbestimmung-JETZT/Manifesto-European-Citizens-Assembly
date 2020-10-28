@@ -24,7 +24,7 @@
           class="form-control"
           id="signee-organisation"
           name="signee-organisation"
-          placeholder="Bitte den Namen deiner Organisation eingeben"
+          placeholder="Bitte geben sie den Namen ihrer Organisation ein"
           required
           [(ngModel)]="form.organisation"
         />
@@ -36,7 +36,7 @@
           class="form-control"
           id="signee-website"
           name="signee-website"
-          placeholder="Bitte die Website deiner Organisation eingeben"
+          placeholder="Bitte geben sie die Website ihrer Organisation ein"
           required
           [(ngModel)]="form.website"
         />
@@ -48,20 +48,24 @@
           class="form-control"
           id="signee-names"
           name="signee-names"
-          placeholder="Bitte die Namen von maximal 3 Unterzeichnenden eingeben"
+          placeholder="Bitte geben sie die Namen von maximal 3 Unterzeichnenden ein"
           required
           [(ngModel)]="form.listOfSigningNames"
         />
       </div>
       <div class="form-group">
-        <label for="signee-logo">Logo der Organisaion</label>
+        <label for="signee-logo">Logo der Organisation:</label>
         <input
           type="file"
           name="signee-logo"
           class="form-control-file"
           id="signee-logo"
           (change)="onFileSelect($event)"
+          aria-describedby="logoHelp"
         />
+        <small id="logoHelp" class="form-text text-muted"
+          >Optional. Ggf. verwenden wir das Logo ihrer Website.</small
+        >
       </div>
       <div class="form-group">
         <label for="contact-message">Nachricht:</label>
@@ -69,7 +73,7 @@
           class="form-control"
           id="contact-message"
           name="contact-message"
-          placeholder="Bitte deine Nachricht eingeben"
+          placeholder="Hier können sie uns optional eine Nachricht zukommen lassen"
           rows="3"
           [(ngModel)]="form.message"
         ></textarea>
@@ -81,7 +85,7 @@
           class="form-control"
           id="signee-name"
           name="signee-name"
-          placeholder="Bitte deinen Namen eingeben"
+          placeholder="Bitte geben sie ihren Namen ein"
           required
           [(ngModel)]="form.name"
         />
@@ -93,7 +97,7 @@
           class="form-control"
           id="signee-email"
           name="signee-email"
-          placeholder="Bitte E-Mail eingeben"
+          placeholder="Bitte geben sie ihre E-Mail ein"
           required
           [(ngModel)]="form.email"
           email
@@ -106,10 +110,11 @@
           class="form-control"
           id="signee-phone"
           name="signee-phone"
-          aria-describedby="formHelp"
-          placeholder="Bitte Telefon eingeben"
+          aria-describedby="phoneHelp"
+          placeholder="Bitte geben sie optional ihre Telefonnummer ein"
           [(ngModel)]="form.phone"
         />
+        <small id="phoneHelp" class="form-text text-muted">Optional</small>
       </div>
       <div class="form-check">
         <input
@@ -131,34 +136,32 @@
       <div class="form-group">
         <small id="formHelp" class="form-text text-muted"
           ><p>
-            Ohne dein Einverständnis werden wir deine Daten niemals an Dritte
+            Ohne ihr Einverständnis werden wir ihre Daten niemals an Dritte
             weitergeben und sie nur bei Bedarf für eine Verifizierung und den
-            Kontakt mit Dir verwenden.
+            Kontakt mit Ihnen verwenden.
           </p>
           <p>Die mit * gekennzeichneten Felder sind Pflichtfelder.</p></small
         >
       </div>
     </form>
-    
+
     <!-- Success message -->
     <div [hidden]="loading || !formSubmitted">
       <div class="alert alert-success" role="alert">
-        Vielen Dank für deine Zeichnung.
+        Vielen Dank für ihre Zeichnung.
       </div>
 
-      <p *ngIf="form.organisation">
-        Meine Organisation: {{ form.organisation }}
-      </p>
+      <p *ngIf="form.organisation">Organisation: {{ form.organisation }}</p>
 
       <p *ngIf="form.website">Website: {{ form.website }}</p>
 
       <p *ngIf="form.listOfSigningNames">
-        Die Unterzeichnenden: {{ form.listOfSigningNames }}
+        Unterzeichnenden: {{ form.listOfSigningNames }}
       </p>
 
-      <p *ngIf="form.logo">Logo deiner Organisaion: {{ form.logo.name }}</p>
+      <p *ngIf="form.logo">Logo ihrer Organisation: {{ form.logo.name }}</p>
 
-      <p *ngIf="form.name">Mein Name: {{ form.name }}</p>
+      <p *ngIf="form.name">Ihr Name: {{ form.name }}</p>
 
       <p *ngIf="form.email">E-Mail: {{ form.email }}</p>
 
