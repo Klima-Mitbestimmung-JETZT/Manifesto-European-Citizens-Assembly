@@ -9,7 +9,7 @@ export const environment = {
     accessToken: 'ecQ2l4UMTYi1MU3Szr2iNLep8Ak_pNp5i3Nxe1qU3VA',
   },
   mailService:{
-    url: 'http://localhost:3000'
+    url: 'http://open-letter-mailer.herokuapp.com'
   }
 };
 
