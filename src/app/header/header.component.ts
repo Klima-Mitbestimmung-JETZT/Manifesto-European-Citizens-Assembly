@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { ContentfulService } from '../contentful.service';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +9,19 @@ import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 })
 export class HeaderComponent implements OnInit {
   @Input() title: String;
-  constructor() {}
+  phases: String[] = ['Loading ...', 'Loading ...', 'Loading ...'];
+  numberOfActivePhase: Number;
 
-  ngOnInit(): void {}
+  constructor(private contentfulService: ContentfulService) {}
+
+  ngOnInit(): void {
+    this.contentfulService.getProgressbar().then((response) => {
+      console.log(response);
+      if (response.fields.phases) this.phases = response.fields.phases;
+      if (response.fields.numberOfActivePhase)
+        this.numberOfActivePhase = response.fields.numberOfActivePhase;
+    });
+  }
 
   // https://stackoverflow.com/questions/57893367/display-contentful-richtext-in-angular'
   _returnHtmlFromRichText(richText) {

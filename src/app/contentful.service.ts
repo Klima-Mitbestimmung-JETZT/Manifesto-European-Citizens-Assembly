@@ -30,4 +30,10 @@ export class ContentfulService {
       .getEntries({ 'sys.id': '4rC21AGeBowVcfQKLnwBPk', include: 1 })
       .then((res) => res.items[0]);
   }
+
+  getProgressbar(): Promise<Entry<any>> {
+    return this.contentfulClient
+      .getEntries({ 'sys.id': '1YkTzVK4KBzfmsMyBqKSo8' })
+      .then((res) => res.items[0]);
+  }
 }

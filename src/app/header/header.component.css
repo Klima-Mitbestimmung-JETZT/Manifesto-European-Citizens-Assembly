@@ -22,3 +22,8 @@ img {
     height: 20rem;
   }
 }
+
+.bg-light {
+  background-color: #bbbbbb;
+  color: black;
+}
