@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { ContentfulService } from '../contentful.service';
-
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -11,7 +11,7 @@ export class HeaderComponent implements OnInit {
   @Input() title: String;
   phases: String[] = ['Loading ...', 'Loading ...', 'Loading ...'];
   numberOfActivePhase: Number;
-
+  faArrowRight = faArrowRight;
   constructor(private contentfulService: ContentfulService) {}
 
   ngOnInit(): void {

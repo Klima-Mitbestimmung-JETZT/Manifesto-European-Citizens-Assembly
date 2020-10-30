@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { environment } from 'src/environments/environment';
 
@@ -10,6 +11,7 @@ import { environment } from 'src/environments/environment';
 })
 export class SignLetterModalComponent implements OnInit {
   closeResult: string;
+  faEnvelope = faEnvelope;
 
   form = {};
   loading: Boolean = false;

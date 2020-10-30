@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { environment } from 'src/environments/environment';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-contact-modal',
@@ -16,7 +17,7 @@ export class ContactModalComponent implements OnInit {
   errorMessage = '';
 
   formSubmitted: Boolean = false;
-
+  faEnvelope = faEnvelope;
   constructor(private modalService: NgbModal, private http: HttpClient) {}
 
   ngOnInit(): void {}
