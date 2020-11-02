@@ -1,0 +1,133 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Kontaktieren</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form
+      id="contactForm"
+      #contactForm="ngForm"
+      (ngSubmit)="onSubmit()"
+      [hidden]="formSubmitted"
+    >
+      <div class="form-group">
+        <label for="signee-email">E-Mail: *</label>
+        <input
+          type="email"
+          class="form-control"
+          id="signee-email"
+          name="signee-email"
+          placeholder="Bitte geben sie ihre E-Mail ein"
+          [(ngModel)]="form.email"
+          required
+          email
+        />
+      </div>
+      <div class="form-group">
+        <label for="contact-name">Name: *</label>
+        <input
+          type="text"
+          class="form-control"
+          id="contact-name"
+          name="contact-name"
+          placeholder="Bitte geben sie ihren Namen ein"
+          [(ngModel)]="form.name"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="signee-phone">Telefon:</label>
+        <input
+          type="phone"
+          class="form-control"
+          id="signee-phone"
+          name="signee-phone"
+          aria-describedby="phoneHelp"
+          placeholder="Bitte geben sie optional ihre Telefonnummer ein"
+          [(ngModel)]="form.phone"
+        />
+        <small id="phoneHelp" class="form-text text-muted">Optional</small>
+      </div>
+      <div class="form-group">
+        <label for="contact-message">Nachricht: *</label>
+        <textarea
+          class="form-control"
+          id="contact-message"
+          name="contact-message"
+          placeholder="Hier können sie uns optional eine Nachricht zukommen lassen"
+          rows="3"
+          [(ngModel)]="form.message"
+          required
+        ></textarea>
+      </div>
+      <div class="form-group">
+        <small id="formHelp" class="form-text text-muted"
+          ><p>
+            Ohne ihr Einverständnis werden wir ihre Daten niemals an Dritte
+            weitergeben und sie nur bei Bedarf für eine Verifizierung und den
+            Kontakt mit Ihnen verwenden.
+          </p>
+          <p>Die mit * gekennzeichneten Felder sind Pflichtfelder.</p></small
+        >
+      </div>
+    </form>
+
+    <!-- Success message -->
+    <div [hidden]="loading || !formSubmitted">
+      <div class="alert alert-success" role="alert">
+        Vielen Dank für ihre Nachricht.
+      </div>
+      <p *ngIf="form.name">Ihr Name: {{ form.name }}</p>
+
+      <p *ngIf="form.email">E-Mail: {{ form.email }}</p>
+
+      <p *ngIf="form.phone">Telefon: {{ form.phone }}</p>
+
+      <p *ngIf="form.message">Nachricht: {{ form.message }}</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="modal-footer">
+    <!-- Error Alert -->
+    <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </div>
+    <!-- Loading spinner -->
+    <div class="text-center" *ngIf="loading">
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    <!-- Buttons -->
+    <button
+      type="button"
+      aria-label="Close"
+      class="btn btn-secondary"
+      (click)="modal.close('Kontakt erfolgreich abgeschlossen')"
+      [hidden]="!formSubmitted"
+    >
+      Schließen
+    </button>
+    <button
+      type="submit"
+      class="btn btn-success"
+      [disabled]="!contactForm.form.valid"
+      form="contactForm"
+      [hidden]="formSubmitted"
+    >
+      Absenden
+    </button>
+  </div>
+</ng-template>
+
+<button class="btn btn-secondary" (click)="open(content)">
+  Jetzt Kontakt aufnehmen! <fa-icon [icon]="faEnvelope"></fa-icon>
+</button>

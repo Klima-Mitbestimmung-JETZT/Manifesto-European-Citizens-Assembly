@@ -1,0 +1,40 @@
+<div id="container" class="container mb-3 p-3 p-sm-5 shadow-lg rounded">
+  <div class="row" id="Titel">
+    <div class="col">
+      <h2>Impressum</h2>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col">
+      <h4>Angaben gemäß § 5 TMG:</h4>
+      <h5 id="verantwortlich">Verantwortlich:</h5>
+      <p *ngIf="responsible">
+        <ng-template [ngIf]="responsible.fields.name"
+          >{{ responsible.fields.name }}<br /></ng-template
+        ><a
+          *ngIf="responsible.fields.email"
+          [href]="'mailto://' + responsible.fields.email"
+          disabled
+        >
+          {{ responsible.fields.email }}</a
+        ><ng-template [ngIf]="responsible.fields.adress"
+          ><br />{{ responsible.fields.adress }}</ng-template
+        >
+      </p>
+
+      <h5 id="technischUmsetzende">Technische Umsetzung:</h5>
+      <p *ngFor="let contact of technicalContacts">
+        {{ contact.fields.name }}<br /><a
+          *ngIf="contact.fields.email"
+          [href]="'mailto://' + contact.fields.email"
+          disabled
+        >
+          {{ contact.fields.email }}</a
+        >
+      </p>
+    </div>
+  </div>
+  <div id="Impressums-Text" class="row mt-3">
+    <div class="col" [innerHtml]="_returnHtmlFromRichText(text)"></div>
+  </div>
+</div>

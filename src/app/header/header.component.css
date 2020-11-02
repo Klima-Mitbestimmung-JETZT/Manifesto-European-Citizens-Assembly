@@ -1,0 +1,29 @@
+.carousel-item {
+  height: 15rem;
+}
+
+.carousel-item,
+img {
+  object-fit: cover;
+}
+
+.carousel-caption {
+  background-color: rgb(255, 255, 255);
+  opacity: 0.7;
+  font-size: small;
+  bottom: 0%;
+  right: 0%;
+  left: unset;
+  color: black;
+}
+
+@media (min-width: 1200px) {
+  .carousel-item {
+    height: 20rem;
+  }
+}
+
+.bg-light {
+  background-color: #bbbbbb;
+  color: black;
+}

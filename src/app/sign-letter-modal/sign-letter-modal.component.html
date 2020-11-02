@@ -1,0 +1,212 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Mitzeichnen</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form
+      id="signLetterForm"
+      #signLetterForm="ngForm"
+      (ngSubmit)="onSubmit()"
+      [hidden]="formSubmitted"
+    >
+      <div class="form-group">
+        <label for="signee-organisation">Organisation: *</label>
+        <input
+          type="text"
+          class="form-control"
+          id="signee-organisation"
+          name="signee-organisation"
+          placeholder="Bitte geben sie den Namen ihrer Organisation ein"
+          required
+          [(ngModel)]="form.organisation"
+        />
+      </div>
+      <div class="form-group">
+        <label for="signee-website">Website: *</label>
+        <input
+          type="url"
+          class="form-control"
+          id="signee-website"
+          name="signee-website"
+          placeholder="Bitte geben sie die Website ihrer Organisation ein"
+          required
+          [(ngModel)]="form.website"
+        />
+      </div>
+      <div class="form-group">
+        <label for="signee-names">Die Unterzeichnenden: *</label>
+        <input
+          type="text"
+          class="form-control"
+          id="signee-names"
+          name="signee-names"
+          placeholder="Bitte geben sie die Namen von maximal 3 Unterzeichnenden ein"
+          required
+          [(ngModel)]="form.listOfSigningNames"
+        />
+      </div>
+      <div class="form-group">
+        <label for="signee-logo">Logo der Organisation:</label>
+        <input
+          type="file"
+          name="signee-logo"
+          class="form-control-file"
+          id="signee-logo"
+          (change)="onFileSelect($event)"
+          aria-describedby="logoHelp"
+        />
+        <small id="logoHelp" class="form-text text-muted"
+          >Optional. Ggf. verwenden wir das Logo ihrer Website.</small
+        >
+      </div>
+      <div class="form-group">
+        <label for="contact-message">Nachricht:</label>
+        <textarea
+          class="form-control"
+          id="contact-message"
+          name="contact-message"
+          placeholder="Hier können sie uns optional eine Nachricht zukommen lassen"
+          rows="3"
+          [(ngModel)]="form.message"
+        ></textarea>
+      </div>
+      <div class="form-group">
+        <label for="signee-email">Name: *</label>
+        <input
+          type="text"
+          class="form-control"
+          id="signee-name"
+          name="signee-name"
+          placeholder="Bitte geben sie ihren Namen ein"
+          required
+          [(ngModel)]="form.name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="signee-email">E-Mail: *</label>
+        <input
+          type="email"
+          class="form-control"
+          id="signee-email"
+          name="signee-email"
+          placeholder="Bitte geben sie ihre E-Mail ein"
+          required
+          [(ngModel)]="form.email"
+          email
+        />
+      </div>
+      <div class="form-group">
+        <label for="signee-phone">Telefon:</label>
+        <input
+          type="phone"
+          class="form-control"
+          id="signee-phone"
+          name="signee-phone"
+          aria-describedby="phoneHelp"
+          placeholder="Bitte geben sie optional ihre Telefonnummer ein"
+          [(ngModel)]="form.phone"
+        />
+        <small id="phoneHelp" class="form-text text-muted">Optional</small>
+      </div>
+      <div class="form-check">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          id="confirmation-check"
+          name="confirmation-check"
+          aria-describedby="formHelp"
+          required
+          [(ngModel)]="form.confirmationCheck"
+        />
+        <label class="form-check-label" for="confirmation-check"
+          > * Ich möchte stellvertretend für meine Organisation den offenen Brief
+          mitzeichnen und bin einverstanden, dass der Name der Organisation, ihr
+          Logo, die URL ihrer Website und die Namen der Zeichnenden auf der
+          Website des offenen Briefs veröffentlicht werden.
+        </label>
+      </div>
+      <div class="form-group">
+        <small id="formHelp" class="form-text text-muted"
+          ><p>
+            Ohne ihr Einverständnis werden wir ihre Daten niemals an Dritte
+            weitergeben und sie nur bei Bedarf für eine Verifizierung und den
+            Kontakt mit Ihnen verwenden.
+          </p>
+          <p>Die mit * gekennzeichneten Felder sind Pflichtfelder.</p></small
+        >
+      </div>
+    </form>
+
+    <!-- Success message -->
+    <div [hidden]="loading || !formSubmitted">
+      <div class="alert alert-success" role="alert">
+        Vielen Dank für ihre Zeichnung.
+      </div>
+
+      <p *ngIf="form.organisation">Organisation: {{ form.organisation }}</p>
+
+      <p *ngIf="form.website">Website: {{ form.website }}</p>
+
+      <p *ngIf="form.listOfSigningNames">
+        Unterzeichnenden: {{ form.listOfSigningNames }}
+      </p>
+
+      <p *ngIf="form.logo">Logo ihrer Organisation: {{ form.logo.name }}</p>
+
+      <p *ngIf="form.name">Ihr Name: {{ form.name }}</p>
+
+      <p *ngIf="form.email">E-Mail: {{ form.email }}</p>
+
+      <p *ngIf="form.phone">Telefon: {{ form.phone }}</p>
+
+      <p *ngIf="form.message">Nachricht: {{ form.message }}</p>
+    </div>
+  </div>
+  <!-- Footer -->
+
+  <div class="modal-footer">
+    <!-- Error Alert -->
+    <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </div>
+
+    <!-- Loading spinner -->
+    <div class="text-center" *ngIf="loading">
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <button
+      type="button"
+      aria-label="Close"
+      class="btn btn-secondary"
+      (click)="modal.close('Mitzeichnen erfolgreich abgeschlossen')"
+      [hidden]="!formSubmitted"
+    >
+      Schließen
+    </button>
+    <button
+      type="submit"
+      class="btn btn-success"
+      [disabled]="!signLetterForm.form.valid"
+      form="signLetterForm"
+      [hidden]="formSubmitted"
+    >
+      Absenden
+    </button>
+  </div>
+</ng-template>
+
+<button class="btn btn-success" (click)="open(content)">
+  Jetzt mitzeichnen! <fa-icon [icon]="faEnvelope"></fa-icon>
+</button>

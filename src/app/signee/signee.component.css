@@ -1,0 +1,21 @@
+.signee-logo {
+  max-height: 120px;
+}
+
+.signee-logo-container:empty {
+  display: none;
+}
+
+@media (min-width: 576px) {
+  .signee-logo-container:empty {
+    display: block;
+  }
+  .signee-logo-container {
+    height: 120px;
+    line-height: 120px;
+  }
+
+  .signee-container {
+    min-height: 130px;
+  }
+}
