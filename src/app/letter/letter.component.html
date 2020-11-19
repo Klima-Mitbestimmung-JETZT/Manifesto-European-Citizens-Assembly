@@ -20,7 +20,10 @@
 
     <div class="row align-items-center mt-3">
       <div class="col-12 col-md-12 col-lg-5 align-self-center">
-        <h4 style="margin-bottom: 0">Unterzeichnende:</h4>
+        <h4 style="margin-bottom: 0">
+          <span *ngIf="signees.length">{{ signees.length }}</span
+          > Unterzeichnende:
+        </h4>
       </div>
       <div class="col col-lg-7">
         <div class="row">
