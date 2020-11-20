@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 export class ContentfulService {
   private contentfulClient = createClient({
     space: environment.contentful.space,
+    environment: environment.contentful.environment,
     accessToken: environment.contentful.accessToken,
   });
 
