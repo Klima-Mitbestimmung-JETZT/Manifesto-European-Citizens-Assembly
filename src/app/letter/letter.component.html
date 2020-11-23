@@ -19,30 +19,35 @@
     </div>
 
     <div class="row align-items-center mt-3">
-      <div class="col-12 col-md-12 col-lg-5 align-self-center">
-        <h4 style="margin-bottom: 0">Unterzeichnende:</h4>
+      <div class="col-12 align-self-center">
+        <h4 style="margin-bottom: 0">
+          <span *ngIf="signees.length">{{ signees.length }}</span>
+          Organisationen haben aktuell unterzeichnet.
+        </h4>
       </div>
-      <div class="col col-lg-7">
+      <div class="col">
         <div class="row">
-          <div class="col-auto mt-3 mt-lg-0">
+          <div class="col-auto mt-3">
             <app-sign-letter-modal></app-sign-letter-modal>
           </div>
-          <div class="col-auto mt-3 mt-lg-0">
+          <div class="col-auto mt-3">
             <app-contact-modal></app-contact-modal>
           </div>
         </div>
       </div>
     </div>
     <div class="row row mt-5 align-items-start" id="Unterzeichner">
-      <app-signee
-        *ngFor="let signee of signees"
-        [name]="signee.fields.name"
-        [logo]="signee.fields.logo"
-        [website]="signee.fields.website"
-        [listOfSigningNames]="signee.fields.listOfSigningNames"
-        class="col-sm-6 col-md-4 mt-3 text-left"
-      >
-      </app-signee>
+      <ng-template ngFor let-signee [ngForOf]="signees">
+        <app-signee
+          *ngIf="signee && signee.fields"
+          [name]="signee.fields.name"
+          [logo]="signee.fields.logo"
+          [website]="signee.fields.website"
+          [listOfSigningNames]="signee.fields.listOfSigningNames"
+          class="col-sm-6 col-md-4 mt-3 text-left"
+        >
+        </app-signee>
+      </ng-template>
     </div>
   </div>
 </div>
