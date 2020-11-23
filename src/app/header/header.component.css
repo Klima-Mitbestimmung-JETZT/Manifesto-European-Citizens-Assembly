@@ -27,3 +27,8 @@ img {
   background-color: #bbbbbb;
   color: black;
 }
+
+.progress {
+  height: 2rem;
+  font-size: unset;
+}
