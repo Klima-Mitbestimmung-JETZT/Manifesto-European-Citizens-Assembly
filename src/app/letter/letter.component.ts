@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { ContentfulService } from '../contentful.service';
 import { Signee } from '../signee.interface';
-import { Entry } from 'contentful';
 @Component({
   selector: 'app-letter',
   templateUrl: './letter.component.html',

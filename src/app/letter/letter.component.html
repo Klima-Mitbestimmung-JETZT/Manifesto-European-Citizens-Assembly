@@ -21,7 +21,7 @@
     <div class="row align-items-center mt-3">
       <div class="col-12 align-self-center">
         <h4 style="margin-bottom: 0">
-          <span *ngIf="signees.length">{{ signees.length }}</span>
+          <span *ngIf="signees?.length">{{ signees.length }}</span>
           Organisationen haben aktuell unterzeichnet.
         </h4>
       </div>
@@ -39,7 +39,7 @@
     <div class="row row mt-5 align-items-start" id="Unterzeichner">
       <ng-template ngFor let-signee [ngForOf]="signees">
         <app-signee
-          *ngIf="signee && signee.fields"
+          *ngIf="signee?.fields"
           [name]="signee.fields.name"
           [logo]="signee.fields.logo"
           [website]="signee.fields.website"
