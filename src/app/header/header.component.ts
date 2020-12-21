@@ -12,6 +12,7 @@ export class HeaderComponent implements OnInit {
   phases: String[] = ['Loading ...', 'Loading ...', 'Loading ...'];
   numberOfActivePhase: Number;
   faArrowRight = faArrowRight;
+  closingNotice: {};
   constructor(private contentfulService: ContentfulService) {}
 
   ngOnInit(): void {
@@ -20,6 +21,8 @@ export class HeaderComponent implements OnInit {
       if (response.fields.phases) this.phases = response.fields.phases;
       if (response.fields.numberOfActivePhase)
         this.numberOfActivePhase = response.fields.numberOfActivePhase;
+      if (response.fields.closingNotice)
+        this.closingNotice = response.fields.closingNotice;
     });
   }
 
