@@ -22,7 +22,16 @@
         </div>
       </div>
     </div>
-    <div class="row row mt-5 align-items-start" id="Unterzeichner">
+    <div class="row mt-5" >
+      <div class="col">
+        <p>
+         <span *ngFor="let person of signingPersons">
+          {{person.fields.name}},
+         </span>
+        </p>
+      </div>
+    </div>
+    <div class="row mt-5 align-items-start" id="Unterzeichner">
       <ng-template ngFor let-organisation [ngForOf]="signingOrganisations">
         <app-signee
           *ngIf="organisation && organisation.fields"
