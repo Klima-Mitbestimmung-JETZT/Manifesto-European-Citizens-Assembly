@@ -1,35 +1,21 @@
 <div>
   <app-header [title]="title"></app-header>
   <div class="container-md p-3 p-sm-5 mt-3 shadow-lg rounded">
-    <div class="row" id="Addressat">
-      <div class="col">
-        <h4>
-          {{ addressant }}
-        </h4>
-      </div>
-    </div>
     <div class="row mt-5" id="Offener-Brief">
-      <div class="col" [innerHtml]="_returnHtmlFromRichText(text)"></div>
+      <div class="col" [innerHtml]="_returnHtmlFromRichText(mainText)"></div>
     </div>
-    <div class="row mt-3" id="Kontakt">
-      <div
-        class="col"
-        [innerHtml]="_returnHtmlFromRichText(contactNotice)"
-      ></div>
-    </div>
-
     <div class="row align-items-center mt-3">
       <div class="col-12 align-self-center">
         <h4 style="margin-bottom: 0">
-          <span *ngIf="signees.length">{{ signees.length }}</span>
-          Organisationen haben aktuell unterzeichnet.
+          <span *ngIf="signingOrganisations.length">{{ signingOrganisations.length }}</span>
+          Organisationen und <span *ngIf="signingPersons.length">{{ signingPersons.length }}</span> Personen haben aktuell unterzeichnet.
         </h4>
       </div>
       <div class="col">
         <div class="row">
-          <!--<div class="col-auto mt-3">
+          <div class="col-auto mt-3">
             <app-sign-letter-modal></app-sign-letter-modal>
-          </div>-->
+          </div>
           <div class="col-auto mt-3">
             <app-contact-modal></app-contact-modal>
           </div>
@@ -37,13 +23,13 @@
       </div>
     </div>
     <div class="row row mt-5 align-items-start" id="Unterzeichner">
-      <ng-template ngFor let-signee [ngForOf]="signees">
+      <ng-template ngFor let-organisation [ngForOf]="signingOrganisations">
         <app-signee
-          *ngIf="signee && signee.fields"
-          [name]="signee.fields.name"
-          [logo]="signee.fields.logo"
-          [website]="signee.fields.website"
-          [listOfSigningNames]="signee.fields.listOfSigningNames"
+          *ngIf="organisation && organisation.fields"
+          [name]="organisation.fields.name"
+          [logo]="organisation.fields.logo"
+          [website]="organisation.fields.website"
+          [listOfSigningNames]="organisation.fields.listOfSigningNames"
           class="col-sm-6 col-md-4 mt-3 text-left"
         >
         </app-signee>

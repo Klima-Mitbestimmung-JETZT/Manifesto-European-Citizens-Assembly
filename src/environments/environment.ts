@@ -5,9 +5,9 @@
 export const environment = {
   production: false,
   contentful: {
-    space: '5z21gx3h7sb2',
+    space: 'uqlrlezl575t',
     environment: "master",
-    accessToken: 'ecQ2l4UMTYi1MU3Szr2iNLep8Ak_pNp5i3Nxe1qU3VA',
+    accessToken: 'aMWNbMRSbMY025Kx_YKIksV-Ds_srkXRV9Z2n4dMCqU',
   },
   mailService:{
     url: 'https://open-letter-mailer.herokuapp.com'

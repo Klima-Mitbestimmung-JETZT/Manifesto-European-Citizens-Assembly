@@ -1,43 +1,27 @@
 <div id="container" class="container mb-3 p-3 p-sm-5 shadow-lg rounded">
-  <div id="Title" class="row">
-    <div class="col">
-      <h2 *ngIf="title">{{ title }}</h2>
+  <div class="row mt-3">
+    <div class="col" [innerHtml]="_returnHtmlFromRichText(introductoryStatement)">
     </div>
   </div>
   <div class="row mt-3">
     <div class="col">
-      <p id="EinleitendeFormulierung" *ngIf="introductoryParagraph">
-        {{ introductoryParagraph }}
-      </p>
       <p *ngIf="responsible">
-        <ng-template [ngIf]="responsible.fields.name">
-          {{ responsible.fields.name }}<br
-        /></ng-template>
-        <a
-          *ngIf="responsible.fields.email"
-          [href]="'mailto://' + responsible.fields.email"
-        >
-          {{ responsible.fields.email }}</a
-        >
-        <ng-template [ngIf]="responsible.fields.adress"
-          ><br />{{ responsible.fields.adress }}</ng-template
-        >
-      </p>
+          <ng-template [ngIf]="responsible.fields.name">
+            {{ responsible.fields.name }}<br
+          /></ng-template>
+          <a
+            *ngIf="responsible.fields.email"
+            [href]="'mailto://' + responsible.fields.email"
+          >
+            {{ responsible.fields.email }}</a
+          >
+          <ng-template [ngIf]="responsible.fields.adress"
+            ><br />{{ responsible.fields.adress }}</ng-template
+          >
+        </p>
     </div>
   </div>
-  <div id="Datenschutz-Text" class="row mt-3">
+  <div class="row mt-3">
     <div class="col" [innerHtml]="_returnHtmlFromRichText(text)"></div>
-    <div class="col-12">
-      <a
-        *ngIf="
-          contactMail &&
-          contactMail.fields.mailadress &&
-          contactMail.fields.text
-        "
-        [href]="'mailto://' + contactMail.fields.mailadress"
-        disabled
-        >{{ contactMail.fields.text }}</a
-      >
-    </div>
   </div>
 </div>

@@ -1,8 +1,11 @@
 import { Logo } from './logo.interface';
 
-export interface Signee {
+export interface Organisation {
   name: String;
   website: String;
-  logo: Logo;
   listOfSigningNames: String;
+  logo: Logo;
+  email: String;
+  contactPerson: String;
+  phone: String;
 }

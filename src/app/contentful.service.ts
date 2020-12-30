@@ -14,27 +14,27 @@ export class ContentfulService {
 
   constructor() {}
 
-  getLetter(): Promise<Entry<any>> {
+  getManifesto(): Promise<Entry<any>> {
     return this.contentfulClient
-      .getEntries({ 'sys.id': '2aDDbb4AjEQdCo0IW7AnLm', include: 1 })
+      .getEntries({ 'sys.id': '4X61CaEUqU8ihVGbOja0VF', include: 1 })
       .then((res) => res.items[0]);
   }
 
   getImpressum(): Promise<Entry<any>> {
     return this.contentfulClient
-      .getEntries({ 'sys.id': '1RjJ8ucJJIekoeZ6Tz1ZLH', include: 1 })
+      .getEntries({ 'sys.id': '5eQPIj8C7NmNtCQ2Mzp2le', include: 1 })
       .then((res) => res.items[0]);
   }
 
   getDataprivacy(): Promise<Entry<any>> {
     return this.contentfulClient
-      .getEntries({ 'sys.id': '4rC21AGeBowVcfQKLnwBPk', include: 1 })
+      .getEntries({ 'sys.id': '5QlXvyztZQP4F7IAaMoZPS', include: 1 })
       .then((res) => res.items[0]);
   }
 
-  getProgressbar(): Promise<Entry<any>> {
+  getHeader(): Promise<Entry<any>> {
     return this.contentfulClient
-      .getEntries({ 'sys.id': '1YkTzVK4KBzfmsMyBqKSo8' })
+      .getEntries({ 'sys.id': '3qfXktdK9Rt4qglKGzRuRh', include: 1 })
       .then((res) => res.items[0]);
   }
 }

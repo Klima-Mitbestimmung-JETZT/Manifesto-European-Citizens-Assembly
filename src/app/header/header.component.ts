@@ -8,21 +8,22 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  @Input() title: String;
+  title: {};
   phases: String[] = ['Loading ...', 'Loading ...', 'Loading ...'];
   numberOfActivePhase: Number;
   faArrowRight = faArrowRight;
-  closingNotice: {};
+  statusNotice: {};
   constructor(private contentfulService: ContentfulService) {}
 
   ngOnInit(): void {
-    this.contentfulService.getProgressbar().then((response) => {
+    this.contentfulService.getHeader().then((response) => {
       console.log(response);
+      if (response.fields.title) this.title = response.fields.title;
       if (response.fields.phases) this.phases = response.fields.phases;
       if (response.fields.numberOfActivePhase)
         this.numberOfActivePhase = response.fields.numberOfActivePhase;
-      if (response.fields.closingNotice)
-        this.closingNotice = response.fields.closingNotice;
+      if (response.fields.statusNotice)
+        this.statusNotice = response.fields.statusNotice;
     });
   }
 
