@@ -16,7 +16,8 @@ export class LetterComponent implements OnInit {
   mainText: {};
   signingPersons: Person[];
   signingOrganisations: Organisation[];
-
+  textBlocksHowManyHaveSigned: String[];
+  
   constructor(private contentfulService: ContentfulService) {}
 
   ngOnInit(): void {
@@ -26,6 +27,7 @@ export class LetterComponent implements OnInit {
       if (letter.fields.mainText) this.mainText = letter.fields.mainText;
       if (letter.fields.signingPersons) this.signingPersons = letter.fields.signingPersons;
       if (letter.fields.signingOrganisations) this.signingOrganisations = letter.fields.signingOrganisations;
+      if (letter.fields.textBlocksHowManyHaveSigned) this.textBlocksHowManyHaveSigned = letter.fields.textBlocksHowManyHaveSigned;
     });
   }
 

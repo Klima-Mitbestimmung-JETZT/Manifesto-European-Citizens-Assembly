@@ -8,7 +8,7 @@
       <div class="col-12 align-self-center">
         <h4 style="margin-bottom: 0">
           <span *ngIf="signingOrganisations.length">{{ signingOrganisations.length }}</span>
-          Organisationen und <span *ngIf="signingPersons.length">{{ signingPersons.length }}</span> Personen haben aktuell unterzeichnet.
+          {{textBlocksHowManyHaveSigned[0]}} <span *ngIf="signingPersons.length">{{ signingPersons.length }}</span> {{textBlocksHowManyHaveSigned[1]}}
         </h4>
       </div>
       <div class="col">
