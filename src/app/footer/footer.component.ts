@@ -6,8 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.css'],
 })
 export class FooterComponent implements OnInit {
-  bottomNotice = `Wir unterstützen keine Nutzung des Internet Explorers (IE) und bitten bei dessen Nutzung um ihr Verständnis, dass dann unerwünschte Effekte auftreten können.
-  Wir empfehlen ihnen, grundsätzlich einen anderen Browser zu nutzen. Damit können sie das Internet angenehmer und sicherer nutzen.`;
+  bottomNotice = `We do not support the use of Internet Explorer (IE) and ask for their understanding when using it that then undesirable effects can occur. We recommend that you always use a different browser. This will allow them to use the Internet more pleasant and safer.`;
   constructor() {}
 
   ngOnInit(): void {}

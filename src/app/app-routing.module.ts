@@ -6,7 +6,7 @@ import { LetterComponent } from './letter/letter.component';
 
 const routes: Routes = [
   { path: 'impressum', component: ImpressumComponent },
-  { path: 'datenschutz', component: DataprivacyComponent },
+  { path: 'dataprivacy', component: DataprivacyComponent },
   { path: '**', component: LetterComponent },
 ];
 

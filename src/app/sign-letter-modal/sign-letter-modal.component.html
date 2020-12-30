@@ -1,6 +1,6 @@
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Mitzeichnen</h4>
+    <h4 class="modal-title" id="modal-basic-title">Sign</h4>
     <button
       type="button"
       class="close"
@@ -24,7 +24,7 @@
           class="form-control"
           id="signee-organisation"
           name="signee-organisation"
-          placeholder="Bitte geben sie den Namen ihrer Organisation ein"
+          placeholder="Please enter the name of your organisation"
           required
           [(ngModel)]="form.organisation"
         />
@@ -36,25 +36,25 @@
           class="form-control"
           id="signee-website"
           name="signee-website"
-          placeholder="Bitte geben sie die Website ihrer Organisation ein"
+          placeholder="Please enter the website of your organisation"
           required
           [(ngModel)]="form.website"
         />
       </div>
       <div class="form-group">
-        <label for="signee-names">Die Unterzeichnenden: *</label>
+        <label for="signee-names">Names of signees: *</label>
         <input
           type="text"
           class="form-control"
           id="signee-names"
           name="signee-names"
-          placeholder="Bitte geben sie die Namen von maximal 3 Unterzeichnenden ein"
+          placeholder="Please enter the names of maximum 3 people who are signing in the name of the organisation."
           required
           [(ngModel)]="form.listOfSigningNames"
         />
       </div>
       <div class="form-group">
-        <label for="signee-logo">Logo der Organisation:</label>
+        <label for="signee-logo">Logo of your organisation:</label>
         <input
           type="file"
           name="signee-logo"
@@ -64,16 +64,16 @@
           aria-describedby="logoHelp"
         />
         <small id="logoHelp" class="form-text text-muted"
-          >Optional. Ggf. verwenden wir das Logo ihrer Website.</small
+          >Optional. We may use the logo from your website.</small
         >
       </div>
       <div class="form-group">
-        <label for="contact-message">Nachricht:</label>
+        <label for="contact-message">Message:</label>
         <textarea
           class="form-control"
           id="contact-message"
           name="contact-message"
-          placeholder="Hier können sie uns optional eine Nachricht zukommen lassen"
+          placeholder="Optionally, leave us a message"
           rows="3"
           [(ngModel)]="form.message"
         ></textarea>
@@ -85,7 +85,7 @@
           class="form-control"
           id="signee-name"
           name="signee-name"
-          placeholder="Bitte geben sie ihren Namen ein"
+          placeholder="Please enter your name"
           required
           [(ngModel)]="form.name"
         />
@@ -97,21 +97,21 @@
           class="form-control"
           id="signee-email"
           name="signee-email"
-          placeholder="Bitte geben sie ihre E-Mail ein"
+          placeholder="Please enter your e-mail"
           required
           [(ngModel)]="form.email"
           email
         />
       </div>
       <div class="form-group">
-        <label for="signee-phone">Telefon:</label>
+        <label for="signee-phone">Phone:</label>
         <input
           type="phone"
           class="form-control"
           id="signee-phone"
           name="signee-phone"
           aria-describedby="phoneHelp"
-          placeholder="Bitte geben sie optional ihre Telefonnummer ein"
+          placeholder="Optionally, please enter your phone number"
           [(ngModel)]="form.phone"
         />
         <small id="phoneHelp" class="form-text text-muted">Optional</small>
@@ -127,20 +127,15 @@
           [(ngModel)]="form.confirmationCheck"
         />
         <label class="form-check-label" for="confirmation-check"
-          > * Ich möchte stellvertretend für meine Organisation den offenen Brief
-          mitzeichnen und bin einverstanden, dass der Name der Organisation, ihr
-          Logo, die URL ihrer Website und die Namen der Zeichnenden auf der
-          Website des offenen Briefs veröffentlicht werden.
+          > * I would like to co-sign the manifesto on behalf of my organization and agree that the name of the organization, its logo, the URL of its website and the names of the signatories will be published on the manifesto.
         </label>
       </div>
       <div class="form-group">
         <small id="formHelp" class="form-text text-muted"
           ><p>
-            Ohne ihr Einverständnis werden wir ihre Daten niemals an Dritte
-            weitergeben und sie nur bei Bedarf für eine Verifizierung und den
-            Kontakt mit Ihnen verwenden.
+            Without your consent we will not pass your data to third parties and will only contact you for verifications and getting in touch with you. 
           </p>
-          <p>Die mit * gekennzeichneten Felder sind Pflichtfelder.</p></small
+          <p>Fields marked with * are required.</p></small
         >
       </div>
     </form>
@@ -148,7 +143,7 @@
     <!-- Success message -->
     <div [hidden]="loading || !formSubmitted">
       <div class="alert alert-success" role="alert">
-        Vielen Dank für ihre Zeichnung.
+        Thank you for your signature.
       </div>
 
       <p *ngIf="form.organisation">Organisation: {{ form.organisation }}</p>
@@ -156,18 +151,18 @@
       <p *ngIf="form.website">Website: {{ form.website }}</p>
 
       <p *ngIf="form.listOfSigningNames">
-        Unterzeichnenden: {{ form.listOfSigningNames }}
+        Names of Signatories: {{ form.listOfSigningNames }}
       </p>
 
-      <p *ngIf="form.logo">Logo ihrer Organisation: {{ form.logo.name }}</p>
+      <p *ngIf="form.logo">Logo of your organisation: {{ form.logo.name }}</p>
 
-      <p *ngIf="form.name">Ihr Name: {{ form.name }}</p>
+      <p *ngIf="form.name">Your Name: {{ form.name }}</p>
 
       <p *ngIf="form.email">E-Mail: {{ form.email }}</p>
 
-      <p *ngIf="form.phone">Telefon: {{ form.phone }}</p>
+      <p *ngIf="form.phone">Phone: {{ form.phone }}</p>
 
-      <p *ngIf="form.message">Nachricht: {{ form.message }}</p>
+      <p *ngIf="form.message">Message: {{ form.message }}</p>
     </div>
   </div>
   <!-- Footer -->
@@ -190,10 +185,10 @@
       type="button"
       aria-label="Close"
       class="btn btn-secondary"
-      (click)="modal.close('Mitzeichnen erfolgreich abgeschlossen')"
+      (click)="modal.close('Signing finished successful')"
       [hidden]="!formSubmitted"
     >
-      Schließen
+      Close
     </button>
     <button
       type="submit"
@@ -202,11 +197,11 @@
       form="signLetterForm"
       [hidden]="formSubmitted"
     >
-      Absenden
+      Submit
     </button>
   </div>
 </ng-template>
 
 <button class="btn btn-primary" (click)="open(content)">
-  Jetzt mitzeichnen! <fa-icon [icon]="faEnvelope"></fa-icon>
+  Sign now! <fa-icon [icon]="faEnvelope"></fa-icon>
 </button>
