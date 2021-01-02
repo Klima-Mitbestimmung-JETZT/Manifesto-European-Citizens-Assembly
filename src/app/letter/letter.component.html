@@ -6,8 +6,8 @@
     </div>
     <div class="row align-items-center mt-3">
       <div class="col-12 align-self-center">
-        <h4 style="margin-bottom: 0">
-          <span *ngIf="signingOrganisations.length">{{ signingOrganisations.length }}</span>
+        <h4 *ngIf="signingOrganisations?.length && textBlocksHowManyHaveSigned?.length && signingPersons?.length" class="mb-0">
+          <span >{{ signingOrganisations.length }}</span>
           {{textBlocksHowManyHaveSigned[0]}} <span *ngIf="signingPersons.length">{{ signingPersons.length }}</span> {{textBlocksHowManyHaveSigned[1]}}
         </h4>
       </div>

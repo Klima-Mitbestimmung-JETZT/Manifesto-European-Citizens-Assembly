@@ -17,7 +17,6 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.contentfulService.getHeader().then((response) => {
-      console.log(response);
       if (response.fields.title) this.title = response.fields.title;
       if (response.fields.phases) this.phases = response.fields.phases;
       if (response.fields.numberOfActivePhase)

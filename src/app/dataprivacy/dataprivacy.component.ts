@@ -16,7 +16,6 @@ export class DataprivacyComponent implements OnInit {
 
   ngOnInit(): void {
     this.contentfulService.getDataprivacy().then((dataprivacy) => {
-      console.log(dataprivacy);
       if (dataprivacy.fields.responsible)
         this.responsible = dataprivacy.fields.responsible;
       if (dataprivacy.fields.text) this.text = dataprivacy.fields.text;

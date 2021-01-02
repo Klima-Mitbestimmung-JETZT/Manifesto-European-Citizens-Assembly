@@ -54,7 +54,6 @@ export class SignLetterModalComponent implements OnInit {
       .post<any>(environment.mailService.url + '/organisation', formData)
       .subscribe({
         next: (data) => {
-          console.log(data);
           this.loading = false;
           this.formSubmitted = true;
           this.errorMessage = '';

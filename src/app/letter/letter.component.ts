@@ -14,11 +14,12 @@ export class LetterComponent implements OnInit {
   title: {};
   header: {};
   mainText: {};
-  signingPersons: Person[];
-  signingOrganisations: Organisation[];
-  textBlocksHowManyHaveSigned: String[];
+  signingPersons: Person[]
+  signingOrganisations: Organisation[] 
+  textBlocksHowManyHaveSigned: String[]
   
-  constructor(private contentfulService: ContentfulService) {}
+  constructor(private contentfulService: ContentfulService) {
+  }
 
   ngOnInit(): void {
     this.contentfulService.getManifesto().then((letter) => {

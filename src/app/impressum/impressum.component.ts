@@ -16,7 +16,6 @@ export class ImpressumComponent implements OnInit {
   text: {};
   constructor(private contentfulService: ContentfulService) {
     this.contentfulService.getImpressum().then((impressum) => {
-      console.log(impressum);
       impressum.fields.introductoryStatement
       ? (this.introductoryStatement = impressum.fields.introductoryStatement)
       : console.log(new Error('No introductoryStatement'))
