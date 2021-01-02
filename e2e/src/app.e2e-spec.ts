@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('klimabuergerrat-offener-brief app is running!');
+    expect(page.getTitleText()).toEqual('manifesto-for-european-citizens-assemblies app is running!');
   });
 
   afterEach(async () => {

@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'klimabuergerrat-offener-brief'`, () => {
+  it(`should have as title 'manifesto-for-european-citizens-assemblies'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('klimabuergerrat-offener-brief');
+    expect(app.title).toEqual('manifesto-for-european-citizens-assemblies');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('klimabuergerrat-offener-brief app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('manifesto-for-european-citizens-assemblies app is running!');
   });
 });

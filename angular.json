@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "klimabuergerrat-offener-brief": {
+    "manifesto-for-european-citizens-assemblies": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/klimabuergerrat-offener-brief",
+            "outputPath": "dist/manifesto-for-european-citizens-assemblies",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -60,18 +60,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "klimabuergerrat-offener-brief:build"
+            "browserTarget": "manifesto-for-european-citizens-assemblies:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "klimabuergerrat-offener-brief:build:production"
+              "browserTarget": "manifesto-for-european-citizens-assemblies:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "klimabuergerrat-offener-brief:build"
+            "browserTarget": "manifesto-for-european-citizens-assemblies:build"
           }
         },
         "test": {
@@ -101,16 +101,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "klimabuergerrat-offener-brief:serve"
+            "devServerTarget": "manifesto-for-european-citizens-assemblies:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "klimabuergerrat-offener-brief:serve:production"
+              "devServerTarget": "manifesto-for-european-citizens-assemblies:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "klimabuergerrat-offener-brief"
+  "defaultProject": "manifesto-for-european-citizens-assemblies"
 }
