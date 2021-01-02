@@ -51,7 +51,7 @@ export class SignLetterModalComponent implements OnInit {
       }
     }
     this.http
-      .post<any>(environment.mailService.url + '/signee', formData)
+      .post<any>(environment.mailService.url + '/organisation', formData)
       .subscribe({
         next: (data) => {
           console.log(data);
@@ -64,7 +64,7 @@ export class SignLetterModalComponent implements OnInit {
           this.loading = false;
           console.error(error);
           this.errorMessage =
-            'Deine Zeichnung konnte nicht übermittelt werden. Versuche es später noch einmal oder wende direkt an kontakt@klima-rat.org. Vielen Dank für Dein Verständnis.';
+            'Your signature could not be submitted. Please try again later or contact enno.rosinger@klima-rat.org directly. Thank you for your understanding.';
         },
       });
   }
