@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SignLetterModalComponent } from './sign-letter-modal.component';
+import { SignManifestoModalComponent } from './sign-manifesto-modal.component';
 
-describe('SignLetterModalComponent', () => {
-  let component: SignLetterModalComponent;
-  let fixture: ComponentFixture<SignLetterModalComponent>;
+describe('SignManifestoModalComponent', () => {
+  let component: SignManifestoModalComponent;
+  let fixture: ComponentFixture<SignManifestoModalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SignLetterModalComponent ]
+      declarations: [ SignManifestoModalComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SignLetterModalComponent);
+    fixture = TestBed.createComponent(SignManifestoModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

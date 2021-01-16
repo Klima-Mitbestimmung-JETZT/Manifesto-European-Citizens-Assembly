@@ -5,11 +5,11 @@ import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-sign-letter-modal',
-  templateUrl: './sign-letter-modal.component.html',
-  styleUrls: ['./sign-letter-modal.component.css'],
+  selector: 'app-sign-manifesto-modal',
+  templateUrl: './sign-manifesto-modal.component.html',
+  styleUrls: ['./sign-manifesto-modal.component.css'],
 })
-export class SignLetterModalComponent implements OnInit {
+export class SignManifestoModalComponent implements OnInit {
   closeResult: string;
   faEnvelope = faEnvelope;
 
