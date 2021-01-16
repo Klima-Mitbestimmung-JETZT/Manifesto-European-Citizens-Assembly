@@ -1,6 +1,22 @@
-# KlimabuergerratOffenerBrief
+# Manifesto for European citizens assembly
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.2.
+
+## Hosting
+
+The routing of this SPA requires the webserver to rewrite every request back to the index.html.
+
+For Appache this can be done with an file `.htaccess`:
+```
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
+```
 
 ## Development server
 
