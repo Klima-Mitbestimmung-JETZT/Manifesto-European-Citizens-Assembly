@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { ContentfulService } from '../contentful.service';
 
 @Component({
   selector: 'app-footer',
@@ -6,8 +8,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.css'],
 })
 export class FooterComponent implements OnInit {
-  bottomNotice = `We do not support the use of Internet Explorer (IE) and ask for their understanding when using it that then undesirable effects can occur. We recommend that you always use a different browser. This will allow them to use the Internet more pleasant and safer.`;
-  constructor() {}
+  textNotice : Object;
+  listOfLinks : Array<Object>;
+  constructor(private contentfulService: ContentfulService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.contentfulService.getFooter().then((footer) => {
+      if (footer.fields.textNotice) this.textNotice = footer.fields.textNotice;
+      if (footer.fields.listOfLinks) this.listOfLinks = footer.fields.listOfLinks;
+    });
+  }
+
+  // https://stackoverflow.com/questions/57893367/display-contentful-richtext-in-angular'
+  _returnHtmlFromRichText(richText) {
+    if (
+      richText === undefined ||
+      richText === null ||
+      richText.nodeType !== 'document'
+    ) {
+      return '<p>Loading ...</p>';
+    }
+    return documentToHtmlString(richText);
+  }
 }

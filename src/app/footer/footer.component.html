@@ -1,10 +1,10 @@
 <footer class="footer container-md mt-auto p-3 px-sm-5">
   <p>
-    <a routerLink="/" routerLinkActive="active">Manifesto</a> -
-    <a routerLink="/impressum" routerLinkActive="active">Impressum</a> -
-    <a routerLink="/dataprivacy" routerLinkActive="active">Dataprivacy</a> - January 2021
+    <ng-template ngFor let-link [ngForOf]="listOfLinks">
+      <a [href]="link.fields.url" routerLinkActive="active">{{link.fields.displayText}}</a> - 
+    </ng-template>- January 2021
   </p>
   <p>
-    <small>{{ bottomNotice }} </small>
+    <small [innerHtml]=_returnHtmlFromRichText(textNotice)></small>
   </p>
 </footer>

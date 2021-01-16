@@ -37,4 +37,10 @@ export class ContentfulService {
       .getEntries({ 'sys.id': '3qfXktdK9Rt4qglKGzRuRh', include: 1 })
       .then((res) => res.items[0]);
   }
+
+  getFooter(): Promise<Entry<any>> {
+    return this.contentfulClient
+      .getEntries({ 'sys.id': '4URX5mVmIUCUBsJ6GhtEVe', include: 1 })
+      .then((res) => res.items[0]);
+  } 
 }
