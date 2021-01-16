@@ -10,7 +10,7 @@ export const environment = {
     accessToken: 'aMWNbMRSbMY025Kx_YKIksV-Ds_srkXRV9Z2n4dMCqU',
   },
   mailService:{
-    url: 'http://localhost:3000'
+    url: 'https://api.europeancitizensassembly.eu/'
   }
 };
 
