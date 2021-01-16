@@ -5,12 +5,12 @@ import { Person } from '../person.interface';
 import { Organisation } from '../organisation.interface';
 
 @Component({
-  selector: 'app-letter',
-  templateUrl: './letter.component.html',
-  styleUrls: ['./letter.component.css'],
+  selector: 'app-manifesto',
+  templateUrl: './manifesto.component.html',
+  styleUrls: ['./manifesto.component.css'],
 })
 
-export class LetterComponent implements OnInit {
+export class ManifestoComponent implements OnInit {
   title: {};
   header: {};
   mainText: {};
@@ -22,13 +22,13 @@ export class LetterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.contentfulService.getManifesto().then((letter) => {
-      if (letter.fields.title) this.title = letter.fields.title;
-      if(letter.fields.header) this.header = letter.fields.header;
-      if (letter.fields.mainText) this.mainText = letter.fields.mainText;
-      if (letter.fields.signingPersons) this.signingPersons = letter.fields.signingPersons;
-      if (letter.fields.signingOrganisations) this.signingOrganisations = letter.fields.signingOrganisations;
-      if (letter.fields.textBlocksHowManyHaveSigned) this.textBlocksHowManyHaveSigned = letter.fields.textBlocksHowManyHaveSigned;
+    this.contentfulService.getManifesto().then((manifesto) => {
+      if (manifesto.fields.title) this.title = manifesto.fields.title;
+      if(manifesto.fields.header) this.header = manifesto.fields.header;
+      if (manifesto.fields.mainText) this.mainText = manifesto.fields.mainText;
+      if (manifesto.fields.signingPersons) this.signingPersons = manifesto.fields.signingPersons;
+      if (manifesto.fields.signingOrganisations) this.signingOrganisations = manifesto.fields.signingOrganisations;
+      if (manifesto.fields.textBlocksHowManyHaveSigned) this.textBlocksHowManyHaveSigned = manifesto.fields.textBlocksHowManyHaveSigned;
     });
   }
 

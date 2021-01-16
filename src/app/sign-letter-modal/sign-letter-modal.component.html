@@ -12,8 +12,8 @@
   </div>
   <div class="modal-body">
     <form
-      id="signLetterForm"
-      #signLetterForm="ngForm"
+      id="signManifestoForm"
+      #signManifestoForm="ngForm"
       (ngSubmit)="onSubmit()"
       [hidden]="formSubmitted"
     >
@@ -193,8 +193,8 @@
     <button
       type="submit"
       class="btn btn-success"
-      [disabled]="!signLetterForm.form.valid"
-      form="signLetterForm"
+      [disabled]="!signManifestoForm.form.valid"
+      form="signManifestoForm"
       [hidden]="formSubmitted"
     >
       Submit

@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { BtnScrollToTopComponent } from './btn-scroll-to-top/btn-scroll-to-top.component';
-import { LetterComponent } from './letter/letter.component';
+import { ManifestoComponent } from './manifesto/manifesto.component';
 import { SigneeComponent } from './signee/signee.component';
 import { DataprivacyComponent } from './dataprivacy/dataprivacy.component';
 import { ImpressumComponent } from './impressum/impressum.component';
@@ -28,7 +28,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HeaderComponent,
     FooterComponent,
     BtnScrollToTopComponent,
-    LetterComponent,
+    ManifestoComponent,
     SigneeComponent,
     DataprivacyComponent,
     ImpressumComponent,
