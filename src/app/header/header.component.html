@@ -3,10 +3,11 @@
     <div
       id="Title"
       class="col align-center"
+      *ngIf="title"
       [innerHtml]="_returnHtmlFromRichText(title)"
     ></div>
   </div>
-  <!-- Progressbar -->
+  <!-- Progressbar 
   <div class="row mt-3">
     <div class="col-12 col-md-4">
       <div class="progress">
@@ -91,6 +92,8 @@
         </div>
       </div>
     </div>
+  </div>-->
+  <div class="row mt-3">
     <div class="col-auto mt-3">
       <app-sign-manifesto-modal></app-sign-manifesto-modal>
     </div>
@@ -99,6 +102,6 @@
     </div>
   </div>
   <div class="row mt-3">
-    <div class="col" [innerHtml]="_returnHtmlFromRichText(statusNotice)"></div>
+    <div class="col" *ngIf="statusNotice" [innerHtml]="_returnHtmlFromRichText(statusNotice)"></div>
   </div>
 </div>
