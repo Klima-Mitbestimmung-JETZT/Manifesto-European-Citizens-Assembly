@@ -63,7 +63,7 @@ export class SignManifestoModalComponent implements OnInit {
           this.loading = false;
           console.error(error);
           this.errorMessage =
-            'Your signature could not be submitted. Please try again later or contact enno.rosinger@klima-rat.org directly. Thank you for your understanding.';
+            'Your signature could not be submitted. Please try again later or contact enno.rosinger@klima-mitbestimmung.jetzt directly. Thank you for your understanding.';
         },
       });
   }

@@ -54,7 +54,7 @@ export class ContactModalComponent implements OnInit {
           this.loading = false;
           console.error(error);
           this.errorMessage =
-            'Your message could not be delivered. Please try again later or contact us directly at kontakt@klima-rat.org. Thank you for your understanding.';
+            'Your message could not be delivered. Please try again later or contact us directly at info@europeancitizensassembly.eu - Thank you for your understanding.';
         },
       });
   }
