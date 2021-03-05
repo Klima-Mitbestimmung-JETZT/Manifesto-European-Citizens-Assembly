@@ -7,3 +7,8 @@ h1,h2,h3,h4,h5,h6{
 }
 
 
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) { .signatories {
+    column-count: 2;
+} }
+

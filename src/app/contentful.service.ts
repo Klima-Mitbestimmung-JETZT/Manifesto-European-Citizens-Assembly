@@ -16,7 +16,7 @@ export class ContentfulService {
 
   getManifesto(): Promise<Entry<any>> {
     return this.contentfulClient
-      .getEntries({ 'sys.id': '4X61CaEUqU8ihVGbOja0VF', include: 1 })
+      .getEntries({ 'sys.id': '4X61CaEUqU8ihVGbOja0VF', include: 2 })
       .then((res) => res.items[0]);
   }
 
