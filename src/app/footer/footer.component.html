@@ -1,7 +1,8 @@
 <footer class="footer container-md mt-auto p-3 px-sm-5">
   <p>
-    <ng-template ngFor let-link [ngForOf]="listOfLinks">
-      <a [href]="link.fields.url" routerLinkActive="active">{{link.fields.displayText}}</a>&nbsp;-&nbsp;</ng-template>January 2021
+      <a routerLink="/" routerLinkActive="active">Manifesto</a>&nbsp;-&nbsp;
+      <a routerLink="/imprint">Imprint</a>&nbsp;-&nbsp;
+      <a routerLink="/dataprivacy">Manifesto</a>&nbsp;-&nbsp;January 2021
   </p>
   <p>
     <small [innerHtml]=_returnHtmlFromRichText(textNotice)></small>

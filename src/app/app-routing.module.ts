@@ -5,9 +5,10 @@ import { ImpressumComponent } from './impressum/impressum.component';
 import { ManifestoComponent } from './manifesto/manifesto.component';
 
 const routes: Routes = [
+  {path: '', component: ManifestoComponent},
   { path: 'imprint', component: ImpressumComponent },
   { path: 'dataprivacy', component: DataprivacyComponent },
-  { path: '**', component: ManifestoComponent },
+  { path: '**', redirectTo: '/' },
 ];
 
 @NgModule({
