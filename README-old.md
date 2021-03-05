@@ -1,2 +1,2 @@
 # manifesto-for-european-citizens-assemblies
-Eine simple Website für die Darstellung und Verbreitung des offenen Briefs für einen Klimabürgerrat in Deutschland
+A simple website for the presentation, distribution and sigining of the Manifesto for a European Citizens’ Assembly
