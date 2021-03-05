@@ -23,11 +23,13 @@
       </div>
     </div>
     <div class="row mt-5" >
-      <div class="col">
+      <div class="col signatories">
         <p>
-         <span *ngFor="let person of signingPersons">
-          {{person.fields.name}},
-         </span>
+         <ng-template ngFor let-person [ngForOf]="signingPersons">
+           <span *ngIf="person.fields.name">{{person.fields.name}}<em *ngIf="person.fields.organisation?.fields?.name">, {{person.fields.organisation.fields.name}}</em><br></span>
+                   
+
+         </ng-template>
         </p>
       </div>
     </div>
