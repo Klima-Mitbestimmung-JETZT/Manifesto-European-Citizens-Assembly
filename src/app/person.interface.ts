@@ -1,4 +1,4 @@
 export interface Person {
   name: String;
-  organisation: Object;
+  description: String;
 }

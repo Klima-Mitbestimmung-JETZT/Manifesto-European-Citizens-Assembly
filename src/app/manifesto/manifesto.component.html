@@ -26,7 +26,7 @@
       <div class="col signatories">
         <p>
          <ng-template ngFor let-person [ngForOf]="signingPersons">
-           <span *ngIf="person.fields.name">{{person.fields.name}}<em *ngIf="person.fields.organisation?.fields?.name">, {{person.fields.organisation.fields.name}}</em><br></span>
+           <span *ngIf="person.fields.name">{{person.fields.name}}<em *ngIf="person.fields.description">, {{person.fields.description}}</em><br></span>
                    
 
          </ng-template>
