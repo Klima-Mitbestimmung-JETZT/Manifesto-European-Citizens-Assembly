@@ -9,25 +9,23 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 })
 export class HeaderComponent implements OnInit {
   title: {};
-  phases: String[] = ['Loading ...', 'Loading ...', 'Loading ...'];
-  numberOfActivePhase: Number;
+  phases: string[] = ['Loading ...', 'Loading ...', 'Loading ...'];
+  numberOfActivePhase: number;
   faArrowRight = faArrowRight;
   statusNotice: {};
-  constructor(private contentfulService: ContentfulService) {}
+  constructor(private contentfulService: ContentfulService) { }
 
   ngOnInit(): void {
     this.contentfulService.getHeader().then((response) => {
-      if (response.fields.title) this.title = response.fields.title;
-      if (response.fields.phases) this.phases = response.fields.phases;
-      if (response.fields.numberOfActivePhase)
-        this.numberOfActivePhase = response.fields.numberOfActivePhase;
-      if (response.fields.statusNotice)
-        this.statusNotice = response.fields.statusNotice;
+      if (response.fields.title) { this.title = response.fields.title; }
+      if (response.fields.phases) { this.phases = response.fields.phases; }
+      if (response.fields.numberOfActivePhase) { this.numberOfActivePhase = response.fields.numberOfActivePhase; }
+      if (response.fields.statusNotice) { this.statusNotice = response.fields.statusNotice; }
     });
   }
 
   // https://stackoverflow.com/questions/57893367/display-contentful-richtext-in-angular'
-  _returnHtmlFromRichText(richText) {
+  _returnHtmlFromRichText(richText): string {
     if (
       richText === undefined ||
       richText === null ||

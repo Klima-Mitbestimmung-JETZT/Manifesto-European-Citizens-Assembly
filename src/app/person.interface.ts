@@ -1,4 +1,4 @@
 export interface Person {
-  name: String;
-  description: String;
+  name: string;
+  description: string;
 }

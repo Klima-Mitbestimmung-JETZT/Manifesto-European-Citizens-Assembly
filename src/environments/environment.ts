@@ -6,10 +6,10 @@ export const environment = {
   production: false,
   contentful: {
     space: 'uqlrlezl575t',
-    environment: "master",
+    environment: 'master',
     accessToken: 'aMWNbMRSbMY025Kx_YKIksV-Ds_srkXRV9Z2n4dMCqU',
   },
-  mailService:{
+  mailService: {
     url: 'https://api.europeancitizensassembly.eu'
   }
 };

@@ -8,12 +8,12 @@ import { ContentfulService } from '../contentful.service';
   styleUrls: ['./footer.component.css'],
 })
 export class FooterComponent implements OnInit {
-  textNotice: Object;
+  textNotice: object;
   constructor(private contentfulService: ContentfulService) { }
 
   ngOnInit(): void {
     this.contentfulService.getFooter().then((footer) => {
-      if (footer.fields.textNotice) {this.textNotice = footer.fields.textNotice;}
+      if (footer.fields.textNotice) { this.textNotice = footer.fields.textNotice; }
     });
   }
 

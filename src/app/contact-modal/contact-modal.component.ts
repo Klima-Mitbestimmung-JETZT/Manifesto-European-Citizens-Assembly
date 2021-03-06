@@ -13,16 +13,16 @@ export class ContactModalComponent implements OnInit {
   closeResult: string;
 
   form = {};
-  loading: Boolean = false;
+  loading = false;
   errorMessage = '';
 
-  formSubmitted: Boolean = false;
+  formSubmitted = false;
   faEnvelope = faEnvelope;
-  constructor(private modalService: NgbModal, private http: HttpClient) {}
+  constructor(private modalService: NgbModal, private http: HttpClient) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
-  open(content) {
+  open(content): void {
     this.modalService
       .open(content, { ariaLabelledBy: 'modal-basic-title' })
       .result.then(
@@ -38,7 +38,8 @@ export class ContactModalComponent implements OnInit {
         }
       );
   }
-  onSubmit() {
+
+  onSubmit(): void {
     this.loading = true;
 
     this.http
@@ -58,6 +59,7 @@ export class ContactModalComponent implements OnInit {
         },
       });
   }
+
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';

@@ -1,11 +1,11 @@
 import { Logo } from './logo.interface';
 
 export interface Organisation {
-  name: String;
-  website: String;
-  listOfSigningNames: String;
+  name: string;
+  website: string;
+  listOfSigningNames: string;
   logo: Logo;
-  email: String;
-  contactPerson: String;
-  phone: String;
+  email: string;
+  contactPerson: string;
+  phone: string;
 }

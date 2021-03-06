@@ -7,9 +7,9 @@ import { Logo } from '../logo.interface';
   styleUrls: ['./signee.component.css'],
 })
 export class SigneeComponent implements OnInit {
-  @Input() listOfSigningNames: String;
-  @Input() name: String;
-  @Input() website: String;
+  @Input() listOfSigningNames: string;
+  @Input() name: string;
+  @Input() website: string;
   @Input() logo: Logo;
   constructor() {}
 

@@ -14,26 +14,26 @@ export class ManifestoComponent implements OnInit {
   title: {};
   header: {};
   mainText: {};
-  signingPersons: Person[]
-  signingOrganisations: Organisation[] 
-  textBlocksHowManyHaveSigned: String[]
-  
+  signingPersons: Person[];
+  signingOrganisations: Organisation[];
+  textBlocksHowManyHaveSigned: string[];
+
   constructor(private contentfulService: ContentfulService) {
   }
 
   ngOnInit(): void {
     this.contentfulService.getManifesto().then((manifesto) => {
-      if (manifesto.fields.title) this.title = manifesto.fields.title;
-      if(manifesto.fields.header) this.header = manifesto.fields.header;
-      if (manifesto.fields.mainText) this.mainText = manifesto.fields.mainText;
-      if (manifesto.fields.signingPersons) this.signingPersons = manifesto.fields.signingPersons;
-      if (manifesto.fields.signingOrganisations) this.signingOrganisations = manifesto.fields.signingOrganisations;
-      if (manifesto.fields.textBlocksHowManyHaveSigned) this.textBlocksHowManyHaveSigned = manifesto.fields.textBlocksHowManyHaveSigned;
+      if (manifesto.fields.title) { this.title = manifesto.fields.title; }
+      if (manifesto.fields.header) { this.header = manifesto.fields.header; }
+      if (manifesto.fields.mainText) { this.mainText = manifesto.fields.mainText; }
+      if (manifesto.fields.signingPersons) { this.signingPersons = manifesto.fields.signingPersons; }
+      if (manifesto.fields.signingOrganisations) { this.signingOrganisations = manifesto.fields.signingOrganisations; }
+      if (manifesto.fields.textBlocksHowManyHaveSigned) { this.textBlocksHowManyHaveSigned = manifesto.fields.textBlocksHowManyHaveSigned; }
     });
   }
 
   // https://stackoverflow.com/questions/57893367/display-contentful-richtext-in-angular'
-  _returnHtmlFromRichText(richText) {
+  _returnHtmlFromRichText(richText): string {
     if (
       richText === undefined ||
       richText === null ||

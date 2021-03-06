@@ -15,7 +15,7 @@ import { ImpressumComponent } from './impressum/impressum.component';
 import { SignManifestoModalComponent } from './sign-manifesto-modal/sign-manifesto-modal.component';
 import { ContactModalComponent } from './contact-modal/contact-modal.component';
 
-//Import FontAwesome Icons
+// Import FontAwesome Icons
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 // import services
 import { ContentfulService } from './contentful.service';

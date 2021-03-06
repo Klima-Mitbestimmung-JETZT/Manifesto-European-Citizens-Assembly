@@ -7,9 +7,9 @@ import { Component, OnInit, Inject, HostListener } from '@angular/core';
 })
 export class BtnScrollToTopComponent implements OnInit {
   windowScrolled: boolean;
-  constructor(@Inject(DOCUMENT) private document: Document) {}
+  constructor(@Inject(DOCUMENT) private document: Document) { }
   @HostListener('window:scroll', [])
-  onWindowScroll() {
+  onWindowScroll(): void {
     if (
       window.pageYOffset ||
       document.documentElement.scrollTop ||
@@ -24,11 +24,11 @@ export class BtnScrollToTopComponent implements OnInit {
       this.windowScrolled = false;
     }
   }
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
-  scrollToTop() {
-    (function smoothscroll() {
-      var currentScroll =
+  scrollToTop(): void {
+    (function smoothscroll(): void {
+      const currentScroll =
         document.documentElement.scrollTop || document.body.scrollTop;
       if (currentScroll > 0) {
         window.requestAnimationFrame(smoothscroll);

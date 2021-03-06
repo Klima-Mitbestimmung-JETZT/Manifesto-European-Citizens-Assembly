@@ -17,8 +17,8 @@ export class ImpressumComponent implements OnInit {
   constructor(private contentfulService: ContentfulService) {
     this.contentfulService.getImpressum().then((impressum) => {
       impressum.fields.introductoryStatement
-      ? (this.introductoryStatement = impressum.fields.introductoryStatement)
-      : console.log(new Error('No introductoryStatement'))
+        ? (this.introductoryStatement = impressum.fields.introductoryStatement)
+        : console.log(new Error('No introductoryStatement'));
       impressum.fields.responsible
         ? (this.responsible = impressum.fields.responsible)
         : console.log(new Error('No responsbile'));
@@ -31,10 +31,10 @@ export class ImpressumComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   // https://stackoverflow.com/questions/57893367/display-contentful-richtext-in-angular'
-  _returnHtmlFromRichText(richText) {
+  _returnHtmlFromRichText(richText): string {
     if (
       richText === undefined ||
       richText === null ||

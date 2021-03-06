@@ -12,7 +12,7 @@ export class ContentfulService {
     accessToken: environment.contentful.accessToken,
   });
 
-  constructor() {}
+  constructor() { }
 
   getManifesto(): Promise<Entry<any>> {
     return this.contentfulClient
@@ -42,5 +42,5 @@ export class ContentfulService {
     return this.contentfulClient
       .getEntries({ 'sys.id': '4URX5mVmIUCUBsJ6GhtEVe', include: 1 })
       .then((res) => res.items[0]);
-  } 
+  }
 }
